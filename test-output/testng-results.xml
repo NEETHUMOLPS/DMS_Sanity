@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-20T15:01:01 IST" name="DMS Application" finished-at="2023-10-20T15:02:34 IST" duration-ms="92451">
+  <suite started-at="2023-10-20T20:12:37 IST" name="DMS Application" finished-at="2023-10-20T20:14:51 IST" duration-ms="134038">
     <groups>
     </groups>
-    <test started-at="2023-10-20T15:01:01 IST" name="DMS App Test" finished-at="2023-10-20T15:02:34 IST" duration-ms="92451">
-      <class name="com.DMS.testCases.TC_007_Screens">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:01:03 IST" name="setup" finished-at="2023-10-20T15:01:32 IST" duration-ms="28429" status="PASS">
+    <test started-at="2023-10-20T20:12:37 IST" name="DMS App Test" finished-at="2023-10-20T20:14:51 IST" duration-ms="134038">
+      <class name="com.DMS.testCases.TC_008_DocumentTemplate">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.DMS.testCases.TC_008_DocumentTemplate@533bda92]" started-at="2023-10-20T20:12:41 IST" name="setup" finished-at="2023-10-20T20:13:51 IST" duration-ms="70638" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,31 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="addScreen()[pri:1, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:01:32 IST" name="addScreen" finished-at="2023-10-20T15:01:45 IST" duration-ms="13350" status="PASS">
+        <test-method signature="createDocumenttemplate()[pri:1, instance:com.DMS.testCases.TC_008_DocumentTemplate@533bda92]" started-at="2023-10-20T20:13:51 IST" name="createDocumenttemplate" finished-at="2023-10-20T20:14:36 IST" duration-ms="44143" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addScreen -->
-        <test-method signature="editScreen()[pri:2, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:01:45 IST" name="editScreen" finished-at="2023-10-20T15:01:58 IST" duration-ms="12935" status="PASS">
+        </test-method> <!-- createDocumenttemplate -->
+        <test-method signature="documentView()[pri:2, instance:com.DMS.testCases.TC_008_DocumentTemplate@533bda92]" started-at="2023-10-20T20:14:36 IST" name="documentView" finished-at="2023-10-20T20:14:45 IST" duration-ms="9555" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- editScreen -->
-        <test-method signature="addControl()[pri:3, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:01:58 IST" name="addControl" finished-at="2023-10-20T15:02:06 IST" duration-ms="7960" status="PASS">
+        </test-method> <!-- documentView -->
+        <test-method signature="documentDelete()[pri:3, instance:com.DMS.testCases.TC_008_DocumentTemplate@533bda92]" started-at="2023-10-20T20:14:45 IST" name="documentDelete" finished-at="2023-10-20T20:14:51 IST" duration-ms="5366" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addControl -->
-        <test-method signature="editControl()[pri:4, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:02:06 IST" name="editControl" finished-at="2023-10-20T15:02:20 IST" duration-ms="13690" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editControl -->
-        <test-method signature="deleteControl()[pri:5, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:02:20 IST" name="deleteControl" finished-at="2023-10-20T15:02:26 IST" duration-ms="6448" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteControl -->
-        <test-method signature="deleteScreen()[pri:6, instance:com.DMS.testCases.TC_007_Screens@25be7b63]" started-at="2023-10-20T15:02:26 IST" name="deleteScreen" finished-at="2023-10-20T15:02:34 IST" duration-ms="7181" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteScreen -->
-      </class> <!-- com.DMS.testCases.TC_007_Screens -->
+        </test-method> <!-- documentDelete -->
+      </class> <!-- com.DMS.testCases.TC_008_DocumentTemplate -->
     </test> <!-- DMS App Test -->
   </suite> <!-- DMS Application -->
 </testng-results>

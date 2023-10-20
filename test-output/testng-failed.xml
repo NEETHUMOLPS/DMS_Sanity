@@ -7,17 +7,14 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_007_Screens">
+      <class name="com.DMS.testCases.TC_008_DocumentTemplate">
         <methods>
-          <include name="editControl"/>
+          <include name="documentView"/>
           <include name="setup"/>
-          <include name="deleteScreen"/>
-          <include name="deleteControl"/>
-          <include name="addScreen"/>
-          <include name="addControl"/>
-          <include name="editScreen"/>
+          <include name="documentDelete"/>
+          <include name="createDocumenttemplate"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_007_Screens -->
+      </class> <!-- com.DMS.testCases.TC_008_DocumentTemplate -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->
