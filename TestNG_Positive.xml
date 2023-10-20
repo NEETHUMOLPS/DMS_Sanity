@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="DMS Application" parallel="false">
+<listeners>
+		<listener class-name="com.DMS.utilities.Reporting"/>
+	</listeners>
+
+<test name="DMS App Test">
+<parameter name="browser" value="chrome" />
+<classes>
+<class name="com.DMS.testCases.TC_006_Departments"/>
+
+<!--  <methods>
+               <include name="negativeTest6" />
+            </methods>-->
+             
+</classes>
+
+</test>
+
+
+</suite>
