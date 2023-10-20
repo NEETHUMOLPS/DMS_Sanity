@@ -51,4 +51,12 @@ public class TC_007_Screens extends BaseClassTest {
 		sp.deleteControl();
 		sp.controlDeletionAlert();
 	}
+	
+	@Test(priority=6)
+	public void deleteScreen() throws IOException, InterruptedException
+	{
+		Screens sp = new Screens(driver);
+		sp.deleteScreen();
+		sp.screenDeletionAlert();
+	}
 }

@@ -35,12 +35,12 @@ public class Screens extends AbstractComponent{
 	@FindBy(xpath="//img[@alt='Add screen']")
 	WebElement addScreen;
 	@FindBy(xpath="//input[@placeholder='Screen name']")
-	WebElement screenName;//
+	WebElement screenName;
 	@FindBy(xpath="//button[@type='button']")
 	WebElement add1;
 	
 	//Screen list
-	@FindBy(xpath="//div[@class='list-group scrollable']")
+	@FindBy(xpath="//a[@class='list-group-item']")
 	List<WebElement> screenList;
 	
 	//Edit screen
@@ -54,7 +54,7 @@ public class Screens extends AbstractComponent{
 	WebElement add3;
 	
 	//Edit control
-	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[2]/img[1]")
+	@FindBy(xpath="(//img[@class='editicon'])[2]")
 	WebElement editControl;
 	@FindBy(xpath="//tbody//tr//td//input[@type='text']")
 	WebElement editControlName;
@@ -65,6 +65,9 @@ public class Screens extends AbstractComponent{
 	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[3]/img[1]")
 	WebElement deleteControl;
 	
+	//Delete screen
+	@FindBy(xpath="//img[@class='editicon']")
+	WebElement deleteScreen;
 	
 	public void clickOnScreesMenu() throws InterruptedException
 	{		
@@ -90,6 +93,8 @@ public class Screens extends AbstractComponent{
 		Thread.sleep(2000);
 		screenName.sendKeys(name);
 		Thread.sleep(2000);
+		add2.click();
+		Thread.sleep(1000);
 	}
 	public void addControl(String name) throws InterruptedException
 	{		
@@ -116,6 +121,13 @@ public class Screens extends AbstractComponent{
 	{		
 		Thread.sleep(3000);
 		deleteControl.click();
+		Thread.sleep(3000);
+	}
+	
+	public void deleteScreen() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		deleteScreen.click();
 		Thread.sleep(3000);
 	}
 	
@@ -189,6 +201,26 @@ public class Screens extends AbstractComponent{
 			Alert alert1 = driver.switchTo().alert();
 			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this control?"));
 			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean screenDeletionAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this screen?"));
+			alert1.accept();
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Screen deleted successfully"));
+			alert2.accept();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;
