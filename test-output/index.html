@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">6 methods,   6 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,17 +103,32 @@
                     <div class="method-list-content passed suite-DMS_Application">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_008_DocumentTemplate" class="method navigator-link" hash-for-method="createDocumenttemplate">createDocumenttemplate</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="ArchiveDocument">ArchiveDocument</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_008_DocumentTemplate" class="method navigator-link" hash-for-method="documentDelete">documentDelete</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="DeletDocument">DeletDocument</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_008_DocumentTemplate" class="method navigator-link" hash-for-method="documentView">documentView</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="EditDocument">EditDocument</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="PermissionDocument">PermissionDocument</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="ShareDocument">ShareDocument</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-DMS_Application" title="com.DMS.testCases.TC_011_MyFiles" class="method navigator-link" hash-for-method="UploadDocument">UploadDocument</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-DMS_Application -->
@@ -131,28 +146,49 @@
           <div class="suite-DMS_Application-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.DMS.testCases.TC_008_DocumentTemplate</span>
+              <span class="class-name">com.DMS.testCases.TC_011_MyFiles</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createDocumenttemplate">
-                  </a> <!-- createDocumenttemplate -->
-                  <span class="method-name">createDocumenttemplate</span>
+                  <a name="ArchiveDocument">
+                  </a> <!-- ArchiveDocument -->
+                  <span class="method-name">ArchiveDocument</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="documentDelete">
-                  </a> <!-- documentDelete -->
-                  <span class="method-name">documentDelete</span>
+                  <a name="DeletDocument">
+                  </a> <!-- DeletDocument -->
+                  <span class="method-name">DeletDocument</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="documentView">
-                  </a> <!-- documentView -->
-                  <span class="method-name">documentView</span>
+                  <a name="EditDocument">
+                  </a> <!-- EditDocument -->
+                  <span class="method-name">EditDocument</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="PermissionDocument">
+                  </a> <!-- PermissionDocument -->
+                  <span class="method-name">PermissionDocument</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ShareDocument">
+                  </a> <!-- ShareDocument -->
+                  <span class="method-name">ShareDocument</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="UploadDocument">
+                  </a> <!-- UploadDocument -->
+                  <span class="method-name">UploadDocument</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -173,7 +209,7 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;DMS App Test&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.DMS.testCases.TC_008_DocumentTemplate&quot;/&gt;
+      &lt;class name=&quot;com.DMS.testCases.TC_011_MyFiles&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- DMS App Test --&gt;
 &lt;/suite&gt; &lt;!-- DMS Application --&gt;
@@ -213,24 +249,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createDocumenttemplate')
-data.setCell(0, 2, 'com.DMS.testCases.TC_008_DocumentTemplate')
-data.setCell(0, 3, 44143);
+data.setCell(0, 1, 'UploadDocument')
+data.setCell(0, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(0, 3, 81566);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'documentView')
-data.setCell(1, 2, 'com.DMS.testCases.TC_008_DocumentTemplate')
-data.setCell(1, 3, 9555);
+data.setCell(1, 1, 'PermissionDocument')
+data.setCell(1, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(1, 3, 17869);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'documentDelete')
-data.setCell(2, 2, 'com.DMS.testCases.TC_008_DocumentTemplate')
-data.setCell(2, 3, 5366);
+data.setCell(2, 1, 'ShareDocument')
+data.setCell(2, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(2, 3, 17291);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'EditDocument')
+data.setCell(3, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(3, 3, 15267);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'DeletDocument')
+data.setCell(4, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(4, 3, 12622);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'ArchiveDocument')
+data.setCell(5, 2, 'com.DMS.testCases.TC_011_MyFiles')
+data.setCell(5, 3, 9002);
 window.suiteTableData['DMS_Application']= { tableData: data, tableDiv: 'times-div-DMS_Application'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 59 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-DMS_Application">
               </div> <!-- times-div-DMS_Application -->
             </div> <!-- times-div -->
@@ -256,22 +304,34 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.DMS.testCases.TC_008_DocumentTemplate</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.DMS.testCases.TC_011_MyFiles</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setup(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">createDocumenttemplate</span>
-                <span class="method-start">70788 ms</span>
+                <span class="method-name">UploadDocument</span>
+                <span class="method-start">36053 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">documentView</span>
-                <span class="method-start">115012 ms</span>
+                <span class="method-name">EditDocument</span>
+                <span class="method-start">117909 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">documentDelete</span>
-                <span class="method-start">124579 ms</span>
+                <span class="method-name">PermissionDocument</span>
+                <span class="method-start">133190 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ShareDocument</span>
+                <span class="method-start">151068 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">DeletDocument</span>
+                <span class="method-start">168400 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">ArchiveDocument</span>
+                <span class="method-start">181045 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

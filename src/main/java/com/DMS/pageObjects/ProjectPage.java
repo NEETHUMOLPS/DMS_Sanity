@@ -245,6 +245,524 @@ public class ProjectPage extends AbstractComponent{
 	@FindBy(xpath="(//img[@alt='create department'])[2]")
 	WebElement devCreateFolder;
 	
+	//Create unit test document
+	@FindBy(xpath="//input[@id='title']")
+	WebElement title;
+	@FindBy(xpath="//input[@id='Module Name']")
+	WebElement moduleName;
+	@FindBy(xpath="//input[@id='Story Id']")
+	WebElement storyId;
+	@FindBy(xpath="//input[@id='Development Start Date']")
+	WebElement developmentStartDate;
+	@FindBy(xpath="//input[@id='Development End Date']")
+	WebElement developmentEndDate;
+	@FindBy(xpath="//input[@id='Unit Test Start Date']")
+	WebElement unitTestStartDate;
+	@FindBy(xpath="//input[@id='Unit Test End Date']")
+	WebElement unitTestEndDate;
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[9]/div[1]/select[1]")
+	WebElement moduleLead;
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[10]/div[1]/select[1]")
+	WebElement developerName;
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[11]/div[1]/select[1]")
+	WebElement unitTesterName;
+	@FindBy(xpath="//input[@id='Hours Taken']")
+	WebElement hoursTaken;
+	@FindBy(xpath="//input[@id='Page Link']")
+	WebElement pageLink;
+	@FindBy(xpath="//textarea[@id='remarks']")
+	WebElement remarks;
+	@FindBy(xpath="//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]")
+	WebElement acceptanceCriteria;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement pass1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement fail1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/img[1]")
+	WebElement del;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/img[1]")
+	WebElement addRow;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/img[1]")
+	WebElement del1;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes2;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no2;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments2;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs2;
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/table[1]/tbody[1]/tr[2]/td[5]/div[1]/img[1]")
+	WebElement del2;
+	@FindBy(xpath="//tbody/tr[3]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes3;
+	@FindBy(xpath="//tbody/tr[3]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no3;
+	@FindBy(xpath="//tbody/tr[3]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments3;
+	@FindBy(xpath="//tbody/tr[3]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs3;
+	@FindBy(xpath="//tbody/tr[3]/td[5]/div[1]/img[1]")
+	WebElement del3;
+	@FindBy(xpath="//tbody/tr[4]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes4;
+	@FindBy(xpath="//tbody/tr[4]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no4;
+	@FindBy(xpath="//tbody/tr[4]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments4;
+	@FindBy(xpath="//tbody/tr[4]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs4;
+	@FindBy(xpath="//tbody/tr[4]/td[5]/div[1]/img[1]")
+	WebElement del4;
+	@FindBy(xpath="//tbody/tr[5]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes5;
+	@FindBy(xpath="//tbody/tr[5]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no5;
+	@FindBy(xpath="//tbody/tr[5]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments5;
+	@FindBy(xpath="//tbody/tr[5]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs5;
+	@FindBy(xpath="//tbody/tr[5]/td[5]/div[1]/img[1]")
+	WebElement del5;
+	@FindBy(xpath="//tbody/tr[6]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes6;
+	@FindBy(xpath="//tbody/tr[6]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no6;
+	@FindBy(xpath="//tbody/tr[6]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments6;
+	@FindBy(xpath="//tbody/tr[6]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs6;
+	@FindBy(xpath="//tbody/tr[6]/td[5]/div[1]/img[1]")
+	WebElement del6;
+	@FindBy(xpath="//tbody/tr[7]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes7;
+	@FindBy(xpath="//tbody/tr[7]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no7;
+	@FindBy(xpath="//tbody/tr[7]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments7;
+	@FindBy(xpath="//tbody/tr[7]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs7;
+	@FindBy(xpath="//tbody/tr[7]/td[5]/div[1]/img[1]")
+	WebElement del7;
+	@FindBy(xpath="//tbody/tr[8]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes8;
+	@FindBy(xpath="//tbody/tr[8]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no8;
+	@FindBy(xpath="//tbody/tr[8]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments8;
+	@FindBy(xpath="//tbody/tr[8]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs8;
+	@FindBy(xpath="//tbody/tr[8]/td[5]/div[1]/img[1]")
+	WebElement del8;
+	@FindBy(xpath="//tbody/tr[9]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	WebElement yes9;
+	@FindBy(xpath="//tbody/tr[9]/td[2]/div[1]/div[1]/label[2]/input[1]")
+	WebElement no9;
+	@FindBy(xpath="//tbody/tr[9]/td[3]/div[1]/div[1]/input[1]")
+	WebElement comments9;
+	@FindBy(xpath="//tbody/tr[9]/td[4]/div[1]/div[1]/input[1]")
+	WebElement bugs9;
+	@FindBy(xpath="//tbody/tr[9]/td[5]/div[1]/img[1]")
+	WebElement del9;
+	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/img[1]")
+	WebElement addRow2;
+	@FindBy(xpath="//span[contains(text(),'Submit & Sign')]")
+	WebElement submitAndSign;
+	@FindBy(xpath="//span[contains(text(),'Save')]")
+	WebElement saveDocument;
+	
+	//Sign document
+	@FindBy(xpath="//input[@placeholder='Email']")
+	WebElement email;
+	@FindBy(xpath="//input[@id='templatePassword']")
+	WebElement password;
+	@FindBy(xpath="//select[@id='reasons']")
+	WebElement reason;
+	@FindBy(xpath="//div[@class='text-center']//span[@type='button']")
+	WebElement submit;
+	
+	//Web table
+	@FindBy(xpath="//td[1]")
+	List<WebElement> storyID;
+	@FindBy(xpath="//td[2]")
+	List<WebElement> name;
+	@FindBy(xpath="//td[3]")
+	List<WebElement> date;
+	@FindBy(xpath="//td[4]")
+	List<WebElement> documentName;
+	@FindBy(xpath="//td[5]")
+	List<WebElement> view;
+	@FindBy(xpath="//td[6]")
+	List<WebElement> Actions;
+	
+	//Add new version
+	@FindBy(xpath="//div[@class='position-relative my-0 py-0 align-self-center']//img[@alt='create version']")
+	WebElement addNewVersion;
+	@FindBy(xpath="//label[contains(text(),'Title')]//following-sibling::input[1]")
+	WebElement docTitle1;
+	@FindBy(xpath="//select[@id='owner']")
+	WebElement docowner1;
+	@FindBy(xpath="//textarea[@id='description']")
+	WebElement documentDescription1;
+	@FindBy(xpath="//select[@id='department']")
+	WebElement department1;
+	@FindBy(xpath="//select[@id='category']")
+	WebElement catagory1;
+	@FindBy(xpath="//select[@id='standard']")
+	WebElement standard1;
+	@FindBy(xpath="//select[@id='document type']")
+	WebElement doctype1;
+	@FindBy(xpath="//label[contains(text(),'Version')]//following-sibling::input[1]")
+	WebElement docversion1;
+	@FindBy(xpath="//input[@for='expiry-date']")
+	WebElement expiryDate1;
+	@FindBy(xpath="//textarea[@id='changesHistory']")
+	WebElement changesHistory1;
+	@FindBy(xpath="//button[normalize-space()='Browse']")
+	WebElement browsedoc1;
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement saveDoc1;
+	
+	//Download
+	@FindBy(xpath="//div[@class='position-relative mr-2']//img[@alt='Edit document']")
+	WebElement download;
+	
+	//Print
+	@FindBy(xpath="//div[@class='position-relative']//img[@alt='Edit document']")
+	WebElement printDoc;
+	@FindBy(xpath="//*[@id=\"sidebar\"]//print-preview-button-strip//div/cr-button[2]")
+	WebElement printCancel;
+	
+	//Sign document
+	@FindBy(xpath="//div[@class='wrapper wrapper-content']//div[3]//div[1]//img[1]")
+	WebElement signDocument;
+	@FindBy(xpath="//input[@placeholder='Enter Password']")
+	WebElement enterPassword;
+	@FindBy(xpath="//button[normalize-space()='Submit']")
+	WebElement submitDoc;
+	
+	//Document Approval
+	@FindBy(xpath="//div[@class='wrapper wrapper-content']//div[3]//div[1]//img[1]")
+	WebElement documentApproval;
+	@FindBy(xpath="//select[@name='account']")
+	WebElement selectRole;
+	@FindBy(xpath="//input[@value='Neethumol P S']")
+	WebElement selectedUser;
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement saveUser1;
+	
+	//Add signers
+	@FindBy(xpath="//div[@class='wrapper wrapper-content']//div[3]//div[1]//img[1]")
+	WebElement addSigners;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div[2]/div/div")
+	WebElement selectUser1;
+	@FindBy(xpath="//li[@id='multiselect-option-neethug@yopmail.com']")
+	WebElement selectUser2;
+	@FindBy(xpath="//li[@id='multiselect-option-neethumolp@datamatica.uk']")
+	WebElement selectUser3;
+	@FindBy(xpath="//li[@id='multiselect-option-neethur@yopmail.com']")
+	WebElement selectUser4;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div[2]/div/div/span[2]")
+	WebElement selectUser5;
+	@FindBy(xpath="//span[normalize-space()='Submit']")
+	WebElement addSignersSubmit;
+	
+	//Kebab options
+	@FindBy(xpath="//div[normalize-space()='Edit']")
+	WebElement editSavedDocument;
+	@FindBy(xpath="//div[normalize-space()='Delete']")
+	WebElement deleteSavedDocument;
+	@FindBy(xpath="//div[normalize-space()='New Version']")
+	WebElement newVersionOfSavedDocument;
+	
+	public static boolean documentApprovalAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Updated successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public void editSavedDocument(String tit) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		editSavedDocument.click();
+		Thread.sleep(4000);
+		title.clear();
+		Thread.sleep(2000);
+		title.sendKeys(tit);
+		Thread.sleep(2000);
+		saveDocument.click();
+		Thread.sleep(2000);
+		
+	}
+	
+	public void documentApproval(String role) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		documentApproval.click();
+		Thread.sleep(2000);
+		Select s = new Select(selectRole);
+		s.selectByVisibleText(role);
+		Thread.sleep(2000);
+		selectedUser.click();
+		Thread.sleep(2000);
+		saveUser1.click();
+		Thread.sleep(2000);
+	}
+	
+	public void addNewVersion(String name) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		addNewVersion.click();
+		Thread.sleep(2000);
+		Select s = new Select(docowner1);
+		s.selectByVisibleText(name);
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,200)");
+		Thread.sleep(2000);		
+	}
+	
+	public void signDocument(String pwd) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		signDocument.click();
+		Thread.sleep(2000);
+		enterPassword.sendKeys(pwd);
+		Thread.sleep(2000);
+		submitDoc.click();
+		Thread.sleep(2000);
+	}
+	
+	public void docDownload() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		download.click();
+		Thread.sleep(2000);
+	}
+	
+	public void docPrint() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		printDoc.click();
+		Thread.sleep(4000);
+		printCancel.click();
+		Thread.sleep(2000);
+	}
+	
+	public void uploadDoc1(String doclocation) throws Exception
+	{
+		Thread.sleep(3000);	
+		browsedoc1.click();
+		String absolutepath= new File(doclocation).getAbsolutePath();
+		//browsedoc1.sendKeys(absolutepath);
+		Thread.sleep(3000);	
+		Robot robot = new Robot();
+		// Press the "CTRL" and "V" keys to paste the file path into the file input field
+		StringSelection stringSelection = new StringSelection(absolutepath); 
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		// Press the "ENTER" key to submit the file
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(3000);
+		saveDoc1.click();
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		//jse.executeScript("window.scrollBy(0,600)");
+		Thread.sleep(3000);
+	}
+	
+	
+	public void clickOnView(String id) throws InterruptedException
+	{
+		for(int i=0;i<storyID.size();i++)
+		{
+			String text=storyID.get(i).getText();
+			if(text.equals(id))
+			{
+				view.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void clickOnActions(String id) throws InterruptedException
+	{
+		for(int i=0;i<storyID.size();i++)
+		{
+			String text=storyID.get(i).getText();
+			if(text.equals(id))
+			{
+				Actions.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void fillDocument_submitAndSign(String doc,String tit,String module,String story,String lead,String devname,String testername,String criteria,String em,String pwd,String rs) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		Select s = new Select(createNewDoc);
+		s.selectByVisibleText(doc);
+		Thread.sleep(2000);
+		title.sendKeys(tit);
+		Thread.sleep(2000);
+		moduleName.sendKeys(module);
+		Thread.sleep(2000);
+		storyId.sendKeys(story);
+		Thread.sleep(2000);
+		Select os = new Select(moduleLead);
+		os.selectByVisibleText(lead);
+		Thread.sleep(2000);
+		Select os1 = new Select(developerName);
+		os1.selectByVisibleText(devname);
+		Thread.sleep(2000);
+		Select os2 = new Select(unitTesterName);
+		os2.selectByVisibleText(testername);
+		Thread.sleep(2000);
+		acceptanceCriteria.sendKeys(criteria);
+		Thread.sleep(2000);
+		pass1.click();
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,1500)");
+		yes1.click();
+		Thread.sleep(2000);
+		yes2.click();
+		Thread.sleep(2000);
+		yes3.click();
+		Thread.sleep(2000);
+		yes4.click();
+		Thread.sleep(2000);
+		yes5.click();
+		Thread.sleep(2000);
+		yes6.click();
+		Thread.sleep(2000);
+		yes7.click();
+		Thread.sleep(2000);
+		yes8.click();
+		Thread.sleep(2000);
+		yes9.click();
+		Thread.sleep(2000);
+		submitAndSign.click();
+		Thread.sleep(3000);
+		email.clear();
+		Thread.sleep(2000);
+		email.sendKeys(em);
+		Thread.sleep(2000);
+		password.clear();
+		Thread.sleep(2000);
+		password.sendKeys(pwd);
+		Thread.sleep(2000);
+		Select s1 = new Select(reason);
+		s1.selectByVisibleText(rs);
+		Thread.sleep(2000);
+		submit.click();
+		Thread.sleep(2000);
+	}
+	
+	public void fillDocument_save(String doc,String tit,String module,String story,String lead,String devname,String testername,String criteria) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		Select s = new Select(createNewDoc);
+		s.selectByVisibleText(doc);
+		Thread.sleep(2000);
+		title.sendKeys(tit);
+		Thread.sleep(2000);
+		moduleName.sendKeys(module);
+		Thread.sleep(2000);
+		storyId.sendKeys(story);
+		Thread.sleep(2000);
+		Select os = new Select(moduleLead);
+		os.selectByVisibleText(lead);
+		Thread.sleep(2000);
+		Select os1 = new Select(developerName);
+		os1.selectByVisibleText(devname);
+		Thread.sleep(2000);
+		Select os2 = new Select(unitTesterName);
+		os2.selectByVisibleText(testername);
+		Thread.sleep(2000);
+		acceptanceCriteria.sendKeys(criteria);
+		Thread.sleep(2000);
+		pass1.click();
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,1500)");
+		yes1.click();
+		Thread.sleep(2000);
+		yes2.click();
+		Thread.sleep(2000);
+		yes3.click();
+		Thread.sleep(2000);
+		yes4.click();
+		Thread.sleep(2000);
+		yes5.click();
+		Thread.sleep(2000);
+		yes6.click();
+		Thread.sleep(2000);
+		yes7.click();
+		Thread.sleep(2000);
+		yes8.click();
+		Thread.sleep(2000);
+		yes9.click();
+		Thread.sleep(2000);
+		saveDocument.click();
+		Thread.sleep(2000);
+	}
+	
+	public static boolean documentGenerationAlert_sumbmitAndSign() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Document generated successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean documentGenerationAlert_save() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Document saved successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
 	
 	public void clickOnDevelopment() throws InterruptedException
 	{
@@ -778,8 +1296,51 @@ public class ProjectPage extends AbstractComponent{
 			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait1.until(ExpectedConditions.alertIsPresent());
 			Alert alert1 = driver.switchTo().alert();
-			Assert.assertTrue(alert1.getText().contains("Documents saved successfully"));
+			Assert.assertTrue(alert1.getText().contains("Document saved successfully"));
 			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}	//
+		//
+	}
+	
+	public static boolean archiveProjectAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to archive this project?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Project Archived successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}	
+	}
+	
+	public static boolean deleteProjectAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this project?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Project deleted successfully"));
+			alert2.accept();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;
@@ -850,6 +1411,20 @@ public class ProjectPage extends AbstractComponent{
 		description.sendKeys(des);
 		Thread.sleep(3000);
 		save1.click();
+	}
+	
+	public void archiveProject() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		archive1.click();
+		Thread.sleep(2000);
+	}
+	
+	public void deleteProject() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		delete1.click();
+		Thread.sleep(2000);
 	}
 	
 	public boolean selProject(String pname) throws InterruptedException
