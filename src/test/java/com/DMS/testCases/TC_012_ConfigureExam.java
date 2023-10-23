@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.JavascriptExecutor;
 import com.DMS.pageObjects.ConfigureExam;
 
 import Base.BaseClassTest;
@@ -43,6 +43,73 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 		ConfigureExam ce = new ConfigureExam(driver);
 		ce.createQuestion1();
 		ce.qusCreationAlert();
+		ce.createQuestion2();
+		ce.qusCreationAlert();
+		ce.createQuestion3();
+		ce.qusCreationAlert();
+		ce.createQuestion4();
+		ce.qusCreationAlert();
+		ce.createQuestion5();
+		ce.qusCreationAlert();
+		ce.createQuestion6();
+		ce.qusCreationAlert();
+		ce.createQuestion7();
+		ce.qusCreationAlert();
+		ce.createQuestion8();
+		ce.qusCreationAlert();
+		ce.createQuestion9();
+		ce.qusCreationAlert();
+		ce.createQuestion10();
+		ce.qusCreationAlert();
+		ce.createQuestion11();
+		ce.qusCreationAlert();		
+	}
+	
+	@Test(priority=5)
+	public void editQuestion() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.selQus("10");
+		ce.editQus();
+		ce.editQusAlert();
+	}
+	
+	@Test(priority=6)
+	public void deleteQuestion() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.selQus("10");
+		ce.deleteQus();
+		ce.deleteQusAlert();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-1000)");
+	}
+	
+	@Test(priority=7)
+	public void addDocument() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.referenceDocuments();
+		ce.referenceDocumentAlert();
+	}
+	
+	@Test(priority=8)
+	public void delDocument() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.selDoc("new");
+		ce.deleteDoc();
+		ce.deleteDocAlert();
+	}
+	
+	@Test(priority=9)
+	public void examConfiguration() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.configExam();
+		ce.examConfigurationUpdateAlert();
+		driver.navigate().back();
+		
 	}
 	
 	@Test(priority=2)

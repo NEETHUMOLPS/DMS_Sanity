@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -141,6 +142,144 @@ public class ConfigureExam extends AbstractComponent{
 	@FindBy(xpath="//button[normalize-space()='Save']")
 	WebElement save1;
 	
+	//Web table questions
+	@FindBy(xpath="//td[1]")
+	List<WebElement> no;
+	@FindBy(xpath="//td[2]")
+	List<WebElement> qus1;
+	@FindBy(xpath="//td[3]")
+	List<WebElement> options1;
+	@FindBy(xpath="//td[4]")
+	List<WebElement> ans;
+	@FindBy(xpath="//td[5]")
+	List<WebElement> actions1;
+	
+	@FindBy(xpath="//div[normalize-space()='Edit']")
+	WebElement edit1;
+	@FindBy(xpath="//div[normalize-space()='Delete']")
+	WebElement delete1;
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement save2;
+	
+	//Reference documents
+	@FindBy(xpath="//a[normalize-space()='Reference Documents']")
+	WebElement referenceDocuments;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div/div")
+	WebElement type1;
+	@FindBy(id="multiselect-option-ac67b082-fa6d-4795-b326-6eed333bc7b2")
+	WebElement type2;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div/div/span[2]")
+	WebElement type3;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div")
+	WebElement doc1;
+	@FindBy(id="multiselect-option-9e356ff5-547c-4a94-8d2f-ef932b87ac07")
+	WebElement doc2;
+	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div/span[2]")
+	WebElement doc3;
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement save3;
+	
+	//Web table documents
+	@FindBy(xpath="//td[1]")
+	List<WebElement> docname;
+	@FindBy(xpath="//td[2]")
+	List<WebElement> version;
+	@FindBy(xpath="//td[2]")
+	List<WebElement> actions2;
+	
+	@FindBy(xpath="//div[contains(text(),'Delete')]")
+	WebElement delete2;
+	
+	//Configure exam
+	@FindBy(xpath="//button[normalize-space()='Clear']")
+	WebElement clear;
+	@FindBy(xpath="//button[normalize-space()='Submit']")
+	WebElement submit1;
+	
+	
+	public void configExam() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-300)");
+		Thread.sleep(2000);
+		submit1.click();
+		Thread.sleep(2000);
+	}
+	
+	public void selQus(String num) throws InterruptedException
+	{
+		for(int i=0;i<no.size();i++)
+		{
+			String text=no.get(i).getText();
+			if(text.equals(num))
+			{
+				actions1.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void selDoc(String name) throws InterruptedException
+	{
+		for(int i=0;i<docname.size();i++)
+		{
+			String text=docname.get(i).getText();
+			if(text.equals(name))
+			{
+				actions2.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void referenceDocuments() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		referenceDocuments.click();
+		Thread.sleep(2000);
+		type1.click();
+		Thread.sleep(2000);
+		type2.click();
+		Thread.sleep(2000);
+		type3.click();
+		Thread.sleep(2000);
+		doc1.click();
+		Thread.sleep(2000);
+		doc2.click();
+		Thread.sleep(2000);
+		doc3.click();
+		Thread.sleep(2000);
+		save3.click();
+		Thread.sleep(2000);
+	}
+	
+	public void editQus() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		edit1.click();
+		Thread.sleep(2000);
+		save2.click();
+		Thread.sleep(2000);
+	}
+	
+	public void deleteQus() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		delete1.click();
+		Thread.sleep(2000);
+	}
+	
+	public void deleteDoc() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		delete2.click();
+		Thread.sleep(2000);
+	}
+	
+	
 	public void createQuestion1() throws InterruptedException
 	{		
 		Thread.sleep(2000);
@@ -165,12 +304,166 @@ public class ConfigureExam extends AbstractComponent{
 		Thread.sleep(2000);
 		createQuestion.click();
 		question1.sendKeys("What is system testing?");
-		options.sendKeys("Testing each line of code at least once");
+		options.sendKeys("Testing individual units or components of the software");
+		add.click();
+		options.sendKeys("Testing the software as a whole");
+		add.click();
+		options.sendKeys("Testing the software in a live environment");
 		setAns.click();
 		add.click();
-		options.sendKeys("Testing each possible combination of inputs");
+		options.sendKeys("None of the above");
 		add.click();
-		options.sendKeys("Testing the functionality of the software as a whole");
+		save1.click();		
+	}
+	
+	public void createQuestion3() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What are the different components of Selenium?");
+		options.sendKeys("Selenium Console, Selenium Executor, and Selenium Inspector");
+		add.click();
+		options.sendKeys("Selenium Server, Selenium Test Runner, and Selenium Client");
+		add.click();
+		options.sendKeys("Selenium IDE, Selenium WebDriver, and Selenium Grid");
+		setAns.click();
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion4() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is unit testing?");
+		options.sendKeys("Testing individual units or components of the software");
+		setAns.click();
+		add.click();
+		options.sendKeys("Testing the software as a whole");
+		add.click();
+		options.sendKeys("Testing the software in a live environment");
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion5() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is a JMeter test plan?");
+		options.sendKeys("A set of instructions for JMeter to follow when running a performance test");
+		setAns.click();
+		add.click();
+		options.sendKeys("A way to store JMeter test data");
+		add.click();
+		options.sendKeys("A tool for debugging JMeter tests");
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion6() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is an issue in Jira?");
+		options.sendKeys("A configuration setting for a Jira project");
+		add.click();
+		options.sendKeys("A project management tool for tracking deadlines");
+		add.click();
+		options.sendKeys("A task or piece of work to be done, such as a bug fix or a new feature");
+		setAns.click();
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion7() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is regression testing?");
+		options.sendKeys("A type of manual testing where the tester only tests new features");
+		add.click();
+		options.sendKeys("A type of manual testing where the tester tests the software in a new environment");
+		add.click();
+		options.sendKeys("A type of manual testing where the tester tests the software after changes have been made to it");
+		setAns.click();
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion8() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is JMeter?");
+		options.sendKeys("A programming language used for building web applications");
+		add.click();
+		options.sendKeys("An open-source performance testing tool developed by Apache");
+		setAns.click();
+		add.click();
+		options.sendKeys("A database management system");
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion9() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is performance testing?");
+		options.sendKeys("A type of testing that measures the software's performance under specific conditions, such as load or stress");
+		setAns.click();
+		add.click();
+		options.sendKeys("A type of testing that measures the software's security");
+		add.click();
+		options.sendKeys("A type of testing that measures the software's stability");
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	
+	public void createQuestion10() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is the difference between verification and validation in software testing?");
+		options.sendKeys("Verification is manual testing, while validation is automated testing");
+		add.click();
+		options.sendKeys("Verification checks whether the software meets its design specifications, while validation checks whether it meets the user's requirements");
+		setAns.click();
+		add.click();
+		options.sendKeys("Verification is testing the software during development, while validation is testing after development");
+		add.click();
+		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion11() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is unit testing ?");
+		options.sendKeys("Testing individual units or components of the software");
+		setAns.click();
+		add.click();
+		options.sendKeys("Testing the software as a whole");
+		add.click();
+		options.sendKeys("Testing the software in a live environment");
 		add.click();
 		options.sendKeys("None of the above");
 		add.click();
@@ -284,6 +577,93 @@ public class ConfigureExam extends AbstractComponent{
 			Alert alert1 = driver.switchTo().alert();
 			Assert.assertTrue(alert1.getText().contains("Exam configured successfully"));
 			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean examConfigurationUpdateAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Configuration updated successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean referenceDocumentAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Document added successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean editQusAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Question updated successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean deleteQusAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this question?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Question deleted successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean deleteDocAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this document?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Document deleted successfully"));
+			alert2.accept();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;
