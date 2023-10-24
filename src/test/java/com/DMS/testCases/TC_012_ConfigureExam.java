@@ -4,11 +4,14 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
 import com.DMS.pageObjects.ConfigureExam;
 
 import Base.BaseClassTest;
-
+import org.openqa.selenium.interactions.Actions;
 public class TC_012_ConfigureExam extends BaseClassTest {
 
 	
@@ -16,7 +19,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void configureExam() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.configureExam("Auto01", "10", "50", "23-11-2023", "Neethumol P S");
+		ce.configureExam("Auto05", "10", "50", "23-11-2023", "Neethumol P S");
 		ce.examConfigurationAlert();
 	}
 	
@@ -26,10 +29,12 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 		ConfigureExam ce = new ConfigureExam(driver);
 		ce.userAddition();
 		ce.userAdditionAlert();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)");
 	}
 	
 	@Test(priority=3)
-	public void employeeAddition() throws IOException, InterruptedException
+	public void employeeDeletion() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
 		ce.selEmployeeActions("Neethu Tester");
@@ -62,14 +67,19 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 		ce.createQuestion10();
 		ce.qusCreationAlert();
 		ce.createQuestion11();
-		ce.qusCreationAlert();		
+		ce.qusCreationAlert();	
+		Thread.sleep(5000);	
 	}
 	
 	@Test(priority=5)
 	public void editQuestion() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.selQus("10");
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(5000);	
+		WebElement action = driver.findElement(By.xpath("//table[@class='table table-bordered question-table']//i"));
+		action.click();
 		ce.editQus();
 		ce.editQusAlert();
 	}
@@ -78,17 +88,18 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void deleteQuestion() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.selQus("10");
+		WebElement action = driver.findElement(By.xpath("//table[@class='table table-bordered question-table']//i"));
+		action.click();
 		ce.deleteQus();
 		ce.deleteQusAlert();
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-1000)");
 	}
 	
 	@Test(priority=7)
 	public void addDocument() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,300)");
 		ce.referenceDocuments();
 		ce.referenceDocumentAlert();
 	}
@@ -97,7 +108,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void delDocument() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.selDoc("new");
+		ce.selDoc("sample doc");
 		ce.deleteDoc();
 		ce.deleteDocAlert();
 	}
@@ -108,11 +119,10 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 		ConfigureExam ce = new ConfigureExam(driver);
 		ce.configExam();
 		ce.examConfigurationUpdateAlert();
-		driver.navigate().back();
-		
+		ce.clickOnConfigExam();	
 	}
 	
-	@Test(priority=2)
+	@Test(priority=10)
 	public void examNameSearchValidation() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
@@ -123,6 +133,27 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
+	@Test(priority=11)
+	public void editTest() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.nameSearch("IT - 12");		
+		Thread.sleep(2000);
+		ce.editTest1("IT - 12");
+		ce.editTest2();
+		ce.examConfigurationUpdationAlert();
+		ce.clickOnConfigExam();	
+	}
+	
+	@Test(priority=12)
+	public void viewTest() throws IOException, InterruptedException
+	{
+		ConfigureExam ce = new ConfigureExam(driver);
+		ce.nameSearch("IT - 12");		
+		Thread.sleep(2000);
+		ce.viewTest1("IT - 12");
+		driver.navigate().refresh();
+	}
 	
 
 }

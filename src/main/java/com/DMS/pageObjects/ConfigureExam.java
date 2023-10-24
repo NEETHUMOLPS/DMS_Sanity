@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -78,16 +79,21 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement des3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[3]/div/div/div/div[2]/div/div[8]/div")
 	WebElement user1;
-	@FindBy(id="multiselect-option-631b1a3f-8e9d-42fe-a35c-a8761f58aca6")//li[contains(text(),'Quality Analyst')]
+	@FindBy(xpath="//li[@id='multiselect-option-631b1a3f-8e9d-42fe-a35c-a8761f58aca6']")//Neethu Tester
 	WebElement user2;
-	@FindBy(id="multiselect-option-4bb7c35e-0e56-4813-82dd-a724b45768bd")
+	@FindBy(xpath="//li[@id='multiselect-option-4bb7c35e-0e56-4813-82dd-a724b45768bd']")//Neethug G
 	WebElement user3;
-	@FindBy(id="multiselect-option-9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f")
+	@FindBy(xpath="//li[@id='multiselect-option-9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")//Neethur R
 	WebElement user4;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[3]/div/div/div/div[2]/div/div[8]/div/span[2]")
 	WebElement user5;
 	@FindBy(xpath="//button[contains(text(),'Submit')]")
 	WebElement submit;
+	
+	//Edit test
+	@FindBy(xpath="//button[normalize-space()='Submit']")
+	WebElement submit2;
+	
 	
 	//Add user
 	@FindBy(xpath="//div[@id='tab-1']//img[@alt='Add User']")
@@ -100,7 +106,7 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement desig3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div")
 	WebElement users1;
-	@FindBy(id="multiselect-option-4bb7c35e-0e56-4813-82dd-a724b45768bd")
+	@FindBy(xpath="//li[@id='multiselect-option-9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")//Neethur R
 	WebElement users2;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div/span[2]")
 	WebElement users3;
@@ -151,7 +157,7 @@ public class ConfigureExam extends AbstractComponent{
 	List<WebElement> options1;
 	@FindBy(xpath="//td[4]")
 	List<WebElement> ans;
-	@FindBy(xpath="//td[5]")
+	@FindBy(xpath="//table[@class='table table-bordered question-table']//i")
 	List<WebElement> actions1;
 	
 	@FindBy(xpath="//div[normalize-space()='Edit']")
@@ -164,6 +170,8 @@ public class ConfigureExam extends AbstractComponent{
 	//Reference documents
 	@FindBy(xpath="//a[normalize-space()='Reference Documents']")
 	WebElement referenceDocuments;
+	@FindBy(xpath="//div[@id='tab-3']//img[@alt='Add User']")
+	WebElement addDocument;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div/div")
 	WebElement type1;
 	@FindBy(id="multiselect-option-ac67b082-fa6d-4795-b326-6eed333bc7b2")
@@ -184,10 +192,10 @@ public class ConfigureExam extends AbstractComponent{
 	List<WebElement> docname;
 	@FindBy(xpath="//td[2]")
 	List<WebElement> version;
-	@FindBy(xpath="//td[2]")
+	@FindBy(xpath="//td[3]")
 	List<WebElement> actions2;
 	
-	@FindBy(xpath="//div[contains(text(),'Delete')]")
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[2]/div[1]")
 	WebElement delete2;
 	
 	//Configure exam
@@ -196,6 +204,15 @@ public class ConfigureExam extends AbstractComponent{
 	@FindBy(xpath="//button[normalize-space()='Submit']")
 	WebElement submit1;
 	
+	public void clickOnConfigExam() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		dashboardMenu.click();
+		Thread.sleep(2000);
+		configureExam.click();
+		Thread.sleep(2000);;
+	}
+	
 	
 	public void configExam() throws InterruptedException
 	{		
@@ -203,7 +220,7 @@ public class ConfigureExam extends AbstractComponent{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");
 		Thread.sleep(2000);
-		submit1.click();
+		submit2.click();
 		Thread.sleep(2000);
 	}
 	
@@ -214,11 +231,47 @@ public class ConfigureExam extends AbstractComponent{
 			String text=no.get(i).getText();
 			if(text.equals(num))
 			{
-				actions1.get(i).click();
+				Thread.sleep(5000);
+				actions1.get(i).click();	
+				Thread.sleep(3000);
+				break;	
+			}
+		}
+	}
+	
+	public void editTest1(String name) throws InterruptedException
+	{
+		for(int i=0;i<examName.size();i++)
+		{
+			String text=examName.get(i).getText();
+			if(text.equals(name))
+			{
+				edit.get(i).click();
 				Thread.sleep(2000);
 				break;	
 			}
 		}
+	}
+	
+	public void viewTest1(String name) throws InterruptedException
+	{
+		for(int i=0;i<examName.size();i++)
+		{
+			String text=examName.get(i).getText();
+			if(text.equals(name))
+			{
+				view.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void editTest2() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		submit.click();
+		Thread.sleep(2000);;
 	}
 	
 	public void selDoc(String name) throws InterruptedException
@@ -239,6 +292,8 @@ public class ConfigureExam extends AbstractComponent{
 	{		
 		Thread.sleep(2000);
 		referenceDocuments.click();
+		Thread.sleep(2000);
+		addDocument.click();
 		Thread.sleep(2000);
 		type1.click();
 		Thread.sleep(2000);
@@ -457,15 +512,32 @@ public class ConfigureExam extends AbstractComponent{
 	{		
 		Thread.sleep(2000);
 		createQuestion.click();
-		question1.sendKeys("What is unit testing ?");
-		options.sendKeys("Testing individual units or components of the software");
+		question1.sendKeys("What is Selenium?");
+		options.sendKeys("A programming language used for building web applications");
+		add.click();
+		options.sendKeys("A software testing tool used for automated testing of web applications");
 		setAns.click();
 		add.click();
-		options.sendKeys("Testing the software as a whole");
-		add.click();
-		options.sendKeys("Testing the software in a live environment");
+		options.sendKeys("A database management system");
 		add.click();
 		options.sendKeys("None of the above");
+		add.click();
+		save1.click();		
+	}
+	
+	public void createQuestion12() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		createQuestion.click();
+		question1.sendKeys("What is the primary goal of software testing?");
+		options.sendKeys("To find defects and improve the quality of the software");
+		setAns.click();
+		add.click();
+		options.sendKeys("To make sure the software is bug-free");
+		add.click();
+		options.sendKeys("To speed up the development process");
+		add.click();
+		options.sendKeys("To save costs");
 		add.click();
 		save1.click();		
 	}
@@ -576,6 +648,21 @@ public class ConfigureExam extends AbstractComponent{
 			wait1.until(ExpectedConditions.alertIsPresent());
 			Alert alert1 = driver.switchTo().alert();
 			Assert.assertTrue(alert1.getText().contains("Exam configured successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean examConfigurationUpdationAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Configuration updated successfully"));
 			alert1.accept();
 			return true;
 		} catch (NoAlertPresentException e) {
