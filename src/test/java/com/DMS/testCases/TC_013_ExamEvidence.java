@@ -39,7 +39,7 @@ public class TC_013_ExamEvidence extends BaseClassTest {
 		ExamEvidence ee = new ExamEvidence(driver);
 		ee.statusSearch_Initiator("Signed");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.statusSearchValidation_Initiator("Completed"));
+		Assert.assertTrue(ee.statusSearchValidation_Initiator("Signed"));
 		logger.info("Status search functionality verified");	
 	}
 	
@@ -86,9 +86,9 @@ public class TC_013_ExamEvidence extends BaseClassTest {
 	public void resultSearchValidation_Supervisor() throws IOException, InterruptedException
 	{
 		ExamEvidence ee = new ExamEvidence(driver);
-		ee.resultSearch_Supervisor("Passed");
+		ee.resultSearch_Supervisor("Failed");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.resultSearchValidation_Supervisor("Passed"));
+		Assert.assertTrue(ee.resultSearchValidation_Supervisor("Failed"));
 		logger.info("Result search functionality verified");	
 	}
 	
@@ -96,7 +96,7 @@ public class TC_013_ExamEvidence extends BaseClassTest {
 	public void statusSearchValidation_Supervisor() throws IOException, InterruptedException
 	{
 		ExamEvidence ee = new ExamEvidence(driver);
-		ee.statusSearch_Supervisor("Completed");
+		ee.statusSearch_Supervisor("Signed");
 		Thread.sleep(2000);
 		Assert.assertTrue(ee.statusSearchValidation_Supervisor("Signed"));
 		logger.info("Status search functionality verified");	
@@ -117,7 +117,8 @@ public class TC_013_ExamEvidence extends BaseClassTest {
 	public void sign_test_Supervisor() throws IOException, InterruptedException
 	{
 		ExamEvidence ee = new ExamEvidence(driver);
-		ee.signTest3("Passed", "Completed");
+		ee.clickOnSupervisor();
+		ee.signTest3("Failed", "Completed");
 		ee.signTest2("neethumolp@datamatica.uk", "Neethu@12345", "Reviewer");
 		ee.testSignnAlert();
 		ee.clickOnExamEvidence2();

@@ -221,25 +221,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean employeeNameSearchValidation_Supervisor(String name) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =employee2.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = employee2.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<employee2.size();i++)
+			
+			String text =  employee2.get(i).getText();
+			if(text.contains(name))
 			{
-				String stat=employee2.get(i).getText();
-				if (!(stat.contains(name))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void resultSearch_Supervisor(String rs) throws InterruptedException
@@ -255,25 +249,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean resultSearchValidation_Supervisor(String rs) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =rslt2.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = rslt2.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<rslt2.size();i++)
+			
+			String text =  rslt2.get(i).getText();
+			if(text.contains(rs))
 			{
-				String stat=rslt2.get(i).getText();
-				if (!(stat.contains(rs))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 
 	public void statusSearch_Supervisor(String st) throws InterruptedException
@@ -289,25 +277,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean statusSearchValidation_Supervisor(String status) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =stat2.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = stat2.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<stat2.size();i++)
+			
+			String text =  stat2.get(i).getText();
+			if(text.contains(status))
 			{
-				String stat=stat2.get(i).getText();
-				if (!(stat.contains(status))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void dateSearch_Supervisor(String d1,String d2) throws InterruptedException
@@ -321,28 +303,22 @@ public class ExamEvidence extends AbstractComponent{
 		Thread.sleep(2000);
 	}
 	
-	public Boolean dateSearchValidation_Supervisor(String status) throws InterruptedException
+	public Boolean dateSearchValidation_Supervisor(String dt) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =examDate2.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = examDate2.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<examDate2.size();i++)
+			
+			String text =  examDate2.get(i).getText();
+			if(text.contains(dt))
 			{
-				String stat=examDate2.get(i).getText();
-				if (!(stat.contains(status))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void signTest3(String rs,String st) throws InterruptedException
@@ -433,25 +409,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean employeeNameSearchValidation_Initiator(String name) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =employee1.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = employee1.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<employee1.size();i++)
+			
+			String text =  employee1.get(i).getText();
+			if(text.contains(name))
 			{
-				String stat=employee1.get(i).getText();
-				if (!(stat.contains(name))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void resultSearch_Initiator(String rs) throws InterruptedException
@@ -467,25 +437,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean resultSearchValidation_Initiator(String rs) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =rslt1.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = rslt1.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<rslt1.size();i++)
+			
+			String text =  rslt1.get(i).getText();
+			if(text.contains(rs))
 			{
-				String stat=rslt1.get(i).getText();
-				if (!(stat.contains(rs))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 
 	public void statusSearch_Initiator(String st) throws InterruptedException
@@ -501,25 +465,19 @@ public class ExamEvidence extends AbstractComponent{
 	public Boolean statusSearchValidation_Initiator(String status) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =stat1.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = stat1.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<stat1.size();i++)
+			
+			String text =  stat1.get(i).getText();
+			if(text.contains(status))
 			{
-				String stat=stat1.get(i).getText();
-				if (!(stat.contains(status))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void dateSearch_Initiator(String d1,String d2) throws InterruptedException
@@ -533,28 +491,22 @@ public class ExamEvidence extends AbstractComponent{
 		Thread.sleep(2000);
 	}
 	
-	public Boolean dateSearchValidation_Initiator(String status) throws InterruptedException
+	public Boolean dateSearchValidation_Initiator(String dt) throws InterruptedException
 	{
 		Thread.sleep(3000);
-		boolean st = true;
-		int count =examDate1.size();
-		if (count<1) 
+		boolean vis=false;
+		int count = examDate1.size();
+		for(int i=0;i<count;i++)
 		{
-			st=false;
-		}
-		else 
-		{
-			for (int i=0; i<examDate1.size();i++)
+			
+			String text =  examDate1.get(i).getText();
+			if(text.contains(dt))
 			{
-				String stat=examDate1.get(i).getText();
-				if (!(stat.contains(status))) 
-				{
-					st=false;
-					break;
-				}
+				vis=true;
+				break;
 			}
 		}
-		return st;
+		return vis;
 	}
 	
 	public void signTest1(String rs,String st) throws InterruptedException
@@ -693,34 +645,9 @@ public class ExamEvidence extends AbstractComponent{
 		Thread.sleep(2000);
 		startExam.click();
 		Thread.sleep(2000);
-		ans1.click();
-		Thread.sleep(2000);
-		ans2.click();
-		Thread.sleep(2000);
-		ans3.click();
-		Thread.sleep(2000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,100)");
-		ans4.click();
-		Thread.sleep(2000);
-		ans5.click();
-		Thread.sleep(2000);
-		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
-		jse1.executeScript("window.scrollBy(0,100)");
-		ans6.click();
-		Thread.sleep(2000);
-		ans7.click();
-		Thread.sleep(2000);
-		ans8.click();
-		Thread.sleep(2000);
-		JavascriptExecutor jse2 = (JavascriptExecutor)driver;
-		jse2.executeScript("window.scrollBy(0,100)");
-		ans9.click();
-		Thread.sleep(2000);
-		ans10.click();
-		Thread.sleep(2000);
 		JavascriptExecutor jse3 = (JavascriptExecutor)driver;
-		jse3.executeScript("window.scrollBy(0,100)");
+		jse3.executeScript("window.scrollBy(0,2000)");
+		Thread.sleep(3000);
 		submit1.click();
 		Thread.sleep(2000);
 	}

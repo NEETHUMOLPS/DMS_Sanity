@@ -9,7 +9,7 @@
 <test name="DMS App Test">
 <parameter name="browser" value="chrome" />
 <classes>
-<class name="com.DMS.testCases.TC_012_ConfigureExam"/>
+<class name="com.DMS.testCases.TC_014_DocumentApprovals"/>
 
 <!--  <methods>
                <include name="negativeTest6" />
@@ -22,4 +22,4 @@
 
 </suite>
 
-<!-- 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 -->
+<!-- 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 -->
