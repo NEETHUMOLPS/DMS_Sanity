@@ -47,7 +47,7 @@ public class TC_003_Profile extends BaseClass {
 	public void editSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.editSign("NE", "neethug@yopmail.com", "Digi@1234");
+		pp.editSign("NE", "neethug@yopmail.com", "Digi@4321");
 	}
 	
 	@Test(priority=5)

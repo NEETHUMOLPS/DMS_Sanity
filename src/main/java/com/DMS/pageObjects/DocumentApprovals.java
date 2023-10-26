@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -309,11 +311,16 @@ public class DocumentApprovals extends AbstractComponent{
 	
 	public void downloadAndPrint() throws InterruptedException
 	{
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		download.click();
 		Thread.sleep(5000);
 		print.click();
-		Thread.sleep(20000);
+		/*Thread.sleep(20000);
+		JavascriptExecutor jse3 = (JavascriptExecutor)driver;
+		jse3.executeScript("window.scrollBy(0,500)");
+		WebElement printcancel = driver.findElement(By.xpath("//*[@id=\"sidebar\"]//print-preview-button-strip//div/cr-button[2]"));
+		printcancel.click();*/
+		
 	}
 
 }

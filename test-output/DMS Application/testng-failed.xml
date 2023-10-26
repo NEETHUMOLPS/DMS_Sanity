@@ -7,12 +7,12 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_014_DocumentApprovals">
+      <class name="com.DMS.testCases.TC_015_SopLibrary">
         <methods>
-          <include name="viewApprovedDocumet_download_print"/>
           <include name="setup"/>
+          <include name="initiatorSOP"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_014_DocumentApprovals -->
+      </class> <!-- com.DMS.testCases.TC_015_SopLibrary -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

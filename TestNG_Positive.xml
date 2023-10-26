@@ -9,7 +9,7 @@
 <test name="DMS App Test">
 <parameter name="browser" value="chrome" />
 <classes>
-<class name="com.DMS.testCases.TC_014_DocumentApprovals"/>
+<class name="com.DMS.testCases.TC_015_SopLibrary"/>
 
 <!--  <methods>
                <include name="negativeTest6" />
