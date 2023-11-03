@@ -134,8 +134,12 @@ public class ProjectPage extends AbstractComponent{
 	//share - main folder
 	@FindBy(xpath="//label[contains(text(),'Choose Role')]//following-sibling::select")
 	WebElement chooseRole2;
-	@FindBy(xpath="//button[contains(text(),'Share')]")
+	@FindBy(xpath="//button[normalize-space()='Share']")
 	WebElement share3;
+	
+	//share - document
+	@FindBy(xpath="//button[normalize-space()='Save']")
+	WebElement sharedoc;
 	
 	//Sub folder creation
 	@FindBy(xpath="//label[@class='tree_label tree_label']")
@@ -187,6 +191,64 @@ public class ProjectPage extends AbstractComponent{
 	WebElement deleteDoc;
 	@FindBy(xpath="//div[contains(text(),'Archive')]")
 	WebElement archiveDoc;
+	
+	@FindBy(xpath="//input[@id='flexCheckDefault']")
+	WebElement addSignersDoc;
+	@FindBy(xpath="//table[@class='table table-striped table-bordered dataTables']//td[1]")
+	WebElement signingOrderDoc;
+	@FindBy(xpath="//table[@class='table table-striped table-bordered dataTables']//td[2]")
+	WebElement bookMarkDoc;
+	@FindBy(id="//table[@class='table table-striped table-bordered dataTables']//td[3]")
+	WebElement userDoc;
+	
+	@FindBy(xpath="(//select[@id='user'])[1]")
+	WebElement select1;
+	@FindBy(xpath="(//select[@id='user'])[2]")
+	WebElement select2;
+	@FindBy(xpath="(//select[@id='user'])[3]")
+	WebElement select3;
+	
+	//Open document - add signers
+	@FindBy(xpath="(//img[@alt='create version'])[1]")
+	WebElement addSignersUpdateDoc;
+	@FindBy(xpath="(//img[@alt='create version'])[2]")
+	WebElement approvalsDoc;
+	@FindBy(xpath="//div[@class='wrapper wrapper-content']//div[3]//div[1]//img[1]")
+	WebElement signDocumentDoc;
+	@FindBy(xpath="(//img[@alt='Edit document'])[1]")
+	WebElement downloadDoc;
+	@FindBy(xpath="(//img[@alt='Edit document'])[2]")
+	WebElement PrintDoc;
+	@FindBy(xpath="//div[@class='position-relative my-0 py-0 align-self-center']//img[@alt='create version']")
+	WebElement addNewVersionDoc;
+			
+	@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[1]")
+	WebElement user1;
+	@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[2]")
+	WebElement user2;
+	@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[3]")
+	WebElement user3;
+	@FindBy(xpath="//button[normalize-space()='Submit']")
+	WebElement SubmitDoc;
+			
+	@FindBy(xpath="//input[@placeholder='Email']")
+	WebElement emailDoc;
+	@FindBy(xpath="//input[@id='templatePassword']")
+	WebElement passwordDoc;
+	@FindBy(xpath="//select[@id='reasons']")
+	WebElement reasonDoc;
+	@FindBy(xpath="//span[contains(text(),'Submit')]")
+	WebElement submitSignDocumentDoc;
+	
+	@FindBy(xpath="//select[@name='account']")
+	WebElement chooseRoleApproval;
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/input[1]")
+	WebElement usersApproval1;
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/input[1]")
+	WebElement usersApproval2;
+	@FindBy(xpath="//button[contains(text(),'Save')]")
+	WebElement saveApproval;
+			
 	
 	//Profile
 	@FindBy(xpath="//a[@id='profile']")
@@ -376,9 +438,11 @@ public class ProjectPage extends AbstractComponent{
 	WebElement del9;
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/img[1]")
 	WebElement addRow2;
-	@FindBy(xpath="//span[contains(text(),'Submit & Sign')]")
+	@FindBy(xpath="//span[normalize-space()='Save & Sign']")
+	WebElement saveAndSign;
+	@FindBy(xpath="//span[normalize-space()='Submit & Sign']")
 	WebElement submitAndSign;
-	@FindBy(xpath="//span[contains(text(),'Save')]")
+	@FindBy(xpath="//span[@class='submit_btn px-5 py-2']")
 	WebElement saveDocument;
 	
 	//Sign document
@@ -485,6 +549,155 @@ public class ProjectPage extends AbstractComponent{
 	@FindBy(xpath="//div[normalize-space()='New Version']")
 	WebElement newVersionOfSavedDocument;
 	
+	//New version - Unit test
+	@FindBy(xpath="//div[contains(text(),'New Version')]")
+	WebElement newVersion;
+	
+	public void editSavedDocument() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		editSavedDocument.click();
+		Thread.sleep(4000);			
+	}
+	
+	public void deleteSavedDocument() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		deleteSavedDocument.click();
+		Thread.sleep(4000);			
+	}
+	
+	public void newVersionOfSavedDocument() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		newVersionOfSavedDocument.click();
+		Thread.sleep(4000);			
+	}
+	
+	public void clickOnNewVersion() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		newVersion.click();
+		Thread.sleep(4000);			
+	}
+	
+	public void download() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		downloadDoc.click();
+		Thread.sleep(4000);			
+	}
+	
+	public void documentApprovalDoc(String role) throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		approvalsDoc.click();
+		Thread.sleep(2000);		
+		Select os = new Select(chooseRoleApproval);
+		os.selectByVisibleText(role);
+		usersApproval1.click();
+		Thread.sleep(2000);
+		usersApproval2.click();
+		Thread.sleep(2000);
+		saveApproval.click();
+		Thread.sleep(2000);//Updated successfully
+	}
+	
+	public void print() throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		printDoc.click();
+		Thread.sleep(10000);			
+	}
+	
+	
+	public void addSigners(String user) throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		addSignersUpdateDoc.click();
+		Thread.sleep(4000);	
+		Select os = new Select(user3);
+		os.selectByVisibleText(user);
+		Thread.sleep(2000);
+		SubmitDoc.click();
+		Thread.sleep(2000);			
+	}
+	
+	public void addNewVersion(String title,String ver) throws InterruptedException
+	{		
+		Thread.sleep(2000);	
+		addNewVersionDoc.click();
+		Thread.sleep(3000);	
+		docTitle.clear();
+		Thread.sleep(3000);	
+		docTitle.sendKeys(title);
+		Thread.sleep(2000);	
+		docversion.sendKeys(ver);
+		Thread.sleep(2000);	
+	}
+	
+	public void signDocument(String em,String pwd,String rs) throws InterruptedException
+	{		
+		Thread.sleep(3000);
+		signDocumentDoc.click();
+		Thread.sleep(2000);	
+		emailDoc.sendKeys(em);
+		Thread.sleep(2000);
+		passwordDoc.sendKeys(pwd);
+		Thread.sleep(2000);	
+		Select os = new Select(reasonDoc);
+		os.selectByVisibleText(rs);
+		Thread.sleep(2000);	
+		submitSignDocumentDoc.click();
+		Thread.sleep(2000);			
+	}
+	
+	public static boolean signAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Signature added successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean addSignersAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Signers updated successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean uploadDocAlert1() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Document saved successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}	
+	}
+	
+	
 	public static boolean documentApprovalAlert() throws InterruptedException
 	{
 		try
@@ -500,18 +713,40 @@ public class ProjectPage extends AbstractComponent{
 		}		
 	}
 	
-	public void editSavedDocument(String tit) throws InterruptedException
+	public void editSavedDocument1(String tit) throws InterruptedException
 	{
-		Thread.sleep(2000);
-		editSavedDocument.click();
 		Thread.sleep(4000);
 		title.clear();
 		Thread.sleep(2000);
 		title.sendKeys(tit);
 		Thread.sleep(2000);
-		saveDocument.click();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,1500)");
 		Thread.sleep(2000);
+		elementWait(saveDocument);
+		saveDocument.click();
+		Thread.sleep(5000);
 		
+	}
+	
+	public void savedToSubmitDocument(String em,String pwd,String rs) throws InterruptedException
+	{
+		Thread.sleep(4000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,1500)");
+		Thread.sleep(2000);
+		elementWait(submit);
+		submit.click();
+		Thread.sleep(3000);
+		email.sendKeys(em);
+		Thread.sleep(2000);
+		password.sendKeys(pwd);
+		Thread.sleep(2000);
+		Select s = new Select(reason);
+		s.selectByVisibleText(rs);
+		Thread.sleep(2000);
+		submit.click();
+		Thread.sleep(2000);
 	}
 	
 	public void documentApproval(String role) throws InterruptedException
@@ -564,8 +799,16 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		printDoc.click();
 		Thread.sleep(4000);
-		printCancel.click();
-		Thread.sleep(2000);
+		// Choosing the second window which is the print dialog.
+        // Switching to opened window of print dialog.
+        driver.switchTo().window(driver.getWindowHandles().toArray()[1].toString());
+
+        // Runs javascript code for cancelling print operation.
+        // This code only executes for Chrome browsers.
+        JavascriptExecutor js = (JavascriptExecutor)driver;    
+        js.executeScript("document.querySelector(\"body > print-preview-app\").shadowRoot.querySelector(\"#sidebar\").shadowRoot.querySelector(\"print-preview-button-strip\").shadowRoot.querySelector(\"div > cr-button.cancel-button\").click();");
+        // Switches to main window after print dialog operation.
+        driver.switchTo().window(driver.getWindowHandles().toArray()[0].toString());
 	}
 	
 	public void uploadDoc1(String doclocation) throws Exception
@@ -648,13 +891,15 @@ public class ProjectPage extends AbstractComponent{
 		pass1.click();
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,1500)");
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(yes1);
 		yes1.click();
 		Thread.sleep(2000);
 		yes2.click();
 		Thread.sleep(2000);
 		yes3.click();
-		Thread.sleep(2000);
+		Thread.sleep(2000);		
 		yes4.click();
 		Thread.sleep(2000);
 		yes5.click();
@@ -667,6 +912,58 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		yes9.click();
 		Thread.sleep(2000);
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(saveAndSign);
+		saveAndSign.click();
+		Thread.sleep(3000);
+		email.clear();
+		Thread.sleep(2000);
+		email.sendKeys(em);
+		Thread.sleep(2000);
+		password.clear();
+		Thread.sleep(2000);
+		password.sendKeys(pwd);
+		Thread.sleep(2000);
+		Select s1 = new Select(reason);
+		s1.selectByVisibleText(rs);
+		Thread.sleep(2000);
+		submit.click();
+		Thread.sleep(2000);
+	}
+	
+	public void addNewVersion_submitDocument1(String em,String pwd,String rs) throws InterruptedException
+	{
+		Thread.sleep(3000);
+		addNewVersion.click();
+		Thread.sleep(3000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(yes1);
+		yes1.click();
+		Thread.sleep(2000);
+		yes2.click();
+		Thread.sleep(2000);
+		yes3.click();
+		Thread.sleep(2000);		
+		yes4.click();
+		Thread.sleep(2000);
+		yes5.click();
+		Thread.sleep(2000);
+		yes6.click();
+		Thread.sleep(2000);
+		yes7.click();
+		Thread.sleep(2000);
+		yes8.click();
+		Thread.sleep(2000);
+		yes9.click();
+		Thread.sleep(2000);
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(submitAndSign);
 		submitAndSign.click();
 		Thread.sleep(3000);
 		email.clear();
@@ -682,6 +979,85 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		submit.click();
 		Thread.sleep(2000);
+	}
+	
+	public void addNewVersion_submitDocument2(String em,String pwd,String rs) throws InterruptedException
+	{
+		Thread.sleep(3000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(yes1);
+		yes1.click();
+		Thread.sleep(2000);
+		yes2.click();
+		Thread.sleep(2000);
+		yes3.click();
+		Thread.sleep(2000);		
+		yes4.click();
+		Thread.sleep(2000);
+		yes5.click();
+		Thread.sleep(2000);
+		yes6.click();
+		Thread.sleep(2000);
+		yes7.click();
+		Thread.sleep(2000);
+		yes8.click();
+		Thread.sleep(2000);
+		yes9.click();
+		Thread.sleep(2000);
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(submitAndSign);
+		submitAndSign.click();
+		Thread.sleep(3000);
+		email.clear();
+		Thread.sleep(2000);
+		email.sendKeys(em);
+		Thread.sleep(2000);
+		password.clear();
+		Thread.sleep(2000);
+		password.sendKeys(pwd);
+		Thread.sleep(2000);
+		Select s1 = new Select(reason);
+		s1.selectByVisibleText(rs);
+		Thread.sleep(2000);
+		submit.click();
+		Thread.sleep(2000);
+	}
+	
+	public void addNewVersion_savedDocument() throws InterruptedException
+	{
+		Thread.sleep(3000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(yes1);
+		yes1.click();
+		Thread.sleep(2000);
+		yes2.click();
+		Thread.sleep(2000);
+		yes3.click();
+		Thread.sleep(2000);		
+		yes4.click();
+		Thread.sleep(2000);
+		yes5.click();
+		Thread.sleep(2000);
+		yes6.click();
+		Thread.sleep(2000);
+		yes7.click();
+		Thread.sleep(2000);
+		yes8.click();
+		Thread.sleep(2000);
+		yes9.click();
+		Thread.sleep(2000);
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(saveDocument);
+		saveDocument.click();
+		Thread.sleep(3000);
 	}
 	
 	public void fillDocument_save(String doc,String tit,String module,String story,String lead,String devname,String testername,String criteria) throws InterruptedException
@@ -710,7 +1086,9 @@ public class ProjectPage extends AbstractComponent{
 		pass1.click();
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,1500)");
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(2000);
+		elementWait(yes1);
 		yes1.click();
 		Thread.sleep(2000);
 		yes2.click();
@@ -729,6 +1107,9 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		yes9.click();
 		Thread.sleep(2000);
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("window.scrollBy(0,500)");
+		elementWait(saveDocument);
 		saveDocument.click();
 		Thread.sleep(2000);
 	}
@@ -748,7 +1129,22 @@ public class ProjectPage extends AbstractComponent{
 		}		
 	}
 	
-	public static boolean documentGenerationAlert_save() throws InterruptedException
+	public static boolean documentGenerationAlert_save1() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Details saved successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public static boolean documentGenerationAlert_save2() throws InterruptedException
 	{
 		try
 		{
@@ -1178,6 +1574,27 @@ public class ProjectPage extends AbstractComponent{
 		}	
 	}
 	
+	public static boolean savedDocumentDeleteAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this document?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Document deleted successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}	
+	}
+	
 	public static boolean userDeleteAlert() throws InterruptedException
 	{
 		try
@@ -1296,7 +1713,7 @@ public class ProjectPage extends AbstractComponent{
 			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait1.until(ExpectedConditions.alertIsPresent());
 			Alert alert1 = driver.switchTo().alert();
-			Assert.assertTrue(alert1.getText().contains("Document saved successfully"));
+			Assert.assertTrue(alert1.getText().contains("Documents saved successfully"));
 			alert1.accept();
 			return true;
 		} catch (NoAlertPresentException e) {
@@ -1461,6 +1878,33 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(3000);
 	}
 	
+	public void fillDocument_addSigners(String dtitle,String downer, String ver,String type,String name1,String name2,String name3) throws InterruptedException
+	{
+		Thread.sleep(3000);	
+		docTitle.sendKeys(dtitle);
+		Thread.sleep(3000);
+		Select sel=new Select(docowner);
+		sel.selectByVisibleText(downer);	
+		Thread.sleep(2000);
+		Select sel1=new Select(doctype);
+		sel1.selectByVisibleText(type);	
+		docversion.sendKeys(ver);
+		Thread.sleep(2000);
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		//jse.executeScript("window.scrollBy(0,300)");
+		addSignersDoc.click();
+		Thread.sleep(1000);
+		Select sel2=new Select(select1);
+		sel2.selectByVisibleText(name1);
+		Thread.sleep(1000);
+		Select sel3=new Select(select2);
+		sel3.selectByVisibleText(name2);
+		Thread.sleep(1000);
+		Select sel4=new Select(select3);
+		sel4.selectByVisibleText(name3);
+		Thread.sleep(1000);
+	}
+	
 	public void uploadDoc(String doclocation) throws Exception
 	{
 		Thread.sleep(3000);	
@@ -1496,6 +1940,23 @@ public class ProjectPage extends AbstractComponent{
 			if(dname.contains(docname))
 			{
 				documentoptions.get(i).click();
+				Thread.sleep(1000);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean selDoc(String docname) throws InterruptedException
+	{
+		Thread.sleep(3000);
+		
+		for(int i=0;i<documents.size();i++)
+		{
+			String dname=documents.get(i).getText();
+			if(dname.contains(docname))
+			{
+				documents.get(i).click();
 				Thread.sleep(1000);
 				return true;
 			}
@@ -1540,7 +2001,7 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(3000);
 		name3.click();
 		Thread.sleep(2000);
-		share3.click();
+		sharedoc.click();
 		Thread.sleep(3000);		
 	}
 	

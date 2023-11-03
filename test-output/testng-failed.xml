@@ -7,12 +7,20 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_015_SopLibrary">
+      <class name="com.DMS.testCases.TC_007_Projects">
         <methods>
+          <include name="download_printDoc"/>
           <include name="setup"/>
-          <include name="initiatorSOP"/>
+          <include name="devUploadDocument_SubmitAndSign"/>
+          <include name="addNewVersion_deleteDocument"/>
+          <include name="devUploadDocument_Save"/>
+          <include name="editSavedDocument"/>
+          <include name="savedDocumentToSubmittedDocument"/>
+          <include name="addNewVersion1"/>
+          <include name="addNewVersion2"/>
+          <include name="addNewVersion_savedDocument"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_015_SopLibrary -->
+      </class> <!-- com.DMS.testCases.TC_007_Projects -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

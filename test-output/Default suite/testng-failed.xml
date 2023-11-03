@@ -3,23 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.DMS.testCases.TC_012_ConfigureExam">
+      <class name="com.DMS.testCases.TC_007_Projects">
         <methods>
-          <include name="userAddition"/>
-          <include name="employeeDeletion"/>
-          <include name="editQuestion"/>
+          <include name="signDocument"/>
+          <include name="docDeletDocument"/>
+          <include name="addSignersToTheDocument"/>
           <include name="setup"/>
-          <include name="createQuestion"/>
-          <include name="configureExam"/>
-          <include name="examConfiguration"/>
-          <include name="deleteQuestion"/>
-          <include name="delDocument"/>
-          <include name="viewTest"/>
-          <include name="editTest"/>
-          <include name="addDocument"/>
-          <include name="examNameSearchValidation"/>
+          <include name="docShareDocument"/>
+          <include name="docArchiveDocument"/>
+          <include name="addSigners_Document"/>
+          <include name="docPermissionDocument"/>
+          <include name="docDownload_Print"/>
+          <include name="docUploadDocument"/>
+          <include name="docEditDocument"/>
+          <include name="addNewVersion_Doc"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_012_ConfigureExam -->
+      </class> <!-- com.DMS.testCases.TC_007_Projects -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

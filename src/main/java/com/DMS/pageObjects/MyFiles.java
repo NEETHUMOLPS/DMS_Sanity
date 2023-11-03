@@ -31,9 +31,7 @@ public class MyFiles extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//MyFiles menu
-	@FindBy(xpath="//span[normalize-space()='Dashboard']")
-	WebElement dashboardMenu;
-	@FindBy(xpath="//b[normalize-space()='My Files']")
+	@FindBy(xpath="//nav[@id='mobilemenu']/div/ul/li[3]/a/img")
 	WebElement myFiles;
 	
 	//Folder Creation
@@ -148,6 +146,119 @@ public class MyFiles extends AbstractComponent{
 		@FindBy(xpath="//div[contains(text(),'Archive')]")
 		WebElement archiveDoc;
 		
+		@FindBy(xpath="//input[@id='flexCheckDefault']")
+		WebElement addSigners;
+		@FindBy(xpath="//table[@class='table table-striped table-bordered dataTables']//td[1]")
+		WebElement signingOrder;
+		@FindBy(xpath="//table[@class='table table-striped table-bordered dataTables']//td[2]")
+		WebElement bookMark;
+		@FindBy(id="//table[@class='table table-striped table-bordered dataTables']//td[3]")
+		WebElement user;
+		
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[1]/td[3]/select[1]")
+		WebElement select1;
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[2]/td[3]/select[1]")
+		WebElement select2;
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[3]/td[3]/select[1]")
+		WebElement select3;
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[4]/td[3]/select[1]")
+		WebElement select4;
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[5]/td[3]/select[1]")
+		WebElement select5;
+		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[6]/td[3]/select[1]")
+		WebElement select6;
+		
+		//Open document - add signers
+		@FindBy(xpath="(//img[@alt='create version'])[1]")
+		WebElement addSignersUpdate;
+		@FindBy(xpath="(//img[@alt='create version'])[2]")
+		WebElement approvals;
+		@FindBy(xpath="(//img[@alt='create version'])[3]")
+		WebElement signDocument;
+		@FindBy(xpath="(//img[@alt='Edit document'])[1]")
+		WebElement download;
+		@FindBy(xpath="(//img[@alt='Edit document'])[2]")
+		WebElement print;
+		@FindBy(xpath="//div[@class='position-relative my-0 py-0 align-self-center']//img[@alt='create version']")
+		WebElement addNewVersion;
+		
+		@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[1]")
+		WebElement user1;
+		@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[2]")
+		WebElement user2;
+		@FindBy(xpath="(//select[@aria-label='.form-select-lg example'])[3]")
+		WebElement user3;
+		@FindBy(xpath="//button[normalize-space()='Submit']")
+		WebElement submit;
+		
+		@FindBy(xpath="//input[@placeholder='Email']")
+		WebElement email;
+		@FindBy(xpath="//input[@id='templatePassword']")
+		WebElement password;
+		@FindBy(xpath="//select[@id='reasons']")
+		WebElement reason;
+		@FindBy(xpath="//span[contains(text(),'Submit')]")
+		WebElement submitSignDocument;
+		
+		
+		
+		
+		public void download() throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			download.click();
+			Thread.sleep(4000);			
+		}
+		
+		public void print() throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			print.click();
+			Thread.sleep(10000);			
+		}
+		
+		
+		public void addSigners(String user) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			addSignersUpdate.click();
+			Thread.sleep(4000);	
+			Select os = new Select(user3);
+			os.selectByVisibleText(user);
+			Thread.sleep(2000);
+			submit.click();
+			Thread.sleep(2000);			
+		}
+		
+		public void addNewVersion(String title,String ver) throws InterruptedException
+		{		
+			Thread.sleep(2000);	
+			addNewVersion.click();
+			Thread.sleep(3000);	
+			docTitle.clear();
+			Thread.sleep(3000);	
+			docTitle.sendKeys(title);
+			Thread.sleep(2000);	
+			docversion.sendKeys(ver);
+			Thread.sleep(2000);	
+		}
+		
+		public void signDocument(String em,String pwd,String rs) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			signDocument.click();
+			Thread.sleep(2000);	
+			email.sendKeys(em);
+			Thread.sleep(2000);
+			password.sendKeys(pwd);
+			Thread.sleep(2000);	
+			Select os = new Select(reason);
+			os.selectByVisibleText(rs);
+			Thread.sleep(2000);	
+			submitSignDocument.click();
+			Thread.sleep(2000);			
+		}
+		
 		public void clickOnMyFiles() throws InterruptedException
 		{		
 			Thread.sleep(3000);
@@ -232,6 +343,36 @@ public class MyFiles extends AbstractComponent{
 				wait1.until(ExpectedConditions.alertIsPresent());
 				Alert alert1 = driver.switchTo().alert();
 				Assert.assertTrue(alert1.getText().contains("Folder shared successfully"));
+				alert1.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}		
+		}
+		
+		public static boolean signAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Signature added successfully"));
+				alert1.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}		
+		}
+		
+		public static boolean addSignersAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Signers updated successfully"));
 				alert1.accept();
 				return true;
 			} catch (NoAlertPresentException e) {
@@ -354,6 +495,21 @@ public class MyFiles extends AbstractComponent{
 			}	
 		}
 		
+		public static boolean uploadDocAlert1() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Document saved successfully"));
+				alert1.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
+		
 		public boolean clickOnKebabMenu2(String pname) throws InterruptedException
 		{
 			Thread.sleep(3000);
@@ -399,6 +555,7 @@ public class MyFiles extends AbstractComponent{
 			createDocIcon.click();
 			Thread.sleep(3000);
 		}
+		
 		public void fillDocument(String dtitle,String downer, String ver) throws InterruptedException
 		{
 			Thread.sleep(3000);	
@@ -411,6 +568,36 @@ public class MyFiles extends AbstractComponent{
 			Thread.sleep(2000);
 			//JavascriptExecutor jse = (JavascriptExecutor)driver;
 			//jse.executeScript("window.scrollBy(0,300)");
+			Thread.sleep(1000);
+			addSigners.click();
+			Thread.sleep(1000);
+			
+		}
+		
+		public void fillDocument_addSigners(String dtitle,String downer, String ver,String type,String name1,String name2,String name3) throws InterruptedException
+		{
+			Thread.sleep(3000);	
+			docTitle.sendKeys(dtitle);
+			Thread.sleep(3000);
+			Select sel=new Select(docowner);
+			sel.selectByVisibleText(downer);	
+			Thread.sleep(2000);
+			Select sel1=new Select(doctype);
+			sel1.selectByVisibleText(type);	
+			docversion.sendKeys(ver);
+			Thread.sleep(2000);
+			//JavascriptExecutor jse = (JavascriptExecutor)driver;
+			//jse.executeScript("window.scrollBy(0,300)");
+			addSigners.click();
+			Thread.sleep(1000);
+			Select sel2=new Select(select1);
+			sel2.selectByVisibleText(name1);
+			Thread.sleep(1000);
+			Select sel3=new Select(select2);
+			sel3.selectByVisibleText(name2);
+			Thread.sleep(1000);
+			Select sel4=new Select(select3);
+			sel4.selectByVisibleText(name3);
 			Thread.sleep(1000);
 		}
 		
@@ -453,6 +640,23 @@ public class MyFiles extends AbstractComponent{
 				if(dname.contains(docname))
 				{
 					documentoptions.get(i).click();
+					Thread.sleep(1000);
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public boolean selDoc(String docname) throws InterruptedException
+		{
+			Thread.sleep(3000);
+			
+			for(int i=0;i<documents.size();i++)
+			{
+				String dname=documents.get(i).getText();
+				if(dname.contains(docname))
+				{
+					documents.get(i).click();
 					Thread.sleep(1000);
 					return true;
 				}

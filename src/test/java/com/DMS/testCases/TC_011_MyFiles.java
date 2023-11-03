@@ -60,9 +60,9 @@ public class TC_011_MyFiles extends BaseClassTest {
 	public void MainFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("F5");
+		mf.FolderCreation("F6");
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("F5");
+		mf.clickOnKebabMenu2("F6");
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
@@ -137,8 +137,8 @@ public class TC_011_MyFiles extends BaseClassTest {
 	public void SubFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.selFolder2("Fold7");
-		mf.clickOnKebabMenu2("Fold7");
+		mf.selFolder2("Fold8");
+		mf.clickOnKebabMenu2("Fold8");
 		Thread.sleep(2000);
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
@@ -208,5 +208,58 @@ public class TC_011_MyFiles extends BaseClassTest {
 		mf.archiveDoc();
 		mf.archiveDocAlert();
 	}
+	
+	@Test(priority=19) 
+	public void addSignersToTheDocument() throws Exception
+	{
+		MyFiles mf = new MyFiles(driver);
+		//mf.selFolder2("Fold3");//
+		mf.createDocumentIcon();
+		mf.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
+		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		mf.uploadDocAlert();
+		Thread.sleep(1000);
+	}
+	
+	@Test(priority=20)
+	public void addSigners_Document() throws Exception
+	{
+		MyFiles mf = new MyFiles(driver);
+		mf.selDoc("UAT EIDSA - E-Consent 1.docx");
+		mf.addSigners("Neethur R");
+		mf.addSignersAlert();
+	}
+	
+	@Test(priority=21)
+	public void signDocument() throws Exception
+	{
+		MyFiles mf = new MyFiles(driver);
+		mf.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		mf.signAlert();
+		Thread.sleep(10000);
+	}
+
+	
+	@Test(priority=22)
+	public void addNewVersion() throws Exception
+	{
+		MyFiles mf = new MyFiles(driver);
+		Thread.sleep(10000);
+		mf.addNewVersion("D2", "V1.2");
+		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		mf.uploadDocAlert1();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-300)");
+	}
+	
+	@Test(priority=23)
+	public void docDownload_Print() throws Exception
+	{
+		MyFiles mf = new MyFiles(driver);
+		mf.download();
+		//mf.print();
+		driver.close();
+	}
+	
 
 }
