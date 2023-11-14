@@ -27,9 +27,9 @@ public class ConfigureExam extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Configure Exam menu
-	@FindBy(xpath="//span[normalize-space()='Dashboard']")
-	WebElement dashboardMenu;
-	@FindBy(xpath="//b[normalize-space()='Configure Exam']")
+	@FindBy(xpath="(//img[@alt='projects menu'])[2]")
+	WebElement training;
+	@FindBy(xpath="//b[normalize-space()='Config Online Test']")
 	WebElement configureExam;
 	
 	//Search
@@ -89,6 +89,8 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement user5;
 	@FindBy(xpath="//button[contains(text(),'Submit')]")
 	WebElement submit;
+	@FindBy(xpath="//button[normalize-space()='Clear']")
+	WebElement clearTest;
 	
 	//Edit test
 	@FindBy(xpath="//button[normalize-space()='Submit']")
@@ -112,6 +114,8 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement users3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div[2]/button[2]")
 	WebElement save;
+	@FindBy(xpath="//button[normalize-space()='Reset']")
+	WebElement reset1;
 	
 	//Users list
 	@FindBy(xpath="//td[1]")
@@ -141,12 +145,14 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement question1;
 	@FindBy(xpath="//input[@placeholder='options']")
 	WebElement options;
-	@FindBy(xpath="//input[@value='UserDto.option']")
+	@FindBy(xpath="(//input[@value='UserDto.option'])[1]")
 	WebElement setAns;
 	@FindBy(xpath="//button[normalize-space()='+ Add']")
 	WebElement add;//setAns.click();
 	@FindBy(xpath="//button[normalize-space()='Save']")
 	WebElement save1;
+	@FindBy(xpath="//button[normalize-space()='Reset']")
+	WebElement reset2;
 	
 	//Web table questions
 	@FindBy(xpath="//td[1]")
@@ -174,13 +180,13 @@ public class ConfigureExam extends AbstractComponent{
 	WebElement addDocument;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div/div")
 	WebElement type1;
-	@FindBy(id="multiselect-option-ac67b082-fa6d-4795-b326-6eed333bc7b2")
+	@FindBy(xpath="//li[@id='multiselect-option-fac89807-60db-4eda-b8a0-f1282132a5a5']")
 	WebElement type2;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div/div/span[2]")
 	WebElement type3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div")
 	WebElement doc1;
-	@FindBy(id="multiselect-option-9e356ff5-547c-4a94-8d2f-ef932b87ac07")
+	@FindBy(xpath="//li[@id='multiselect-option-0bddb2c1-9dbb-4d33-9d5e-a198425861e2']")
 	WebElement doc2;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div/span[2]")
 	WebElement doc3;
@@ -195,8 +201,10 @@ public class ConfigureExam extends AbstractComponent{
 	@FindBy(xpath="//td[3]")
 	List<WebElement> actions2;
 	
-	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[2]/div[1]")
+	@FindBy(xpath="//div[@id='tab-3']//table[@class='table table-bordered']//i[1]")
 	WebElement delete2;
+	@FindBy(xpath="(//div[contains(text(),'Delete')])[2]")
+	WebElement delete2a;
 	
 	//Configure exam
 	@FindBy(xpath="//button[normalize-space()='Clear']")
@@ -207,7 +215,7 @@ public class ConfigureExam extends AbstractComponent{
 	public void clickOnConfigExam() throws InterruptedException
 	{		
 		Thread.sleep(2000);
-		dashboardMenu.click();
+		training.click();
 		Thread.sleep(2000);
 		configureExam.click();
 		Thread.sleep(2000);;
@@ -289,7 +297,8 @@ public class ConfigureExam extends AbstractComponent{
 	}
 	
 	public void referenceDocuments() throws InterruptedException
-	{		
+	{	
+		elementWait(referenceDocuments);
 		Thread.sleep(2000);
 		referenceDocuments.click();
 		Thread.sleep(2000);
@@ -328,10 +337,16 @@ public class ConfigureExam extends AbstractComponent{
 	}
 	
 	public void deleteDoc() throws InterruptedException
-	{		
-		Thread.sleep(2000);
+	{	
+		Thread.sleep(3000);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)");
+		elementWait(delete2);
+		Thread.sleep(3000);
 		delete2.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		delete2a.click();
+		Thread.sleep(3000);;
 	}
 	
 	
@@ -608,8 +623,6 @@ public class ConfigureExam extends AbstractComponent{
 
 	public void configureExam(String name,String no,String per,String date,String sup) throws InterruptedException
 	{		
-		Thread.sleep(2000);
-		configureExam.click();
 		Thread.sleep(2000);
 		createTest.click();
 		Thread.sleep(2000);

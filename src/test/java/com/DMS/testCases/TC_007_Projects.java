@@ -16,7 +16,7 @@ import Base.BaseClassTest;
 
 public class TC_007_Projects extends BaseClassTest {
 
-/*	@Test(priority=1)
+	@Test(priority=1)
 	public void createProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -320,8 +320,6 @@ public class TC_007_Projects extends BaseClassTest {
 	public void addSignersToTheDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnProjectMenu();//
-		pp.selProject("PROJECT1");//
 		pp.selFolder2("Folder3");
 		pp.createDocumentIcon();
 		pp.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
@@ -532,15 +530,12 @@ public class TC_007_Projects extends BaseClassTest {
 		Thread.sleep(2000);
 		pp.archiveFolder();
 		pp.archiveFolderAlert();
-	}*/
+	}
 	
 	@Test(priority=50)
 	public void devUploadDocument_SubmitAndSign() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnProjectMenu();//
-		pp.selProject("PROJECT1");//
-		pp.clickOnDevelopment();//
 		pp.selFolder2("F3");
 		pp.fillDocument_submitAndSign("Unit Test", "T1", "M1", "S1", "Neethumol P S", "Neethumol P S", "Neethumol P S", "A1", "neethumolp@datamatica.uk", "Neethu@12345", "Confirmation");
 		pp.documentGenerationAlert_sumbmitAndSign();
@@ -637,7 +632,7 @@ public class TC_007_Projects extends BaseClassTest {
 	}
 	
 	@Test(priority=57)
-	public void addNewVersion_deleteDocument() throws Exception
+	public void addNewVersion_Document() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.selFolder2("F3");
@@ -665,7 +660,7 @@ public class TC_007_Projects extends BaseClassTest {
 		
 	}
 	
-	/*@Test(priority=59)
+	@Test(priority=59)
 	public void archiveProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -684,5 +679,5 @@ public class TC_007_Projects extends BaseClassTest {
 		pp.clickOnKebabMenu1("PROJECT2");
 		pp.archiveProject();
 		pp.archiveProjectAlert();	
-	}*/
+	}
 }

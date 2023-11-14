@@ -19,7 +19,8 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void configureExam() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.configureExam("Auto05", "10", "50", "23-11-2023", "Neethumol P S");
+		ce.clickOnConfigExam();
+		ce.configureExam("Auto20", "10", "50", "23-11-2023", "Neethumol P S");
 		ce.examConfigurationAlert();
 	}
 	
@@ -99,7 +100,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,300)");
+		jse.executeScript("window.scrollBy(0,-300)");
 		ce.referenceDocuments();
 		ce.referenceDocumentAlert();
 	}
@@ -126,9 +127,9 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void examNameSearchValidation() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.nameSearch("IT - 12");		
+		ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
-		Assert.assertTrue(ce.nameValidation("IT - 12"));
+		Assert.assertTrue(ce.nameValidation("Auto20"));
 		logger.info("Exam name search functionality verified");	
 		driver.navigate().refresh();
 	}
@@ -137,9 +138,9 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void editTest() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.nameSearch("IT - 12");		
+		//ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
-		ce.editTest1("IT - 12");
+		ce.editTest1("Auto20");
 		ce.editTest2();
 		ce.examConfigurationUpdationAlert();
 		ce.clickOnConfigExam();	
@@ -149,9 +150,9 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	public void viewTest() throws IOException, InterruptedException
 	{
 		ConfigureExam ce = new ConfigureExam(driver);
-		ce.nameSearch("IT - 12");		
+		//ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
-		ce.viewTest1("IT - 12");
+		ce.viewTest1("Auto20");
 		driver.navigate().refresh();
 	}
 	

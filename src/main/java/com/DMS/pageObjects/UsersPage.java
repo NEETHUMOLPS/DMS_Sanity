@@ -24,7 +24,9 @@ public class UsersPage extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Users menu
-	@FindBy(xpath="//img[@alt='users menu']")
+	@FindBy(xpath="//a[@href='/administration']//img[@alt='projects menu']")
+	WebElement administration;	
+	@FindBy(xpath="//b[normalize-space()='Users']")
 	WebElement usersMenu;
 	
 	//Web table
@@ -39,12 +41,10 @@ public class UsersPage extends AbstractComponent{
 	@FindBy(xpath="//td[5]")
 	List<WebElement> CreatedDate;
 	@FindBy(xpath="//td[6]")
-	List<WebElement> SOPs;
-	@FindBy(xpath="//td[7]")
 	List<WebElement> Active;
-	@FindBy(xpath="//td[8]")
+	@FindBy(xpath="//td[7]")
 	List<WebElement> Edit;
-	@FindBy(xpath="//td[9]")
+	@FindBy(xpath="//td[8]")
 	List<WebElement> Delete;
 	
 	//Search
@@ -80,7 +80,7 @@ public class UsersPage extends AbstractComponent{
 	WebElement department1;
 	@FindBy(xpath="//li[@aria-label='QA']")
 	WebElement department2a;
-	@FindBy(xpath="//li[@aria-label='AD2']")
+	@FindBy(xpath="//li[@aria-label='AD7']")
 	WebElement department2b;
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[8]/div[1]/div[1]/span[2]")
 	WebElement department3;
@@ -101,25 +101,12 @@ public class UsersPage extends AbstractComponent{
 	@FindBy(xpath="//button[contains(text(),'Save')]")
 	WebElement save;
 	
-	//SOPs
-	@FindBy(xpath="//label[contains(text(),'Trainer')]//following-sibling::select")
-	WebElement trainer;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[4]/input[1]")
-	WebElement startDate;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[5]/input[1]")
-	WebElement endDate;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]")
-	WebElement SOP1;
-	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/ul[1]/li[1]")
-	WebElement SOP2;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/span[2]")
-	WebElement SOP3;
-	@FindBy(xpath="//button[contains(text(),'Save')]")
-	WebElement saveSOP;
 	
 	
 	public void clickUsers() throws InterruptedException
 	{		
+		Thread.sleep(3000);
+		administration.click();
 		Thread.sleep(3000);
 		usersMenu.click();
 		Thread.sleep(3000);		
@@ -167,20 +154,6 @@ public class UsersPage extends AbstractComponent{
 		}		
 	}
 	
-	public static boolean SOPAlert() throws InterruptedException
-	{
-		try
-		{
-			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-			wait1.until(ExpectedConditions.alertIsPresent());
-			Alert alert1 = driver.switchTo().alert();
-			Assert.assertTrue(alert1.getText().contains("Invited successfully"));
-			alert1.accept();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
-		}	
-	}
 	
 	public static boolean editAlert() throws InterruptedException
 	{
@@ -218,19 +191,6 @@ public class UsersPage extends AbstractComponent{
 		}	
 	}
 	
-	public void SOPSelection(String name) throws InterruptedException
-	{
-		for(int i=0;i<Name.size();i++)
-		{
-			String text=Name.get(i).getText();
-			if(text.equals(name))
-			{
-				SOPs.get(i).click();
-				Thread.sleep(2000);
-				break;	
-			}
-		}
-	}
 	
 	public void edit(String name) throws InterruptedException
 	{
@@ -292,24 +252,6 @@ public class UsersPage extends AbstractComponent{
 		
 	}
 	
-	public void addSOP(String sdate,String edate) throws InterruptedException
-	{
-		Thread.sleep(2000);
-		Select os = new Select(trainer);
-		os.selectByVisibleText("Neethu Tester");
-		Thread.sleep(2000);
-		SOP1.click();
-		Thread.sleep(2000);
-		SOP2.click();
-		Thread.sleep(2000);
-		SOP3.click();
-		Thread.sleep(2000);
-		startDate.sendKeys(sdate);
-		Thread.sleep(2000);
-		endDate.sendKeys(edate);
-		Thread.sleep(2000);
-		save.click();
-	}
 	
 	public void edituser1(String eName) throws InterruptedException
 	{

@@ -21,18 +21,8 @@ public class TC_005_Users extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=2)
-	public void SOPs() throws IOException, InterruptedException
-	{		
-		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethu");
-		up.SOPSelection("Neethu G");
-		up.addSOP("12-10-2023", "12-10-2023");
-		up.SOPAlert();
-		driver.navigate().refresh();
-	}
 	
-	@Test(priority=3)
+	@Test(priority=2)
 	public void edit() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
@@ -43,7 +33,7 @@ public class TC_005_Users extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=3)
 	public void nameSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
@@ -54,7 +44,7 @@ public class TC_005_Users extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=4)
 	public void designationSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
@@ -65,7 +55,7 @@ public class TC_005_Users extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=6)
+	@Test(priority=5)
 	public void departmentSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
@@ -76,7 +66,7 @@ public class TC_005_Users extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=7)
+	@Test(priority=6)
 	public void delete() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);

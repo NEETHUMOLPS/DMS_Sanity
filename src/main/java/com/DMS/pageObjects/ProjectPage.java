@@ -735,8 +735,8 @@ public class ProjectPage extends AbstractComponent{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,1500)");
 		Thread.sleep(2000);
-		elementWait(submit);
-		submit.click();
+		elementWait(submitAndSign);
+		submitAndSign.click();
 		Thread.sleep(3000);
 		email.sendKeys(em);
 		Thread.sleep(2000);

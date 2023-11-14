@@ -2,6 +2,7 @@ package com.DMS.testCases;
 
 import java.io.IOException;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import com.DMS.pageObjects.Departments;
@@ -16,7 +17,7 @@ public class TC_008_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		dp.clickOnDepartment();
-		dp.createDepartment("AD2");
+		dp.createDepartment("AD6");
 		dp.departmentCreationAlert();
 	}
 	
@@ -26,21 +27,21 @@ public class TC_008_Departments extends BaseClassTest {
 		Departments dp = new Departments(driver);
 		UsersPage up = new UsersPage(driver);
 		up.clickUsers();
-		up.nameSearch("Neethumol");
+		up.nameSearch("Neethumol P S");
 		Thread.sleep(2000);
 		up.edit("Neethumol P S");
 		Thread.sleep(2000);
 		up.edituser2();
 		up.editAlert();
 		Thread.sleep(2000);
-		up.nameSearch("Neethug");
+		up.nameSearch("Neethug G");
 		Thread.sleep(2000);
 		up.edit("Neethug G");
 		Thread.sleep(2000);
 		up.edituser2();
 		up.editAlert();
 		Thread.sleep(2000);
-		up.nameSearch("Neethur");
+		up.nameSearch("Neethur R");
 		Thread.sleep(2000);
 		up.edit("Neethur R");
 		Thread.sleep(2000);
@@ -54,8 +55,8 @@ public class TC_008_Departments extends BaseClassTest {
 	public void subDepartmentCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD2");
-		dp.createDepartment("AD2c");
+		dp.selDepartment("AD6");
+		dp.createDepartment("AD6c");
 		dp.departmentCreationAlert();
 		driver.navigate().refresh();		
 	}
@@ -64,7 +65,7 @@ public class TC_008_Departments extends BaseClassTest {
 	public void mainFolderCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD2");
+		dp.selDepartment("AD6");
 		dp.FolderCreation("Fol1");
 		dp.FolderCreationAlert();	
 	}
@@ -150,7 +151,7 @@ public class TC_008_Departments extends BaseClassTest {
 	public void SubFolderEdit() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD2");
+		dp.selDepartment("AD6");
 		dp.selFolder2("Fold3");
 		Thread.sleep(2000);
 		dp.selFolder2("Fold5");
@@ -276,5 +277,66 @@ public class TC_008_Departments extends BaseClassTest {
 		dp.archiveDocAlert();
 		driver.navigate().refresh();
 	}
+	
+	@Test(priority=24) 
+	public void addSignersToTheDocument() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.selFolder2("Fold3");
+		dp.createDocumentIcon();
+		dp.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
+		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		dp.uploadDocAlert();
+		Thread.sleep(1000);
+	}
+	
+	@Test(priority=25)
+	public void addSigners_Document() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.selDoc("UAT EIDSA - E-Consent 1.docx");
+		dp.addSigners("Neethur R");
+		dp.addSignersAlert();
+	}
+	
+	@Test(priority=26)
+	public void signDocument() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		dp.signAlert();
+		Thread.sleep(10000);
+	}
+	
+	@Test(priority=27)
+	public void approvalDoc() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.documentApprovalDoc("Quality Analyst");
+		dp.documentApprovalAlert();
+		Thread.sleep(1000);
+	}
+
+	
+	@Test(priority=28)
+	public void addNewVersion_Doc() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		Thread.sleep(10000);
+		dp.addNewVersion("D2", "V1.2");
+		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		dp.uploadDocAlert1();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-300)");
+	}
+	
+	@Test(priority=29)
+	public void docDownload_Print() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.download();
+		//pp.print();
+	}
+	
 
 }
