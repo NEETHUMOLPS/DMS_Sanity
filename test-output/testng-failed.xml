@@ -10,7 +10,7 @@
       <class name="com.DMS.testCases.TC_TrainingPlan">
         <methods>
           <include name="setup"/>
-          <include name="plannedDateSearch_MyTrainingPlan"/>
+          <include name="sign_TrainingPlanForApproval"/>
         </methods>
       </class> <!-- com.DMS.testCases.TC_TrainingPlan -->
     </classes>

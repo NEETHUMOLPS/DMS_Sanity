@@ -122,6 +122,9 @@ public class TrainingPlan extends AbstractComponent{
 	@FindBy(xpath="(//span[@type='button'][normalize-space()='Clear'])[2]")
 	WebElement clearData2;
 	
+	
+	@FindBy(xpath="(//button[@class='btn btn-outline btn-success px-4 py-0'])[1]")
+	WebElement sign;
 	@FindBy(xpath="//input[@id='email']")
 	WebElement email1;
 	@FindBy(xpath="//input[@id='password']")
@@ -172,7 +175,7 @@ public class TrainingPlan extends AbstractComponent{
 	@FindBy(xpath="//div[@id='tab-3']//div[@class='form-table-view-container']//td[2]")
 	List<WebElement> skills3;
 	@FindBy(xpath="//div[@id='tab-3']//div[@class='form-table-view-container']//td[3]")
-	List<WebElement> details3;
+	List<WebElement> trainingdetails3;
 	@FindBy(xpath="//div[@id='tab-3']//div[@class='form-table-view-container']//td[4]")
 	List<WebElement> activities3;
 	@FindBy(xpath="//div[@id='tab-3']//div[@class='form-table-view-container']//td[5]")
@@ -222,7 +225,7 @@ public class TrainingPlan extends AbstractComponent{
 	
 	@FindBy(xpath="//div[contains(text(),'Edit')]")
 	WebElement edit3;
-	@FindBy(xpath="//div[contains(text(),'Delete')]")
+	@FindBy(xpath="(//div[normalize-space()='Delete'])[1]")
 	WebElement delete3;
 
 	
@@ -280,6 +283,91 @@ public class TrainingPlan extends AbstractComponent{
 		searchData3.click();
 		Thread.sleep(2000);
 		
+	}
+	
+	public void edit1_AddTrainingPlan(String skills) throws InterruptedException
+	{
+		for(int i=0;i<skills3.size();i++)
+		{
+			String text=skills3.get(i).getText();
+			if(text.equals(skills))
+			{
+				Thread.sleep(5000);
+				actions3.get(i).click();	
+				Thread.sleep(3000);			
+				break;	
+			}
+		}
+	}
+	
+	public void edit2_AddTrainingPlan(String dt) throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		edit3.click();
+		Thread.sleep(2000);
+		details4.sendKeys(dt);
+		Thread.sleep(2000);
+		save4.click();
+		Thread.sleep(2000);
+	}
+	
+	public static boolean editTrainingPlanAlert_AddTrainingPlan() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Training plan updated successfully."));
+			alert1.accept();
+			Thread.sleep(2000);
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
+	public void delete1_AddTrainingPlan(String skills) throws InterruptedException
+	{
+		for(int i=0;i<skills3.size();i++)
+		{
+			String text=skills3.get(i).getText();
+			if(text.equals(skills))
+			{
+				Thread.sleep(5000);
+				actions3.get(i).click();	
+				Thread.sleep(3000);			
+				break;	
+			}
+		}
+	}
+	
+	public void delete2_AddTrainingPlan() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		delete3.click();
+		Thread.sleep(2000);
+	}
+	
+	public static boolean deleteTrainingPlanAlert_AddTrainingPlan() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to delete this training plan?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Deleted successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
 	}
 	
 	public void clickOnTrainingPlan() throws InterruptedException
