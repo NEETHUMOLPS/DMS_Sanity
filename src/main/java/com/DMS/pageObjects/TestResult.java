@@ -27,10 +27,10 @@ public class TestResult extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Configure Exam menu
-	@FindBy(xpath="//span[normalize-space()='Dashboard']")
-	WebElement dashboardMenu;
-	@FindBy(xpath="//b[normalize-space()='Exam Evidence']")
-	WebElement examEvidence;
+	@FindBy(xpath="(//img[@alt='projects menu'])[2]")
+	WebElement training;
+	@FindBy(xpath="//b[normalize-space()='Test Result']")
+	WebElement testResult;
 	
 	//initiator
 	@FindBy(xpath="//a[@id='Initiator']")
@@ -84,7 +84,7 @@ public class TestResult extends AbstractComponent{
 	@FindBy(xpath="//div[@id='tab-2']//span[@type='button'][normalize-space()='Search']")
 	WebElement search2;
 	
-	//Initiator web table
+	//Supervisor web table
 	@FindBy(xpath="//td[1]")
 	List<WebElement> employee2;
 	@FindBy(xpath="//td[2]")
@@ -101,6 +101,9 @@ public class TestResult extends AbstractComponent{
 	List<WebElement> view2;
 	@FindBy(xpath="//td[8]")
 	List<WebElement> retest2;
+	
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[7]/i[1]")
+	WebElement view2a;
 	
 	//Employee
 	@FindBy(xpath="//a[@id='Employee']")
@@ -161,28 +164,35 @@ public class TestResult extends AbstractComponent{
 	WebElement submit1;
 	
 	
-	public void clickOnExamEvidence1() throws InterruptedException
+	public void clickOnTestResult1() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		examEvidence.click();
+		testResult.click();
 		Thread.sleep(2000);
 	}
 	
-	public void clickOnExamEvidence2() throws InterruptedException
+	public void clickOnView_Supervisor() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		dashboardMenu.click();
-		Thread.sleep(2000);
-		examEvidence.click();
+		view2a.click();
 		Thread.sleep(2000);
 	}
 	
-	public void clickOnExamEvidence3() throws InterruptedException
+	public void clickOnTestResult2() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		dashboardMenu.click();
+		training.click();
 		Thread.sleep(2000);
-		examEvidence.click();
+		testResult.click();
+		Thread.sleep(2000);
+	}
+	
+	public void clickOnTestResult3() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		training.click();
+		Thread.sleep(2000);
+		testResult.click();
 		Thread.sleep(2000);
 		supervisor.click();
 		Thread.sleep(2000);
@@ -648,6 +658,7 @@ public class TestResult extends AbstractComponent{
 		JavascriptExecutor jse3 = (JavascriptExecutor)driver;
 		jse3.executeScript("window.scrollBy(0,2000)");
 		Thread.sleep(3000);
+		elementWait(submit1);
 		submit1.click();
 		Thread.sleep(2000);
 	}

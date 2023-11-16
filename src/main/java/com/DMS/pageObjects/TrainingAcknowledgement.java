@@ -26,37 +26,36 @@ public class TrainingAcknowledgement extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	
-	//Dashboard menu
-	@FindBy(xpath="//span[contains(text(),'Dashboard')]")
-	WebElement dashboard;
+	//Training acknowledgement menu
+	@FindBy(xpath="(//img[@alt='projects menu'])[2]")
+	WebElement training;
+	@FindBy(xpath="//b[normalize-space()='Training Acknowledgement']")
+	WebElement trainingAcknowledgement;
 	
-	//Approvals  menu
-	@FindBy(xpath="//b[contains(text(),'SOP Library')]")
-	WebElement sopLibrary;
-	@FindBy(xpath="//a[contains(text(),'Trainee SOPs')]")
-	WebElement traineeSOP;
-	@FindBy(xpath="//a[contains(text(),'SOPs for verification')]")
-	WebElement sopForVerification;
-	@FindBy(xpath="//a[contains(text(),'Initiator SOPs')]")
-	WebElement initiatorSOP;
+	@FindBy(xpath="//a[normalize-space()='My Training']")
+	WebElement myTraining;
+	@FindBy(xpath="//a[normalize-space()='Verification']")
+	WebElement verification;
+	@FindBy(xpath="//a[normalize-space()='Assign Training']")
+	WebElement assignTraining;
 	
-	//Web table
+	//My training
 	@FindBy(xpath="//td[1]")
-	List<WebElement> documentName1;
+	List<WebElement> trainingName1;
 	@FindBy(xpath="//td[2]")
 	List<WebElement> trainerName1;
 	@FindBy(xpath="//td[3]")
-	List<WebElement> startDate;
+	List<WebElement> startDate1;
 	@FindBy(xpath="//td[4]")
-	List<WebElement> endDate;
+	List<WebElement> endDate1;
 	@FindBy(xpath="//td[5]")
 	List<WebElement> status1;
 	@FindBy(xpath="//td[6]")
 	List<WebElement> view1;
 	
-	//Web table
+	//Verification
 	@FindBy(xpath="//td[1]")
-	List<WebElement> documentName2;
+	List<WebElement> trainingName2;
 	@FindBy(xpath="//td[2]")
 	List<WebElement> traineeName2;
 	@FindBy(xpath="//td[3]")
@@ -68,9 +67,9 @@ public class TrainingAcknowledgement extends AbstractComponent{
 	@FindBy(xpath="//td[6]")
 	List<WebElement> view2;
 	
-	//Web table
+	//Assign training
 	@FindBy(xpath="//td[1]")
-	List<WebElement> documentName3;
+	List<WebElement> trainingName3;
 	@FindBy(xpath="//td[2]")
 	List<WebElement> traineeName3;
 	@FindBy(xpath="//td[3]")
@@ -106,24 +105,33 @@ public class TrainingAcknowledgement extends AbstractComponent{
 	
 	
 	
-	public void clickOnDashboard() throws InterruptedException
+	public void clickOnTrainingAcknowledgement() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		dashboard.click();
+		training.click();
+		Thread.sleep(2000);
+		trainingAcknowledgement.click();
 		Thread.sleep(2000);
 	}
 	
-	public void clickOnsopForVerification() throws InterruptedException
+	public void clickOnMyTraining() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		sopForVerification.click();
+		myTraining.click();
 		Thread.sleep(2000);
 	}
 	
-	public void clickOninitiatorSOP() throws InterruptedException
+	public void clickOnVerification() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		initiatorSOP.click();
+		verification.click();
+		Thread.sleep(2000);
+	}
+	
+	public void clickOnAssignTraining() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		assignTraining.click();
 		Thread.sleep(2000);
 	}
 	
@@ -134,19 +142,13 @@ public class TrainingAcknowledgement extends AbstractComponent{
 		Thread.sleep(2000);
 	}
 	
-	public void clickOnSOPLibrary() throws InterruptedException
-	{
-		Thread.sleep(2000);
-		sopLibrary.click();
-		Thread.sleep(2000);
-	}
-	
 	public void sign_TraineeSop(String em,String pwd,String rs) throws InterruptedException
 	{
 		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(2000);
+		elementWait(agree1);
 		agree1.click();
 		Thread.sleep(2000);
 		sign1.click();
@@ -159,11 +161,18 @@ public class TrainingAcknowledgement extends AbstractComponent{
 		s.selectByVisibleText(rs);
 		Thread.sleep(2000);
 		submit1.click();
-		Thread.sleep(2000);
-		close1.click();
-		Thread.sleep(2000);		
+		Thread.sleep(2000);			
+	}
+	
+	public void clickOnTrainingAcknowledgement1() throws InterruptedException
+	{
 		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
-		jse1.executeScript("window.scrollBy(0,-500)");
+		jse1.executeScript("window.scrollBy(0,-800)");
+		Thread.sleep(2000);	
+		elementWait(training);
+		training.click();
+		Thread.sleep(2000);	
+		trainingAcknowledgement.click();
 		Thread.sleep(2000);	
 	}
 	
@@ -173,6 +182,7 @@ public class TrainingAcknowledgement extends AbstractComponent{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,700)");
 		Thread.sleep(2000);
+		elementWait(sign1);
 		sign1.click();
 		Thread.sleep(2000);
 		email1.sendKeys(em);

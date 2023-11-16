@@ -9,7 +9,7 @@
 <test name="DMS App Test">
 <parameter name="browser" value="chrome" />
 <classes>
-<class name="com.DMS.testCases.TC_018_ConfigProcessTraining"/>
+<class name="com.DMS.testCases.TC_016_TestResult"/>
 
 <!--  <methods>
                <include name="negativeTest6" />

@@ -12,7 +12,7 @@ import com.DMS.pageObjects.ConfigOnlineTest;
 
 import Base.BaseClassTest;
 import org.openqa.selenium.interactions.Actions;
-public class TC_015_ConfigureOnlineTest extends BaseClassTest {
+public class TC_015_ConfigOnlineTest extends BaseClassTest {
 
 	
 	@Test(priority=1)
