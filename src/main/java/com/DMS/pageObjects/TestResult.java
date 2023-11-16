@@ -18,9 +18,9 @@ import org.testng.Assert;
 
 import com.AbstractComponents.AbstractComponent;
 
-public class ExamEvidence extends AbstractComponent{
+public class TestResult extends AbstractComponent{
 	static WebDriver driver;
-	public ExamEvidence(WebDriver driver)
+	public TestResult(WebDriver driver)
 	{
 		super(driver);
 		this.driver=driver;

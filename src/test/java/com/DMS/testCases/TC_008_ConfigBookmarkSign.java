@@ -9,7 +9,7 @@ import com.DMS.pageObjects.ConfigBookmarkSign;
 
 import Base.BaseClassTest;
 
-public class TC_ConfigBookmarkSign extends BaseClassTest {
+public class TC_008_ConfigBookmarkSign extends BaseClassTest {
 
 	@Test(priority=1)
 	public void createDocumentType() throws IOException, InterruptedException

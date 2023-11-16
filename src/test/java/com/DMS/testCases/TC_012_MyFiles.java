@@ -8,7 +8,7 @@ import com.DMS.pageObjects.MyFiles;
 
 import Base.BaseClassTest;
 
-public class TC_011_MyFiles extends BaseClassTest {
+public class TC_012_MyFiles extends BaseClassTest {
 
 	
 	@Test(priority=1)

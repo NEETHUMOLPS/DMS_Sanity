@@ -8,17 +8,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-import com.DMS.pageObjects.ConfigureExam;
+import com.DMS.pageObjects.ConfigOnlineTest;
 
 import Base.BaseClassTest;
 import org.openqa.selenium.interactions.Actions;
-public class TC_012_ConfigureExam extends BaseClassTest {
+public class TC_015_ConfigureOnlineTest extends BaseClassTest {
 
 	
 	@Test(priority=1)
 	public void configureExam() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.clickOnConfigExam();
 		ce.configureExam("Auto20", "10", "50", "23-11-2023", "Neethumol P S");
 		ce.examConfigurationAlert();
@@ -27,7 +27,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=2)
 	public void userAddition() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.userAddition();
 		ce.userAdditionAlert();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -37,7 +37,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=3)
 	public void employeeDeletion() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.selEmployeeActions("Neethu Tester");
 		ce.employeeDeletion();
 		ce.employeeDeletionAlert();
@@ -46,7 +46,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=4)
 	public void createQuestion() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.createQuestion1();
 		ce.qusCreationAlert();
 		ce.createQuestion2();
@@ -75,7 +75,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=5)
 	public void editQuestion() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
 		jse1.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(5000);	
@@ -88,7 +88,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=6)
 	public void deleteQuestion() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		WebElement action = driver.findElement(By.xpath("//table[@class='table table-bordered question-table']//i"));
 		action.click();
 		ce.deleteQus();
@@ -98,7 +98,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=7)
 	public void addDocument() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");
 		ce.referenceDocuments();
@@ -108,7 +108,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=8)
 	public void delDocument() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.selDoc("sample doc");
 		ce.deleteDoc();
 		ce.deleteDocAlert();
@@ -117,7 +117,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=9)
 	public void examConfiguration() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.configExam();
 		ce.examConfigurationUpdateAlert();
 		ce.clickOnConfigExam();	
@@ -126,7 +126,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=10)
 	public void examNameSearchValidation() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
 		Assert.assertTrue(ce.nameValidation("Auto20"));
@@ -137,7 +137,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=11)
 	public void editTest() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		//ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
 		ce.editTest1("Auto20");
@@ -149,7 +149,7 @@ public class TC_012_ConfigureExam extends BaseClassTest {
 	@Test(priority=12)
 	public void viewTest() throws IOException, InterruptedException
 	{
-		ConfigureExam ce = new ConfigureExam(driver);
+		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		//ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
 		ce.viewTest1("Auto20");

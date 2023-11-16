@@ -9,7 +9,7 @@ import com.DMS.pageObjects.DesignationPage;
 
 import Base.BaseClassTest;
 
-public class TC_006_Designation extends BaseClassTest {
+public class TC_007_Designation extends BaseClassTest {
 
 	@Test(priority=1)
 	public void createDesignation() throws IOException, InterruptedException

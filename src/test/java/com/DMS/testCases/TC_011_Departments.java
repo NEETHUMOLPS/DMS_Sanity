@@ -10,7 +10,7 @@ import com.DMS.pageObjects.ProjectPage;
 import com.DMS.pageObjects.UsersPage;
 import Base.BaseClassTest;
 
-public class TC_008_Departments extends BaseClassTest {
+public class TC_011_Departments extends BaseClassTest {
 
 	@Test(priority=1)
 	public void createDepartment() throws IOException, InterruptedException

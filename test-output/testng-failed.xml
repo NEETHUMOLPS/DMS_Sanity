@@ -7,12 +7,13 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_TrainingPlan">
+      <class name="com.DMS.testCases.TC_018_ConfigProcessTraining">
         <methods>
+          <include name="designationSearchValidation"/>
           <include name="setup"/>
-          <include name="sign_TrainingPlanForApproval"/>
+          <include name="nameSearchValidation"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_TrainingPlan -->
+      </class> <!-- com.DMS.testCases.TC_018_ConfigProcessTraining -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

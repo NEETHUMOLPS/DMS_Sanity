@@ -14,7 +14,7 @@ import com.DMS.pageObjects.ProjectPage;
 
 import Base.BaseClassTest;
 
-public class TC_007_Projects extends BaseClassTest {
+public class TC_013_Projects extends BaseClassTest {
 
 	@Test(priority=1)
 	public void createProject() throws IOException, InterruptedException

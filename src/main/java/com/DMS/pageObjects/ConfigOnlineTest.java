@@ -18,9 +18,9 @@ import org.testng.Assert;
 
 import com.AbstractComponents.AbstractComponent;
 
-public class ConfigureExam extends AbstractComponent{
+public class ConfigOnlineTest extends AbstractComponent{
 	static WebDriver driver;
-	public ConfigureExam(WebDriver driver)
+	public ConfigOnlineTest(WebDriver driver)
 	{
 		super(driver);
 		this.driver=driver;

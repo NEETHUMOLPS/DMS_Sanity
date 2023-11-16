@@ -7,17 +7,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import com.DMS.pageObjects.SOPLibrary;
+import com.DMS.pageObjects.TrainingAcknowledgement;
 
 import Base.BaseClassTest;
 
-public class TC_015_SopLibrary extends BaseClassTest {
+public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 
 	
 	@Test(priority=1)
 	public void sign_TraineeSOP() throws IOException, InterruptedException
 	{
-		SOPLibrary sl = new SOPLibrary(driver);
+		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.clickOnSOPLibrary();
 		sl.selView1("Initiated");
 		Thread.sleep(2000);
@@ -29,7 +29,7 @@ public class TC_015_SopLibrary extends BaseClassTest {
 	@Test(priority=2)
 	public void downloadSignedDoc_Trainee() throws IOException, InterruptedException
 	{
-		SOPLibrary sl = new SOPLibrary(driver);
+		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.selView1("Approved");
 		Thread.sleep(5000);
 		sl.clickOnDownload1();		
@@ -40,7 +40,7 @@ public class TC_015_SopLibrary extends BaseClassTest {
 	@Test(priority=3)
 	public void sign_TrainerSOP() throws IOException, InterruptedException
 	{
-		SOPLibrary sl = new SOPLibrary(driver);
+		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.clickOnsopForVerification();
 		sl.selView2("Completed");
 		Thread.sleep(2000);
@@ -56,7 +56,7 @@ public class TC_015_SopLibrary extends BaseClassTest {
 	@Test(priority=4)
 	public void downloadSignedDoc_Trainer() throws IOException, InterruptedException
 	{
-		SOPLibrary sl = new SOPLibrary(driver);
+		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.clickOnsopForVerification();
 		sl.selView2("Approved");
 		Thread.sleep(5000);
@@ -68,7 +68,7 @@ public class TC_015_SopLibrary extends BaseClassTest {
 	@Test(priority=5)
 	public void initiatorSOP() throws IOException, InterruptedException
 	{
-		SOPLibrary sl = new SOPLibrary(driver);
+		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.clickOninitiatorSOP();
 		WebElement ele = driver.findElement(By.xpath("//tbody/tr[1]/td[7]/i[1]"));
 		ele.click();

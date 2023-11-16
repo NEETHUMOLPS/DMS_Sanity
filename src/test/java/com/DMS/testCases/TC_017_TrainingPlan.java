@@ -11,7 +11,7 @@ import com.DMS.pageObjects.TrainingPlan;
 
 import Base.BaseClassTest;
 
-public class TC_TrainingPlan  extends BaseClassTest {
+public class TC_017_TrainingPlan  extends BaseClassTest {
 
 	@Test(priority=1)
 	public void addTrainingPlan_MyTrainingPlan() throws IOException, InterruptedException

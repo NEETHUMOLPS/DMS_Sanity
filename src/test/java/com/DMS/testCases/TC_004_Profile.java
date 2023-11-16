@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import com.DMS.pageObjects.LoginPage;
 import com.DMS.pageObjects.Profile;
 
-public class TC_003_Profile extends BaseClass {
+public class TC_004_Profile extends BaseClass {
 
 	@Test(priority=1)
 	public void changePassword() throws IOException, InterruptedException

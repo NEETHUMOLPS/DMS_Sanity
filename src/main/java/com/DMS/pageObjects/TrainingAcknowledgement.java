@@ -17,9 +17,9 @@ import org.openqa.selenium.NoAlertPresentException;
 
 import com.AbstractComponents.AbstractComponent;
 
-public class SOPLibrary extends AbstractComponent{
+public class TrainingAcknowledgement extends AbstractComponent{
 	static WebDriver driver;
-	public SOPLibrary(WebDriver driver)
+	public TrainingAcknowledgement(WebDriver driver)
 	{
 		super(driver);
 		this.driver=driver;

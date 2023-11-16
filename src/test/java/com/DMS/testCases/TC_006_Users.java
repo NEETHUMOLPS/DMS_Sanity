@@ -9,7 +9,7 @@ import com.DMS.pageObjects.UsersPage;
 
 import Base.BaseClassTest;
 
-public class TC_005_Users extends BaseClassTest {
+public class TC_006_Users extends BaseClassTest {
 
 	@Test(priority=1)
 	public void usersPage() throws IOException, InterruptedException
