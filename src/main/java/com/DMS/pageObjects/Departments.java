@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -123,7 +123,7 @@ public class Departments extends AbstractComponent{
 	//Document screen
 	
 	@FindBy(xpath="(//img[@alt='create department'])[2]")
-	WebElement createDocIcon;	
+	WebElement addDocIcon;	
 	@FindBy(xpath="//label[contains(text(),'Title')]//following-sibling::input[1]")
 	WebElement docTitle;
 	@FindBy(xpath="//select[@id='owner']")
@@ -144,7 +144,7 @@ public class Departments extends AbstractComponent{
 	WebElement changesHistory;
 	@FindBy(xpath="(//button[normalize-space()='Browse'])[1]")
 	WebElement browsedoc;
-	@FindBy(xpath="//button[contains(text(),'Save')]")
+	@FindBy(xpath="//span[normalize-space()='Save']")
 	WebElement saveDoc;
 	@FindBy(xpath="//div[@id='primaryDocumentTree']//tr")
 	List<WebElement> documents;	
@@ -222,7 +222,7 @@ public class Departments extends AbstractComponent{
 	@FindBy(xpath="//button[contains(text(),'Save')]")
 	WebElement saveApproval;
 			
-	
+	//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
 	public void download() throws InterruptedException
 	{		
 		Thread.sleep(3000);
@@ -672,10 +672,10 @@ public class Departments extends AbstractComponent{
 		return false;
 	}
 	
-	public void createDocumentIcon() throws InterruptedException
+	public void addDocumentIcon() throws InterruptedException
 	{
 		Thread.sleep(3000);
-		createDocIcon.click();
+		addDocIcon.click();
 		Thread.sleep(3000);
 	}
 	public void fillDocument(String dtitle,String downer, String ver) throws InterruptedException
@@ -709,6 +709,9 @@ public class Departments extends AbstractComponent{
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(3000);
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		//jse.executeScript("window.scrollBy(0,200)");
+		elementWait(saveDoc);
 		saveDoc.click();
 		//JavascriptExecutor jse = (JavascriptExecutor)driver;
 		//jse.executeScript("window.scrollBy(0,600)");

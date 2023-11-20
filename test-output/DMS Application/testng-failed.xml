@@ -7,13 +7,17 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_016_TestResult">
+      <class name="com.DMS.testCases.TC_011_Departments">
         <methods>
           <include name="setup"/>
-          <include name="submitExam"/>
-          <include name="sign_test_Supervisor"/>
+          <include name="addSignersToTheDocument"/>
+          <include name="approvalDoc"/>
+          <include name="addSigners_Document"/>
+          <include name="signDocument"/>
+          <include name="addNewVersion_Doc"/>
+          <include name="docDownload_Print"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_016_TestResult -->
+      </class> <!-- com.DMS.testCases.TC_011_Departments -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

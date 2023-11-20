@@ -18,7 +18,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlan();
-		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "14-11-2023", "14-11-2023", "14-11-2023", "14-11-2023", "Self", "Neethu Tester");
+		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "20-11-2023", "20-11-2023", "20-11-2023", "20-11-2023", "Self", "Neethu Tester");
 		tp.addTrainingPlanAlert_MyTrainingPlan();	
 	}
 	
@@ -42,39 +42,6 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 		tp.deleteTrainingPlanAlert_MyTrainingPlan();
 	}
 	
-	/*@Test(priority=4)
-	public void plannedDateSearch_MyTrainingPlan() throws IOException, InterruptedException
-	{
-		TrainingPlan tp = new TrainingPlan(driver);
-		tp.searchDate1_MyTrainingPlan("30-10-2023", "02-11-2023");
-		Assert.assertTrue(tp.dateSearchValidation1_MyTrainingPlan("30-OCT-2023\n"
-				+ "to\n"
-				+ "2-NOV-2023"));
-		logger.info("Date search functionality verified");	
-		tp.clearSearchDate_MyTrainingPlan();
-	}
-	
-	@Test(priority=5)
-	public void actualDateSearch_MyTrainingPlan() throws IOException, InterruptedException
-	{
-		TrainingPlan tp = new TrainingPlan(driver);
-		tp.searchDate2_MyTrainingPlan("03-11-2023", "07-11-2023");
-		Assert.assertTrue(tp.dateSearchValidation2_MyTrainingPlan("30-OCT-2023\r\n"
-				+ "to\r\n"
-				+ "2-NOV-2023"));
-		logger.info("Date search functionality verified");	
-		tp.clearSearchDate_MyTrainingPlan();
-	}
-	
-	@Test(priority=6)
-	public void statusSearch_MyTrainingPlan() throws IOException, InterruptedException
-	{
-		TrainingPlan tp = new TrainingPlan(driver);
-		tp.searchStatus_MyTrainingPlan("Completed");
-		Assert.assertTrue(tp.statusSearchValidation_MyTrainingPlan("Signed By"));
-		logger.info("Status search functionality verified");	
-		tp.clearSearchDate_MyTrainingPlan();
-	}*/
 	
 	@Test(priority=4)
 	public void export_MyTrainingPlan() throws IOException, InterruptedException
@@ -89,7 +56,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlanForApproval();
 		tp.searchStatus2("Planned");
-		tp.sign1_TrainingPlanForApproval("Performance Testing");
+		tp.sign1_TrainingPlanForApproval("Pen Testing");
 		tp.sign2_TrainingPlanForApproval("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
 		tp.signALert_TrainingPlanForApproval();
 	}
@@ -99,7 +66,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnAddTrainingPlan();
-		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "15-11-2023", "15-11-2023", "Self", "Neethumol P S");
+		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "20-11-2023", "20-11-2023", "Self", "Neethumol P S");
 		tp.addTrainingPlanAlert_AddTrainingPlan();
 	}
 	

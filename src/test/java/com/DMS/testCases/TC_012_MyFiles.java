@@ -16,7 +16,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	{
 		MyFiles mf = new MyFiles(driver);
 		mf.clickOnMyFiles();
-		mf.FolderCreation("Fol1");
+		mf.FolderCreation("DMS");
 		mf.FolderCreationAlert();	
 	}
 	
@@ -24,7 +24,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderEdit() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fol1");
+		mf.clickOnKebabMenu2("DMS");
 		mf.FolderEdit();
 		mf.FolderUpdationAlert();
 	}
@@ -33,7 +33,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderPermission() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fol1");
+		mf.clickOnKebabMenu2("DMS");
 		mf.permissionsFolder("Quality Analyst");
 		mf.PermissionsFolderAlert();
 	}
@@ -42,7 +42,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderShare() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fol1");
+		mf.clickOnKebabMenu2("DMS");
 		mf.ShareFolder("Quality Analyst");
 		mf.shareFolderAlert();
 	}
@@ -51,7 +51,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderDelete() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fol1");
+		mf.clickOnKebabMenu2("DMS");
 		mf.deleteFolder();
 		mf.deleteFolderAlert();
 	} 
@@ -60,9 +60,9 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("F6");
+		mf.FolderCreation("DMS01");
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("F6");
+		mf.clickOnKebabMenu2("DMS01");
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
@@ -71,18 +71,18 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderCreation() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("Fold3");
+		mf.FolderCreation("DMS03");
 		mf.FolderCreationAlert();
 		Thread.sleep(2000);
-		mf.FolderCreation("Fold4");
+		mf.FolderCreation("DMS04");
 		mf.FolderCreationAlert();
 		Thread.sleep(2000);
-		mf.selFolder2("Fold3");
+		mf.selFolder2("DMS03");
 		Thread.sleep(2000);
-		mf.FolderCreation("Fold5");
+		mf.FolderCreation("DMS05");
 		mf.FolderCreationAlert();
 		Thread.sleep(2000);
-		mf.FolderCreation("Fold7");
+		mf.FolderCreation("DMS07");
 		mf.FolderCreationAlert();
 		Thread.sleep(2000);	
 		driver.navigate().refresh();
@@ -92,10 +92,10 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderEdit() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.selFolder2("Fold3");
+		mf.selFolder2("DMS03");
 		Thread.sleep(2000);
-		mf.selFolder2("Fold5");
-		mf.clickOnKebabMenu2("Fold5");
+		mf.selFolder2("DMS05");
+		mf.clickOnKebabMenu2("DMS05");
 		Thread.sleep(2000);
 		mf.FolderEdit();
 		mf.FolderUpdationAlert();
@@ -106,7 +106,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderPermission() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fold5");
+		mf.clickOnKebabMenu2("DMS05");
 		Thread.sleep(2000);
 		mf.permissionsFolder("Quality Analyst");
 		mf.PermissionsFolderAlert();
@@ -117,7 +117,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderShare() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fold5");
+		mf.clickOnKebabMenu2("DMS05");
 		Thread.sleep(2000);
 		mf.ShareFolder("Quality Analyst");
 		mf.shareFolderAlert();
@@ -127,7 +127,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderDelete() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("Fold5");
+		mf.clickOnKebabMenu2("DMS05");
 		Thread.sleep(2000);
 		mf.deleteFolder();
 		mf.deleteFolderAlert();
@@ -137,8 +137,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void SubFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.selFolder2("Fold8");
-		mf.clickOnKebabMenu2("Fold8");
+		mf.selFolder2("DMS07");
+		mf.clickOnKebabMenu2("DMS07");
 		Thread.sleep(2000);
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
@@ -149,7 +149,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	{
 		MyFiles mf = new MyFiles(driver);
 		Thread.sleep(3000);
-		mf.selFolder2("Fold3");
+		mf.selFolder2("DMS03");
 		mf.createDocumentIcon();
 		mf.fillDocument("D1", "Neethumol P S", "V1.1");
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
@@ -258,7 +258,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		MyFiles mf = new MyFiles(driver);
 		mf.download();
 		//mf.print();
-		driver.close();
+		//driver.close();
 	}
 	
 

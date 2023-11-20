@@ -313,8 +313,8 @@ public class DocumentApprovals extends AbstractComponent{
 	{
 		Thread.sleep(5000);
 		download.click();
-		Thread.sleep(5000);
-		print.click();
+		//Thread.sleep(5000);
+		//print.click();
 		/*Thread.sleep(20000);
 		JavascriptExecutor jse3 = (JavascriptExecutor)driver;
 		jse3.executeScript("window.scrollBy(0,500)");

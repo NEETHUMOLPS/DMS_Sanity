@@ -26,7 +26,9 @@ public class DocumentTemplate extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Screen menu
-	@FindBy(xpath="//span[contains(text(),'Document Template')]")
+	@FindBy(xpath="//a[@href='/administration']//img[@alt='projects menu']")
+	WebElement administration;	
+	@FindBy(xpath="//b[normalize-space()='Config Document Template']")
 	WebElement documentTemplateMenu;
 	@FindBy(xpath="//img[@alt='Create Designation']")
 	WebElement createDocumentTemplate;
@@ -70,13 +72,10 @@ public class DocumentTemplate extends AbstractComponent{
 	public void clickOnDocumentTemplate() throws InterruptedException
 	{		
 		Thread.sleep(2000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,500)");
+		administration.click();;
 		Thread.sleep(2000);
 		documentTemplateMenu.click();
 		Thread.sleep(2000);
-		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
-		jse1.executeScript("window.scrollBy(0,-500)");
 	}
 	
 	public void createDocumentTemplate(String header, String c1, String c2, String docType, String name) throws InterruptedException

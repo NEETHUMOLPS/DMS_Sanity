@@ -27,9 +27,9 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void dateSearchValidation() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.dateSearch("09-10-2023");
+		da.dateSearch("20-11-2023");
 		Thread.sleep(2000);
-		Assert.assertTrue(da.dateSearchValidation("2023-10-09"));
+		Assert.assertTrue(da.dateSearchValidation("2023-11-20"));
 		logger.info("Date search functionality verified");	
 	}
 	
@@ -48,8 +48,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void approveDoc1() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("Doc1");
-		da.selApprovalStatus("Doc1");
+		da.documentTitleSearch("D3");
+		da.selApprovalStatus("D3");
 		da.approval1("Approved");
 		da.docApprovalAlert1();
 		driver.navigate().refresh();
@@ -59,8 +59,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void rejectDoc1() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("Doc2");
-		da.selApprovalStatus("Doc2");
+		da.documentTitleSearch("D4");
+		da.selApprovalStatus("D4");
 		da.rejection1("Rejected");
 		da.docRejectionAlert1();
 		driver.navigate().refresh();
@@ -80,8 +80,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Approval() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("Doc3");
-		da.selView("Doc3");
+		da.documentTitleSearch("D3");
+		da.selView("D3");
 		da.viewStatus_approve("Approved");
 		da.docApprovalAlert1();
 		da.clickOnApprovals();
@@ -92,8 +92,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Reject() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("Doc4");
-		da.selView("Doc4");
+		da.documentTitleSearch("D4");
+		da.selView("D4");
 		da.viewStatus_reject("Rejected");
 		da.docRejectionAlert1();
 		da.clickOnApprovals();	

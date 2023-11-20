@@ -342,7 +342,7 @@ public class TestResult extends AbstractComponent{
 		Thread.sleep(2000);
 		search2.click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//i)[9]")).click();
+		driver.findElement(By.xpath("(//i)[7]")).click();
 		Thread.sleep(2000);
 	}
 	

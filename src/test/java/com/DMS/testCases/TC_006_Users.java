@@ -16,7 +16,7 @@ public class TC_006_Users extends BaseClassTest {
 	{
 		UsersPage up = new UsersPage(driver);
 		up.clickUsers();
-		up.clickCreateUsers("Neethu", "G", "NeethuG", "neethug@yopmail.com");
+		up.clickCreateUsers("Neethurg", "RG", "NeethuRG", "neethurg@yopmail.com");
 		up.creationAlert();
 		driver.navigate().refresh();
 	}
@@ -26,9 +26,9 @@ public class TC_006_Users extends BaseClassTest {
 	public void edit() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethu");
-		up.edit("Neethu G");
-		up.edituser1("Neethug");
+		up.nameSearch("Neethurg RG");
+		up.edit("Neethurg RG");
+		up.edituser1("Neethurg");
 		up.editAlert();
 		driver.navigate().refresh();
 	}
@@ -37,7 +37,7 @@ public class TC_006_Users extends BaseClassTest {
 	public void nameSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethumol");
+		up.nameSearch("Neethumol P S");
 		Thread.sleep(2000);
 		Assert.assertTrue(up.nameValidation("Neethumol P S"));
 		logger.info("Name search functionality verified");	
@@ -59,9 +59,10 @@ public class TC_006_Users extends BaseClassTest {
 	public void departmentSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.DepartmentSearch("TRS");
+		Thread.sleep(4000);
+		up.DepartmentSearch("AF");
 		Thread.sleep(2000);
-		Assert.assertTrue(up.departmentValidation("TRS"));
+		Assert.assertTrue(up.departmentValidation("AF"));
 		logger.info("Department search functionality verified");	
 		driver.navigate().refresh();
 	}
@@ -70,8 +71,8 @@ public class TC_006_Users extends BaseClassTest {
 	public void delete() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethug");
-		up.delete("Neethug G");
+		up.nameSearch("Neethurg RG");
+		up.delete("Neethurg RG");
 		up.deleteAlert();
 		driver.navigate().refresh();
 	}

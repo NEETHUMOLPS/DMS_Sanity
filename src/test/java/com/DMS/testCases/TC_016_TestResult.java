@@ -12,7 +12,7 @@ import Base.BaseClassTest;
 public class TC_016_TestResult extends BaseClassTest {
 
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void employeeNameSearchValidation_Initiator() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
@@ -102,16 +102,14 @@ public class TC_016_TestResult extends BaseClassTest {
 		Assert.assertTrue(ee.dateSearchValidation_Supervisor("24-10-2023"));
 		logger.info("Date search functionality verified");	
 		ee.clickOnTestResult3();
-	}*/
+	}
 	
 	@Test(priority=10)
 	public void sign_test_Supervisor() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
-		ee.clickOnTestResult2();//
 		ee.clickOnSupervisor();
 		ee.signTest3("Failed", "Completed");
-		ee.clickOnView_Supervisor();
 		ee.signTest2("neethumolp@datamatica.uk", "Neethu@12345", "Reviewer");
 		ee.testSignnAlert();
 		ee.clickOnTestResult2();

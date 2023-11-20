@@ -4,6 +4,7 @@ import Base.BaseClass;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,12 +17,12 @@ public class TC_004_Profile extends BaseClass {
 	public void changePassword() throws IOException, InterruptedException
 	{
 		LoginPage lp=new LoginPage(driver);
-		lp.setEmail("neethur@yopmail.com");
-		lp.setPassword("Neethu@1");
+		lp.setEmail("neethus@yopmail.com");
+		lp.setPassword("Neethu@4");
 		lp.clickLogin();
 		Profile pp = new Profile(driver);
 		pp.clickProfile();
-		pp.changePassword("Neethu@1", "Neethu@2", "Neethu@2");
+		pp.changePassword("Neethu@4", "Neethu@2", "Neethu@2");
 		pp.changePasswordAlert();	
 	}
 	
@@ -47,7 +48,7 @@ public class TC_004_Profile extends BaseClass {
 	public void editSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.editSign("NE", "neethug@yopmail.com", "Digi@4321");
+		pp.editSign("NE", "neethus@yopmail.com", "Digi@1234");
 	}
 	
 	@Test(priority=5)

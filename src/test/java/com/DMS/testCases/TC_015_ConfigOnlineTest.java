@@ -20,7 +20,7 @@ public class TC_015_ConfigOnlineTest extends BaseClassTest {
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.clickOnConfigExam();
-		ce.configureExam("Auto20", "10", "50", "23-11-2023", "Neethumol P S");
+		ce.configureExam("Assessment01", "10", "50", "23-11-2023", "Neethumol P S");
 		ce.examConfigurationAlert();
 	}
 	
@@ -127,11 +127,11 @@ public class TC_015_ConfigOnlineTest extends BaseClassTest {
 	public void examNameSearchValidation() throws IOException, InterruptedException
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
-		ce.nameSearch("Auto20");		
+		ce.nameSearch("Assessment01");		
 		Thread.sleep(2000);
-		Assert.assertTrue(ce.nameValidation("Auto20"));
+		Assert.assertTrue(ce.nameValidation("Assessment01"));
 		logger.info("Exam name search functionality verified");	
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
 	}
 	
 	@Test(priority=11)
@@ -140,7 +140,7 @@ public class TC_015_ConfigOnlineTest extends BaseClassTest {
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		//ce.nameSearch("Auto20");		
 		Thread.sleep(2000);
-		ce.editTest1("Auto20");
+		ce.editTest1("Assessment01");
 		ce.editTest2();
 		ce.examConfigurationUpdationAlert();
 		ce.clickOnConfigExam();	
@@ -150,9 +150,9 @@ public class TC_015_ConfigOnlineTest extends BaseClassTest {
 	public void viewTest() throws IOException, InterruptedException
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
-		//ce.nameSearch("Auto20");		
+		ce.nameSearch("Auto01");		
 		Thread.sleep(2000);
-		ce.viewTest1("Auto20");
+		ce.viewTest1("Auto01");
 		driver.navigate().refresh();
 	}
 	

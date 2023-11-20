@@ -661,7 +661,7 @@ public class TC_013_Projects extends BaseClassTest {
 	}
 	
 	@Test(priority=59)
-	public void archiveProject() throws IOException, InterruptedException
+	public void deleteProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnProjectMenu();
@@ -671,12 +671,12 @@ public class TC_013_Projects extends BaseClassTest {
 	}
 	
 	@Test(priority=60)
-	public void deleteProject() throws IOException, InterruptedException
+	public void archiveProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.ProjectCreation("PROJECT2", "Dev");
+		pp.ProjectCreation("PROJECT03", "Dev");
 		pp.projectCreationAlert();	
-		pp.clickOnKebabMenu1("PROJECT2");
+		pp.clickOnKebabMenu1("PROJECT03");
 		pp.archiveProject();
 		pp.archiveProjectAlert();	
 	}

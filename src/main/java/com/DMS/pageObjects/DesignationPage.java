@@ -26,7 +26,9 @@ public class DesignationPage extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Designation menu
-	@FindBy(xpath="//span[contains(text(),'Designation')]")
+	@FindBy(xpath="//a[@href='/administration']//img[@alt='projects menu']")
+	WebElement administration;	
+	@FindBy(xpath="//b[normalize-space()='Designation']")
 	WebElement designationMenu;
 	
 	//Create Designation
@@ -79,6 +81,8 @@ public class DesignationPage extends AbstractComponent{
 	
 	public void clickDesignation() throws InterruptedException
 	{		
+		Thread.sleep(3000);
+		administration.click();
 		Thread.sleep(3000);
 		designationMenu.click();
 		Thread.sleep(3000);		
