@@ -20,7 +20,7 @@ public class TC_015_ConfigOnlineTest extends BaseClassTest {
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.clickOnConfigExam();
-		ce.configureExam("Assessment01", "10", "50", "23-11-2023", "Neethumol P S");
+		ce.configureExam("Assessment04", "10", "50", "23-12-2023", "Neethumol P S");
 		ce.examConfigurationAlert();
 	}
 	

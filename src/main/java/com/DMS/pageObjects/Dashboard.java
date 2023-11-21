@@ -55,7 +55,7 @@ public class Dashboard extends AbstractComponent{
 	//Sign Document
 	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/i[1]")
 	WebElement view1; 
-	@FindBy(xpath="//div[@class='graphbtncontainer']//div[1]//div[1]//img[1]")
+	@FindBy(xpath="(//img[@alt='create version'])[3]")
 	WebElement signDocument1; 
 	@FindBy(xpath="//input[@placeholder='Email']")
 	WebElement email2;
@@ -177,6 +177,22 @@ public class Dashboard extends AbstractComponent{
 		}		
 	}
 	
+	
+	public static boolean signAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Signature added successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
 	public void Dashboard1() throws InterruptedException
 	{
 		Thread.sleep(2000);
@@ -227,7 +243,7 @@ public class Dashboard extends AbstractComponent{
 	{
 		Thread.sleep(2000);
 		view1.click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		signDocument1.click();
 		Thread.sleep(1000);
 		email2.sendKeys(em);

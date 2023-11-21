@@ -28,7 +28,9 @@ public class Screens extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	//Screen menu
-	@FindBy(xpath="//img[@alt='screens menu']")
+	@FindBy(xpath="//a[@href='/administration']//img[@alt='projects menu']")
+	WebElement administration;	
+	@FindBy(xpath="//b[normalize-space()='Screens']")
 	WebElement screensMenu;
 	
 	//Add screen
@@ -71,6 +73,8 @@ public class Screens extends AbstractComponent{
 	
 	public void clickOnScreesMenu() throws InterruptedException
 	{		
+		Thread.sleep(2000);
+		administration.click();
 		Thread.sleep(2000);
 		screensMenu.click();
 		Thread.sleep(2000);

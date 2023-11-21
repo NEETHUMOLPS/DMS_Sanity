@@ -17,9 +17,9 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
 		da.clickOnApprovals();
-		da.documentTitleSearch("D1");
+		da.documentTitleSearch("D2");
 		Thread.sleep(2000);
-		Assert.assertTrue(da.documentTitleSearchValidation("D1"));
+		Assert.assertTrue(da.documentTitleSearchValidation("D2"));
 		logger.info("Employee name search functionality verified");	
 	}
 	
@@ -31,6 +31,7 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 		Thread.sleep(2000);
 		Assert.assertTrue(da.dateSearchValidation("2023-11-20"));
 		logger.info("Date search functionality verified");	
+		driver.navigate().refresh();
 	}
 	
 	@Test(priority=3)
@@ -80,8 +81,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Approval() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D3");
-		da.selView("D3");
+		da.documentTitleSearch("D5");
+		da.selView("D5");
 		da.viewStatus_approve("Approved");
 		da.docApprovalAlert1();
 		da.clickOnApprovals();
@@ -92,8 +93,8 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Reject() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D4");
-		da.selView("D4");
+		da.documentTitleSearch("D6");
+		da.selView("D6");
 		da.viewStatus_reject("Rejected");
 		da.docRejectionAlert1();
 		da.clickOnApprovals();	

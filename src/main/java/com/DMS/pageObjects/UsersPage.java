@@ -80,7 +80,7 @@ public class UsersPage extends AbstractComponent{
 	WebElement department1;
 	@FindBy(xpath="//li[@aria-label='QA']")
 	WebElement department2a;
-	@FindBy(xpath="//li[@aria-label='AD13']")
+	@FindBy(xpath="//li[@aria-label='AD14']")
 	WebElement department2b;
 	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[8]/div[1]/div[1]/span[2]")
 	WebElement department3;

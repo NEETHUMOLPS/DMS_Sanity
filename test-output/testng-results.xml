@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="29" passed="29" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-20T15:25:00 IST" name="DMS Application" finished-at="2023-11-20T15:38:34 IST" duration-ms="814142">
+  <suite started-at="2023-11-21T10:34:56 IST" name="DMS Application" finished-at="2023-11-21T10:36:19 IST" duration-ms="83007">
     <groups>
     </groups>
-    <test started-at="2023-11-20T15:25:00 IST" name="DMS App Test" finished-at="2023-11-20T15:38:34 IST" duration-ms="814142">
-      <class name="com.DMS.testCases.TC_011_Departments">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:25:01 IST" name="setup" finished-at="2023-11-20T15:25:26 IST" duration-ms="24053" status="PASS">
+    <test started-at="2023-11-21T10:34:56 IST" name="DMS App Test" finished-at="2023-11-21T10:36:19 IST" duration-ms="83007">
+      <class name="com.DMS.testCases.TC_005_Dashboard">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.DMS.testCases.TC_005_Dashboard@7fd50002]" started-at="2023-11-21T10:34:57 IST" name="setup" finished-at="2023-11-21T10:35:20 IST" duration-ms="22716" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,123 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="createDepartment()[pri:1, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:25:26 IST" name="createDepartment" finished-at="2023-11-20T15:25:41 IST" duration-ms="15235" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createDepartment -->
-        <test-method signature="userAssigning()[pri:2, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:25:41 IST" name="userAssigning" finished-at="2023-11-20T15:27:06 IST" duration-ms="84745" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- userAssigning -->
-        <test-method signature="subDepartmentCreation()[pri:3, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:27:06 IST" name="subDepartmentCreation" finished-at="2023-11-20T15:27:21 IST" duration-ms="14601" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- subDepartmentCreation -->
-        <test-method signature="mainFolderCreation()[pri:4, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:27:21 IST" name="mainFolderCreation" finished-at="2023-11-20T15:27:35 IST" duration-ms="14712" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- mainFolderCreation -->
-        <test-method signature="MainFolderEdit()[pri:5, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:27:35 IST" name="MainFolderEdit" finished-at="2023-11-20T15:27:54 IST" duration-ms="18954" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderEdit -->
-        <test-method signature="MainFolderSendTo()[pri:6, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:27:54 IST" name="MainFolderSendTo" finished-at="2023-11-20T15:28:20 IST" duration-ms="25434" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderSendTo -->
-        <test-method signature="MainFolderPermission()[pri:7, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:28:20 IST" name="MainFolderPermission" finished-at="2023-11-20T15:28:42 IST" duration-ms="22447" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderPermission -->
-        <test-method signature="MainFolderShare()[pri:8, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:28:42 IST" name="MainFolderShare" finished-at="2023-11-20T15:29:04 IST" duration-ms="21497" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderShare -->
-        <test-method signature="MainFolderDelete()[pri:9, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:29:04 IST" name="MainFolderDelete" finished-at="2023-11-20T15:29:22 IST" duration-ms="17840" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderDelete -->
-        <test-method signature="MainFolderArchive()[pri:10, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:29:22 IST" name="MainFolderArchive" finished-at="2023-11-20T15:29:51 IST" duration-ms="29342" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MainFolderArchive -->
-        <test-method signature="SubFolderCreation()[pri:11, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:29:51 IST" name="SubFolderCreation" finished-at="2023-11-20T15:31:00 IST" duration-ms="68748" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderCreation -->
-        <test-method signature="SubFolderEdit()[pri:12, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:31:00 IST" name="SubFolderEdit" finished-at="2023-11-20T15:31:42 IST" duration-ms="42471" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderEdit -->
-        <test-method signature="SubFolderSendTo()[pri:13, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:31:42 IST" name="SubFolderSendTo" finished-at="2023-11-20T15:32:10 IST" duration-ms="27945" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderSendTo -->
-        <test-method signature="SubFolderPermission()[pri:14, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:32:10 IST" name="SubFolderPermission" finished-at="2023-11-20T15:32:35 IST" duration-ms="25104" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderPermission -->
-        <test-method signature="SubFolderShare()[pri:15, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:32:35 IST" name="SubFolderShare" finished-at="2023-11-20T15:32:59 IST" duration-ms="23621" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderShare -->
-        <test-method signature="SubFolderDelete()[pri:16, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:32:59 IST" name="SubFolderDelete" finished-at="2023-11-20T15:33:19 IST" duration-ms="20069" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderDelete -->
-        <test-method signature="SubFolderArchive()[pri:17, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:33:19 IST" name="SubFolderArchive" finished-at="2023-11-20T15:33:48 IST" duration-ms="28418" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SubFolderArchive -->
-        <test-method signature="UploadDocument()[pri:18, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:33:48 IST" name="UploadDocument" finished-at="2023-11-20T15:35:02 IST" duration-ms="74569" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UploadDocument -->
-        <test-method signature="EditDocument()[pri:19, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:35:02 IST" name="EditDocument" finished-at="2023-11-20T15:35:17 IST" duration-ms="15364" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditDocument -->
-        <test-method signature="PermissionDocument()[pri:20, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:35:18 IST" name="PermissionDocument" finished-at="2023-11-20T15:35:35 IST" duration-ms="17384" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PermissionDocument -->
-        <test-method signature="ShareDocument()[pri:21, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:35:35 IST" name="ShareDocument" finished-at="2023-11-20T15:35:53 IST" duration-ms="17636" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ShareDocument -->
-        <test-method signature="DeletDocument()[pri:22, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:35:53 IST" name="DeletDocument" finished-at="2023-11-20T15:36:05 IST" duration-ms="12795" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeletDocument -->
-        <test-method signature="ArchiveDocument()[pri:23, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:36:05 IST" name="ArchiveDocument" finished-at="2023-11-20T15:36:18 IST" duration-ms="12707" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ArchiveDocument -->
-        <test-method signature="addSignersToTheDocument()[pri:24, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:36:18 IST" name="addSignersToTheDocument" finished-at="2023-11-20T15:36:55 IST" duration-ms="37113" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSignersToTheDocument -->
-        <test-method signature="addSigners_Document()[pri:25, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:36:55 IST" name="addSigners_Document" finished-at="2023-11-20T15:37:12 IST" duration-ms="17024" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSigners_Document -->
-        <test-method signature="signDocument()[pri:26, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:37:12 IST" name="signDocument" finished-at="2023-11-20T15:37:37 IST" duration-ms="25047" status="PASS">
+        <test-method signature="signDocument()[pri:2, instance:com.DMS.testCases.TC_005_Dashboard@7fd50002]" started-at="2023-11-21T10:35:20 IST" name="signDocument" finished-at="2023-11-21T10:35:42 IST" duration-ms="21523" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signDocument -->
-        <test-method signature="approvalDoc()[pri:27, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:37:37 IST" name="approvalDoc" finished-at="2023-11-20T15:37:51 IST" duration-ms="13587" status="PASS">
+        <test-method signature="signProcessTrainingAcknowledgement()[pri:3, instance:com.DMS.testCases.TC_005_Dashboard@7fd50002]" started-at="2023-11-21T10:35:42 IST" name="signProcessTrainingAcknowledgement" finished-at="2023-11-21T10:36:04 IST" duration-ms="22090" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- approvalDoc -->
-        <test-method signature="addNewVersion_Doc()[pri:28, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:37:51 IST" name="addNewVersion_Doc" finished-at="2023-11-20T15:38:27 IST" duration-ms="35903" status="PASS">
+        </test-method> <!-- signProcessTrainingAcknowledgement -->
+        <test-method signature="signOnlineTestReport()[pri:4, instance:com.DMS.testCases.TC_005_Dashboard@7fd50002]" started-at="2023-11-21T10:36:04 IST" name="signOnlineTestReport" finished-at="2023-11-21T10:36:19 IST" duration-ms="15163" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addNewVersion_Doc -->
-        <test-method signature="docDownload_Print()[pri:29, instance:com.DMS.testCases.TC_011_Departments@6f01b95f]" started-at="2023-11-20T15:38:27 IST" name="docDownload_Print" finished-at="2023-11-20T15:38:34 IST" duration-ms="7510" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- docDownload_Print -->
-      </class> <!-- com.DMS.testCases.TC_011_Departments -->
+        </test-method> <!-- signOnlineTestReport -->
+      </class> <!-- com.DMS.testCases.TC_005_Dashboard -->
     </test> <!-- DMS App Test -->
   </suite> <!-- DMS Application -->
 </testng-results>

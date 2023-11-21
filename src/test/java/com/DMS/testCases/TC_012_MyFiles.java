@@ -60,9 +60,9 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("DMS01");
+		mf.FolderCreation("DMS009");
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("DMS01");
+		mf.clickOnKebabMenu2("DMS009");
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
@@ -207,13 +207,13 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.documentActions("Sample (2).xlsx");
 		mf.archiveDoc();
 		mf.archiveDocAlert();
+		Thread.sleep(4000);
 	}
 	
 	@Test(priority=19) 
 	public void addSignersToTheDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
-		//mf.selFolder2("Fold3");//
 		mf.createDocumentIcon();
 		mf.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");

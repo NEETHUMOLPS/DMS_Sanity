@@ -17,7 +17,7 @@ public class TC_011_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		dp.clickOnDepartment();
-		dp.createDepartment("AD13");
+		dp.createDepartment("AD14");
 		dp.departmentCreationAlert();
 	}
 	
@@ -55,8 +55,8 @@ public class TC_011_Departments extends BaseClassTest {
 	public void subDepartmentCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD13");
-		dp.createDepartment("AD13c");
+		dp.selDepartment("AD14");
+		dp.createDepartment("AD14c");
 		dp.departmentCreationAlert();
 		driver.navigate().refresh();		
 	}
@@ -65,7 +65,7 @@ public class TC_011_Departments extends BaseClassTest {
 	public void mainFolderCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD13");
+		dp.selDepartment("AD14");
 		dp.FolderCreation("Fol1");
 		dp.FolderCreationAlert();	
 	}
@@ -151,7 +151,7 @@ public class TC_011_Departments extends BaseClassTest {
 	public void SubFolderEdit() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD13");
+		dp.selDepartment("AD14");
 		dp.selFolder2("Fold3");
 		Thread.sleep(2000);
 		dp.selFolder2("Fold5");

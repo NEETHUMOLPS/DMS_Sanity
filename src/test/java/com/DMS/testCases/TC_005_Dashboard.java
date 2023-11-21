@@ -20,12 +20,14 @@ public class TC_005_Dashboard extends BaseClassTest {
 		db.Dashboard2();
 	}
 	
-	/*@Test(priority=2)
+	@Test(priority=2)
 	public void signDocument() throws IOException, InterruptedException
 	{
 		Dashboard db = new Dashboard(driver);
 		db.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
-	}*/
+		db.signAlert();
+		db.Dashboard2();
+	}
 	
 	@Test(priority=3)
 	public void signProcessTrainingAcknowledgement() throws IOException, InterruptedException

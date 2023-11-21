@@ -186,7 +186,7 @@ public class ConfigOnlineTest extends AbstractComponent{
 	WebElement type3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div")
 	WebElement doc1;
-	@FindBy(xpath="//li[@id='multiselect-option-0bddb2c1-9dbb-4d33-9d5e-a198425861e2']")
+	@FindBy(xpath="//li[@id='multiselect-option-74a81f65-871a-4140-ab4f-94b3f9d25117']")
 	WebElement doc2;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div/span[2]")
 	WebElement doc3;

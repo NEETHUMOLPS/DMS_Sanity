@@ -125,7 +125,7 @@ public class MyFiles extends AbstractComponent{
 		WebElement changesHistory;
 		@FindBy(xpath="//button[@type='button']")
 		WebElement browsedoc;
-		@FindBy(xpath="//button[contains(text(),'Save')]")
+		@FindBy(xpath="//span[normalize-space()='Save']")
 		WebElement saveDoc;
 		@FindBy(xpath="//div[@id='primaryDocumentTree']//tr")
 		List<WebElement> documents;	
@@ -155,17 +155,17 @@ public class MyFiles extends AbstractComponent{
 		@FindBy(id="//table[@class='table table-striped table-bordered dataTables']//td[3]")
 		WebElement user;
 		
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[1]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[1]")
 		WebElement select1;
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[2]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[2]")
 		WebElement select2;
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[3]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[3]")
 		WebElement select3;
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[4]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[4]")
 		WebElement select4;
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[5]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[5]")
 		WebElement select5;
-		@FindBy(xpath="//body[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[11]/table[1]/tbody[1]/tr[6]/td[3]/select[1]")
+		@FindBy(xpath="(//select[@id='user'])[6]")
 		WebElement select6;
 		
 		//Open document - add signers
@@ -566,11 +566,6 @@ public class MyFiles extends AbstractComponent{
 			Thread.sleep(3000);
 			docversion.sendKeys(ver);
 			Thread.sleep(2000);
-			//JavascriptExecutor jse = (JavascriptExecutor)driver;
-			//jse.executeScript("window.scrollBy(0,300)");
-			Thread.sleep(1000);
-			addSigners.click();
-			Thread.sleep(1000);
 			
 		}
 		
@@ -797,13 +792,13 @@ public class MyFiles extends AbstractComponent{
 				Alert alert1 = driver.switchTo().alert();
 				Assert.assertTrue(alert1.getText().contains("Are you sure you want to archive this document ?"));
 				alert1.accept();
-				/*Thread.sleep(2000);
+				Thread.sleep(2000);
 				WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
 				wait2.until(ExpectedConditions.alertIsPresent());
 				Alert alert2 = driver.switchTo().alert();
 				Assert.assertTrue(alert2.getText().contains("Document archived successfully"));
 				alert2.accept();
-				Thread.sleep(2000);*/
+				Thread.sleep(2000);
 				return true;
 			} catch (NoAlertPresentException e) {
 				return false;

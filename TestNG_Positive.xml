@@ -13,7 +13,7 @@
 <!--<class name="com.DMS.testCases.TC_002_loginTest_Negative"/>-->
 <!--<class name="com.DMS.testCases.TC_003_ForgotPassword"/>-->
 <!--<class name="com.DMS.testCases.TC_004_Profile"/>-->
-<!--<class name="com.DMS.testCases.TC_005_Dashboard"/>-->
+<class name="com.DMS.testCases.TC_005_Dashboard"/>
 <!--<class name="com.DMS.testCases.TC_006_Users"/>-->
 <!--<class name="com.DMS.testCases.TC_007_Designation"/>-->
 <!--<class name="com.DMS.testCases.TC_008_ConfigBookmarkSign"/>-->

@@ -18,7 +18,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlan();
-		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "20-11-2023", "20-11-2023", "20-11-2023", "20-11-2023", "Self", "Neethu Tester");
+		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "21-11-2023", "21-11-2023", "21-11-2023", "21-11-2023", "Self", "Neethu Tester");
 		tp.addTrainingPlanAlert_MyTrainingPlan();	
 	}
 	
@@ -66,7 +66,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnAddTrainingPlan();
-		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "20-11-2023", "20-11-2023", "Self", "Neethumol P S");
+		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "21-11-2023", "21-11-2023", "Self", "Neethumol P S");
 		tp.addTrainingPlanAlert_AddTrainingPlan();
 	}
 	

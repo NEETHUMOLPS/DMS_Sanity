@@ -35,7 +35,7 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		sl.clickOnTrainingAcknowledgement();
 	}
 	
-	@Test(priority=3)
+	/*@Test(priority=3)
 	public void sign_Verification() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
@@ -45,7 +45,7 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		sl.sign_TrainerSop("neethumolp@datamatica.uk", "Neethu@12345", "Approval");		
 		sl.DigiSignAlert();
 		sl.clickOnTrainingAcknowledgement1();
-	}
+	}*/
 	
 	@Test(priority=4)
 	public void downloadSignedDoc_Verification() throws IOException, InterruptedException

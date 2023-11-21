@@ -27,7 +27,7 @@ public class DocumentApprovals extends AbstractComponent{
 	}
 	
 	//Approvals  menu
-	@FindBy(xpath="(//img[@alt='designation menu'])[2]")
+	@FindBy(xpath="//span[normalize-space()='Approvals']")
 	WebElement approvals;
 	@FindBy(xpath="//input[@type='text']")
 	WebElement documentTitle;
