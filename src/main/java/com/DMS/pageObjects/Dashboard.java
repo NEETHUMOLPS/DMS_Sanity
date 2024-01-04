@@ -55,7 +55,7 @@ public class Dashboard extends AbstractComponent{
 	//Sign Document
 	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/i[1]")
 	WebElement view1; 
-	@FindBy(xpath="(//img[@alt='create version'])[3]")
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/img[1]")
 	WebElement signDocument1; 
 	@FindBy(xpath="//input[@placeholder='Email']")
 	WebElement email2;
@@ -142,11 +142,13 @@ public class Dashboard extends AbstractComponent{
 		view3.click();
 		Thread.sleep(1000);
 		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
-		jse1.executeScript("window.scrollBy(0,500)");
-		Thread.sleep(1000);
+		jse1.executeScript("window.scrollBy(0,1000)");
+		Thread.sleep(2000);
 		elementWait(iAgree3);
 		Thread.sleep(1000);
 		iAgree3.click();
+		Thread.sleep(1000);
+		elementWait(clickHereToSign3);
 		Thread.sleep(1000);
 		clickHereToSign3.click();
 		Thread.sleep(1000);
@@ -204,7 +206,7 @@ public class Dashboard extends AbstractComponent{
 	{
 		Thread.sleep(1000);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-500)");
+		jse.executeScript("window.scrollBy(0,-1000)");
 		Thread.sleep(1000);
 		elementWait(Dashboard);
 		Dashboard.click();

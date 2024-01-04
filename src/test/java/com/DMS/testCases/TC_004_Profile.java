@@ -17,16 +17,16 @@ public class TC_004_Profile extends BaseClass {
 	public void changePassword() throws IOException, InterruptedException
 	{
 		LoginPage lp=new LoginPage(driver);
-		lp.setEmail("neethus@yopmail.com");
-		lp.setPassword("Neethu@4");
+		lp.setEmail("neethu@yopmail.com");
+		lp.setPassword("Neethu@9");
 		lp.clickLogin();
 		Profile pp = new Profile(driver);
 		pp.clickProfile();
-		pp.changePassword("Neethu@4", "Neethu@2", "Neethu@2");
+		pp.changePassword("Neethu@9", "Neethu@10", "Neethu@10");
 		pp.changePasswordAlert();	
 	}
 	
-	@Test(priority=2)
+	/*@Test(priority=2)
 	public void createDigiSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
@@ -34,24 +34,32 @@ public class TC_004_Profile extends BaseClass {
 		pp.createDigiSign("Digi@123", "Digi@123");
 		pp.digiSignUpdatePasswordAlert();
 		
-	}
+	}*/
 	
 	@Test(priority=3)
 	public void updatePasswordForDigiSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.updatePasswordForDigiSign("Digi@123", "Digi@1234", "Digi@1234");
+		pp.updatePasswordForDigiSign("Neethu@9", "Neethu@10", "Neethu@10");
 		pp.digiSignChangePasswordAlert();
 	}
 	
 	@Test(priority=4)
-	public void editSign() throws IOException, InterruptedException
+	public void forgotDigiSignPassword() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.editSign("NE", "neethus@yopmail.com", "Digi@1234");
+		pp.forgotDigiSignPwd("Neethu@10");
+		pp.forgotDigiSignPwdAlert();
 	}
 	
 	@Test(priority=5)
+	public void editSign() throws IOException, InterruptedException
+	{
+		Profile pp = new Profile(driver);
+		pp.editSign("NE", "neethu@yopmail.com", "Neethu@10");
+	}
+	
+	@Test(priority=6)
 	public void selectSignatureStyle() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);

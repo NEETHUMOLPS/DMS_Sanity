@@ -15,16 +15,17 @@ public class TC_010_DocumentTemplate extends BaseClassTest {
 	{
 		DocumentTemplate dt = new DocumentTemplate(driver);
 		dt.clickOnDocumentTemplate();
-		dt.createDocumentTemplate("Acceptance Table", "C1", "C2","SOP","New Project");
+		dt.createDocumentTemplate("Acceptance Table", "C1", "C2","SOP","New Project01");
 		dt.documentTemplateCreationAlert();
 		dt.clickOnDocumentTemplate();
+		driver.navigate().back();
 	}
 	
 	@Test(priority=2)
 	public void documentView() throws IOException, InterruptedException
 	{
 		DocumentTemplate dt = new DocumentTemplate(driver);
-		dt.view("New Project");
+		dt.view("SOP");
 		dt.clickOnDocumentTemplate();
 	}
 	
@@ -32,7 +33,7 @@ public class TC_010_DocumentTemplate extends BaseClassTest {
 	public void documentDelete() throws IOException, InterruptedException
 	{
 		DocumentTemplate dt = new DocumentTemplate(driver);
-		dt.delete("New Project");
+		dt.delete("New Project01");
 		dt.deletetionAlert();
 	}
 

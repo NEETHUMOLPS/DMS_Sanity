@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.By;
 import com.DMS.pageObjects.TestResult;
 
 import Base.BaseClassTest;
@@ -17,9 +17,9 @@ public class TC_016_TestResult extends BaseClassTest {
 	{
 		TestResult ee = new TestResult(driver);
 		ee.clickOnTestResult2();
-		ee.employeeNameSearch_Initiator("Neethu Tester");
+		ee.employeeNameSearch_Initiator("Neethug G");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.employeeNameSearchValidation_Initiator("Neethu Tester"));
+		Assert.assertTrue(ee.employeeNameSearchValidation_Initiator("Neethug G"));
 		logger.info("Employee name search functionality verified");	
 	}
 	
@@ -47,9 +47,9 @@ public class TC_016_TestResult extends BaseClassTest {
 	public void dateSearchValidation_Initiator() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
-		ee.dateSearch_Initiator("24-10-2023","24-10-2023");
+		ee.dateSearch_Initiator("29-12-2023","29-12-2023");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.dateSearchValidation_Initiator("24-10-2023"));
+		Assert.assertTrue(ee.dateSearchValidation_Initiator("29-12-2023"));
 		logger.info("Date search functionality verified");	
 		ee.clickOnTestResult2();
 	}
@@ -59,31 +59,42 @@ public class TC_016_TestResult extends BaseClassTest {
 	{
 		TestResult ee = new TestResult(driver);
 		ee.downloadTest1("Passed", "Signed");
+		driver.navigate().back();
 	}
 	
 	@Test(priority=6)
-	public void employeeNameSearchValidation_Supervisor() throws IOException, InterruptedException
+	public void signTest_Initiator() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
+		ee.statusSearch_Initiator("Completed");
+		ee.view_Initiator("Assessment new");
+		ee.signTest2("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		ee.testSignnAlert();
 		ee.clickOnTestResult2();
-		ee.clickOnSupervisor();
-		ee.employeeNameSearch_Supervisor("Neethu Tester");
-		Thread.sleep(2000);
-		Assert.assertTrue(ee.employeeNameSearchValidation_Supervisor("Neethu Tester"));
-		logger.info("Employee name search functionality verified");	
 	}
 	
 	@Test(priority=7)
-	public void resultSearchValidation_Supervisor() throws IOException, InterruptedException
+	public void employeeNameSearchValidation_Supervisor() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
-		ee.resultSearch_Supervisor("Failed");
+		ee.clickOnSupervisor();
+		ee.employeeNameSearch_Supervisor("Neethug G");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.resultSearchValidation_Supervisor("Failed"));
-		logger.info("Result search functionality verified");	
+		Assert.assertTrue(ee.employeeNameSearchValidation_Supervisor("Neethug G"));
+		logger.info("Employee name search functionality verified");	
 	}
 	
 	@Test(priority=8)
+	public void resultSearchValidation_Supervisor() throws IOException, InterruptedException
+	{
+		TestResult ee = new TestResult(driver);
+		ee.resultSearch_Supervisor("Passed");
+		Thread.sleep(2000);
+		Assert.assertTrue(ee.resultSearchValidation_Supervisor("Passed"));
+		logger.info("Result search functionality verified");	
+	}
+	
+	@Test(priority=9)
 	public void statusSearchValidation_Supervisor() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
@@ -93,29 +104,30 @@ public class TC_016_TestResult extends BaseClassTest {
 		logger.info("Status search functionality verified");	
 	}
 	
-	@Test(priority=9)
+	@Test(priority=10)
 	public void dateSearchValidation_Supervisor() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
-		ee.dateSearch_Supervisor("24-10-2023","24-10-2023");
+		ee.dateSearch_Supervisor("29-12-2023","29-12-2023");
 		Thread.sleep(2000);
-		Assert.assertTrue(ee.dateSearchValidation_Supervisor("24-10-2023"));
+		Assert.assertTrue(ee.dateSearchValidation_Supervisor("29-12-2023"));
 		logger.info("Date search functionality verified");	
 		ee.clickOnTestResult3();
 	}
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void sign_test_Supervisor() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);
 		ee.clickOnSupervisor();
-		ee.signTest3("Failed", "Completed");
+		ee.signTest3a("Passed", "Completed");
+		driver.findElement(By.xpath("//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[7]/i[1]")).click();		
 		ee.signTest2("neethumolp@datamatica.uk", "Neethu@12345", "Reviewer");
 		ee.testSignnAlert();
 		ee.clickOnTestResult2();
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	public void submitExam() throws IOException, InterruptedException
 	{
 		TestResult ee = new TestResult(driver);

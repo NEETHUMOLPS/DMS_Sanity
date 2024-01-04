@@ -53,6 +53,9 @@ public class TrainingAcknowledgement extends AbstractComponent{
 	@FindBy(xpath="//td[6]")
 	List<WebElement> view1;
 	
+	@FindBy(xpath="//img[@alt='Edit document']")
+	WebElement download;
+	
 	//Verification
 	@FindBy(xpath="//td[1]")
 	List<WebElement> trainingName2;
@@ -118,6 +121,13 @@ public class TrainingAcknowledgement extends AbstractComponent{
 	{
 		Thread.sleep(2000);
 		myTraining.click();
+		Thread.sleep(2000);
+	}
+	
+	public void clickOnDownload() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		download.click();
 		Thread.sleep(2000);
 	}
 	

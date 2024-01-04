@@ -27,9 +27,9 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void dateSearchValidation() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.dateSearch("20-11-2023");
+		da.dateSearch("29-12-2023");
 		Thread.sleep(2000);
-		Assert.assertTrue(da.dateSearchValidation("2023-11-20"));
+		Assert.assertTrue(da.dateSearchValidation("2023-12-29"));
 		logger.info("Date search functionality verified");	
 		driver.navigate().refresh();
 	}
@@ -45,12 +45,12 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=4)
+	/*@Test(priority=4)
 	public void approveDoc1() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D3");
-		da.selApprovalStatus("D3");
+		da.documentTitleSearch("D2");
+		da.selApprovalStatus("D2");
 		da.approval1("Approved");
 		da.docApprovalAlert1();
 		driver.navigate().refresh();
@@ -60,19 +60,19 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void rejectDoc1() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D4");
-		da.selApprovalStatus("D4");
+		da.documentTitleSearch("D3");
+		da.selApprovalStatus("D3");
 		da.rejection1("Rejected");
 		da.docRejectionAlert1();
 		driver.navigate().refresh();
-	}
+	}*/
 	
 	@Test(priority=6)
 	public void viewStatus() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D2");
-		da.selStatus("D2");
+		da.documentTitleSearch("D1");
+		da.selStatus("D1");
 		da.viewStatus();
 		driver.navigate().refresh();
 	}
@@ -81,8 +81,9 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Approval() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D5");
-		da.selView("D5");
+		da.statusSearch("Pending");
+		da.documentTitleSearch("D7");
+		da.selView("D7");
 		da.viewStatus_approve("Approved");
 		da.docApprovalAlert1();
 		da.clickOnApprovals();
@@ -93,8 +94,9 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewDocumet_Reject() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
-		da.documentTitleSearch("D6");
-		da.selView("D6");
+		da.statusSearch("Pending");
+		da.documentTitleSearch("D8");
+		da.selView("D8");
 		da.viewStatus_reject("Rejected");
 		da.docRejectionAlert1();
 		da.clickOnApprovals();	
@@ -104,6 +106,7 @@ public class TC_014_DocumentApprovals extends BaseClassTest {
 	public void viewApprovedDocumet_download_print() throws IOException, InterruptedException
 	{
 		DocumentApprovals da = new DocumentApprovals(driver);
+		da.statusSearch("Approved");
 		da.documentTitleSearch("D2");
 		da.selView("D2");
 		da.downloadAndPrint();

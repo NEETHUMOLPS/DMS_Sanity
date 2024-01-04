@@ -16,7 +16,7 @@ public class TC_007_Designation extends BaseClassTest {
 	{
 		DesignationPage up = new DesignationPage(driver);
 		up.clickDesignation();
-		up.clickCreateDesignation("Automation Tester", "NA");
+		up.clickCreateDesignation("Automation Tester01", "NA");
 		up.creationAlert();	
 		driver.navigate().refresh();
 	}
@@ -25,8 +25,8 @@ public class TC_007_Designation extends BaseClassTest {
 	public void setPrivilege() throws IOException, InterruptedException
 	{
 		DesignationPage up = new DesignationPage(driver);
-		up.desSeach("Automation Tester");
-		up.privilege("Automation Tester");
+		up.desSeach("Automation Tester01");
+		up.privilege("Automation Tester01");
 		up.setPrivilege();
 		up.privilegeAlert1();
 		driver.navigate().refresh();		
@@ -36,8 +36,8 @@ public class TC_007_Designation extends BaseClassTest {
 	public void editPrivilege() throws IOException, InterruptedException
 	{
 		DesignationPage up = new DesignationPage(driver);
-		up.desSeach("Automation Tester");
-		up.privilege("Automation Tester");
+		up.desSeach("Automation Tester01");
+		up.privilege("Automation Tester01");
 		up.setPrivilege();
 		up.privilegeAlert2();
 		driver.navigate().refresh();		
@@ -46,8 +46,8 @@ public class TC_007_Designation extends BaseClassTest {
 	public void edit() throws IOException, InterruptedException
 	{
 		DesignationPage up = new DesignationPage(driver);
-		up.desSeach("Automation Tester");
-		up.edit1("Automation Tester");
+		up.desSeach("Automation Tester01");
+		up.edit1("Automation Tester01");
 		up.editdes("NA");
 		up.editAlert();
 		driver.navigate().refresh();
@@ -57,8 +57,8 @@ public class TC_007_Designation extends BaseClassTest {
 	public void delete() throws IOException, InterruptedException
 	{
 	DesignationPage up = new DesignationPage(driver);
-	up.desSeach("Automation Tester");
-	up.delete("Automation Tester");
+	up.desSeach("Automation Tester01");
+	up.delete("Automation Tester01");
 	up.deleteAlert();
 	driver.navigate().refresh();
 	}

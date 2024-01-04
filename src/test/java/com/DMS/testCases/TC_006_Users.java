@@ -37,9 +37,9 @@ public class TC_006_Users extends BaseClassTest {
 	public void nameSearchValidation() throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethumol P S");
+		up.nameSearch("Neethumol PS");
 		Thread.sleep(2000);
-		Assert.assertTrue(up.nameValidation("Neethumol P S"));
+		Assert.assertTrue(up.nameValidation("Neethumol PS"));
 		logger.info("Name search functionality verified");	
 		driver.navigate().refresh();
 	}
@@ -60,9 +60,9 @@ public class TC_006_Users extends BaseClassTest {
 	{		
 		UsersPage up = new UsersPage(driver);
 		Thread.sleep(4000);
-		up.DepartmentSearch("AF");
+		up.DepartmentSearch("Test Department01 ");
 		Thread.sleep(2000);
-		Assert.assertTrue(up.departmentValidation("AF"));
+		Assert.assertTrue(up.departmentValidation("Test Department01 "));
 		logger.info("Department search functionality verified");	
 		driver.navigate().refresh();
 	}

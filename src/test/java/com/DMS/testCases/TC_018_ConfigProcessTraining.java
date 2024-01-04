@@ -17,9 +17,9 @@ public class TC_018_ConfigProcessTraining extends BaseClassTest {
 	{
 		ConfigProcessTraining cp = new ConfigProcessTraining(driver);
 		cp.clickOnConfigProcessTraining();
-		cp.searchByName("Neethumol P S");
-		cp.selUser("Neethumol P S");
-		cp.assignTraining("Problem Management", "Neethu Tester", "21-11-2023", "21-11-2023");
+		cp.searchByName("Neethumol PS");
+		cp.selUser("Neethumol PS");
+		cp.assignTraining("Problem Management", "Neethu Tester", "03-01-2024", "03-01-2024");
 		cp.invitationAlert();	
 		driver.navigate().refresh();
 	}
@@ -28,8 +28,8 @@ public class TC_018_ConfigProcessTraining extends BaseClassTest {
 	public void nameSearchValidation() throws IOException, InterruptedException
 	{
 		ConfigProcessTraining cp = new ConfigProcessTraining(driver);
-		cp.searchByName("Neethumol P S");
-		Assert.assertTrue(cp.nameSearchValidation("Neethumol P S"));
+		cp.searchByName("Neethumol PS");
+		Assert.assertTrue(cp.nameSearchValidation("Neethumol PS"));
 		logger.info("Name search functionality verified");		
 		driver.navigate().refresh();
 	}

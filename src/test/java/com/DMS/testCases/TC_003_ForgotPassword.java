@@ -17,7 +17,7 @@ public class TC_003_ForgotPassword extends BaseClass {
 		logger.info("URL is opened");
 		ForgotPassword fp=new ForgotPassword(driver);
 		fp.clickOnForgotPassword();
-		fp.accoutEmail("neethu@yopmail.com");
+		fp.accoutEmail("neethumolp@datamatica.uk");
 		fp.Alert();	
 	}
 

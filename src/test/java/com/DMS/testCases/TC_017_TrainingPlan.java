@@ -18,7 +18,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlan();
-		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "21-11-2023", "21-11-2023", "21-11-2023", "21-11-2023", "Self", "Neethu Tester");
+		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "03-01-2024", "03-01-2024", "03-01-2024", "03-01-2024", "Self", "Neethu Tester");
 		tp.addTrainingPlanAlert_MyTrainingPlan();	
 	}
 	
@@ -56,7 +56,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlanForApproval();
 		tp.searchStatus2("Planned");
-		tp.sign1_TrainingPlanForApproval("Pen Testing");
+		tp.sign1_TrainingPlanForApproval("Selenium");
 		tp.sign2_TrainingPlanForApproval("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
 		tp.signALert_TrainingPlanForApproval();
 	}
@@ -66,7 +66,7 @@ public class TC_017_TrainingPlan  extends BaseClassTest {
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnAddTrainingPlan();
-		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "21-11-2023", "21-11-2023", "Self", "Neethumol P S");
+		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "03-01-2024", "03-01-2024", "Self", "Neethumol PS");
 		tp.addTrainingPlanAlert_AddTrainingPlan();
 	}
 	

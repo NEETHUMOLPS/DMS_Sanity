@@ -42,7 +42,7 @@ public class Profile extends AbstractComponent{
 	@FindBy(xpath="//button[normalize-space()='Update']")
 	WebElement update1;
 	
-	//Create digi sign	
+	//Create digi sign
 	@FindBy(xpath="//input[@id='password-text']")
 	WebElement newPassword2;
 	@FindBy(xpath="//div[@id='tab-3']//div[@class='ibox-content']//div[2]//input[1]")
@@ -51,7 +51,7 @@ public class Profile extends AbstractComponent{
 	WebElement save;
 	
 	//Update password for digi sign
-	@FindBy(xpath="//button[normalize-space()='Update password']")
+	@FindBy(xpath="//button[normalize-space()='Update digi-sign password']")
 	WebElement update2;
 	@FindBy(xpath="(//input[@type='password'])[4]")
 	WebElement oldPassword;
@@ -59,15 +59,25 @@ public class Profile extends AbstractComponent{
 	WebElement newPassword3;
 	@FindBy(xpath="(//input[@type='password'])[6]")
 	WebElement confirmNewPassword3;
-	@FindBy(xpath="//button[@class='btn btn-primary px-3 btn-xs ml-2'][normalize-space()='Update']")
+	@FindBy(xpath="//button[@class='btn btn-primary px-3 btn-xs ml-3']")
 	WebElement update3;
+	
+	//Forgot digi-sign password
+	@FindBy(xpath="//button[normalize-space()='Forgot digi-sign password ?']")
+	WebElement forgotDigiSignPwd;
+	@FindBy(xpath="//input[@placeholder='Please enter your login password']")
+	WebElement loginPwd;
+	@FindBy(xpath="//button[normalize-space()='Cancel']")
+	WebElement cancelBtn;
+	@FindBy(xpath="//span[normalize-space()='Confirm']")
+	WebElement confirmBtn;
 	
 	//Edit sign
 	@FindBy(xpath="//img[@alt='verified icon']")
 	WebElement edit;
 	@FindBy(xpath="//input[@type='text']")
 	WebElement cred;
-	@FindBy(xpath="//img[2]")
+	@FindBy(xpath="//div[@id='tab-3']//div[3]//img[1]")
 	WebElement save1;
 	@FindBy(xpath="//input[@placeholder='Email']")
 	WebElement email;
@@ -79,6 +89,32 @@ public class Profile extends AbstractComponent{
 	//Select signature style
 	@FindBy(xpath="//div[@class='ibox-content py-2']//div[1]//label[1]//input[1]")
 	WebElement selStyle;
+	
+	public void forgotDigiSignPwd(String pwd) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		forgotDigiSignPwd.click();
+		Thread.sleep(2000);
+		loginPwd.sendKeys(pwd);
+		Thread.sleep(2000);
+		confirmBtn.click();
+		Thread.sleep(2000);
+	}
+	
+	public static boolean forgotDigiSignPwdAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("An email has been sent to you with a password reset link"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
 	
 	public void selStyle() throws InterruptedException
 	{
@@ -114,6 +150,8 @@ public class Profile extends AbstractComponent{
 	public void updatePasswordForDigiSign(String pwd1,String pwd2,String pwd3) throws InterruptedException
 	{
 		Thread.sleep(2000);
+		createDigiSign.click();
+		Thread.sleep(2000);;
 		update2.click();
 		Thread.sleep(2000);
 		oldPassword.sendKeys(pwd1);
@@ -221,7 +259,7 @@ public class Profile extends AbstractComponent{
 			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait2.until(ExpectedConditions.alertIsPresent());
 			Alert alert2 = driver.switchTo().alert();
-			Assert.assertTrue(alert2.getText().contains("Password updated successfully"));
+			Assert.assertTrue(alert2.getText().contains("Digi-sign password updated successfully"));
 			alert2.accept();
 			return true;
 		} catch (NoAlertPresentException e) {

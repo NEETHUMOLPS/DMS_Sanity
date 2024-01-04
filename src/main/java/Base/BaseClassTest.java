@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Parameters;
 import com.DMS.pageObjects.LoginPage;
 import com.DMS.utilities.ReadConfig;
@@ -62,11 +63,11 @@ public class BaseClassTest {
 		
 	}
 	
-	//@AfterTest
-	//public void tearDown()
-	//{
-	//driver.quit();
-	//}
+	@AfterTest
+	public void tearDown()
+	{
+	driver.quit();
+	}
 	
 	public void captureScreen(WebDriver driver, String tname) throws IOException {
 		TakesScreenshot ts = (TakesScreenshot) driver;

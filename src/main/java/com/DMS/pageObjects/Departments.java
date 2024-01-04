@@ -101,9 +101,9 @@ public class Departments extends AbstractComponent{
 	//permissions - main folder
 	@FindBy(xpath="//label[contains(text(),'Choose Designation')]//following-sibling::select")
 	WebElement chooseDesignation1;
-	@FindBy(xpath="//input[@value='neethug']")
+	@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")
 	WebElement name1;
-	@FindBy(xpath="//input[@value='Neethur']")
+	@FindBy(xpath="//input[@id='9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")
 	WebElement name2;
 	@FindBy(xpath="//button[normalize-space()='Save']")
 	WebElement save4;

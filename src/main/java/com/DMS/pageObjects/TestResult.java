@@ -29,7 +29,7 @@ public class TestResult extends AbstractComponent{
 	//Configure Exam menu
 	@FindBy(xpath="(//img[@alt='projects menu'])[2]")
 	WebElement training;
-	@FindBy(xpath="//b[normalize-space()='Test Result']")
+	@FindBy(xpath="//b[normalize-space()='Online Test']")
 	WebElement testResult;
 	
 	//initiator
@@ -342,7 +342,20 @@ public class TestResult extends AbstractComponent{
 		Thread.sleep(2000);
 		search2.click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//i)[6]")).click();
+		driver.findElement(By.xpath("(//i)[7]")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void signTest3a(String rs,String st) throws InterruptedException
+	{
+		Thread.sleep(2000);
+		Select os = new Select(result2);
+		os.selectByVisibleText(rs);
+		Thread.sleep(2000);
+		Select os1 = new Select(status2);
+		os1.selectByVisibleText(st);
+		Thread.sleep(2000);
+		search2.click();
 		Thread.sleep(2000);
 	}
 	

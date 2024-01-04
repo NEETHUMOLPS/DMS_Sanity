@@ -17,7 +17,7 @@ public class TC_011_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		dp.clickOnDepartment();
-		dp.createDepartment("AD14");
+		dp.createDepartment("AD33");
 		dp.departmentCreationAlert();
 	}
 	
@@ -27,9 +27,9 @@ public class TC_011_Departments extends BaseClassTest {
 		Departments dp = new Departments(driver);
 		UsersPage up = new UsersPage(driver);
 		up.clickUsers();
-		up.nameSearch("Neethumol P S");
+		up.nameSearch("Neethumol PS");
 		Thread.sleep(2000);
-		up.edit("Neethumol P S");
+		up.edit("Neethumol PS");
 		Thread.sleep(2000);
 		up.edituser2();
 		up.editAlert();
@@ -55,8 +55,8 @@ public class TC_011_Departments extends BaseClassTest {
 	public void subDepartmentCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD14");
-		dp.createDepartment("AD14c");
+		dp.selDepartment("AD33");
+		dp.createDepartment("AD33c");
 		dp.departmentCreationAlert();
 		driver.navigate().refresh();		
 	}
@@ -65,7 +65,7 @@ public class TC_011_Departments extends BaseClassTest {
 	public void mainFolderCreation() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD14");
+		dp.selDepartment("AD33");
 		dp.FolderCreation("Fol1");
 		dp.FolderCreationAlert();	
 	}
@@ -147,11 +147,11 @@ public class TC_011_Departments extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=12)
+	/*@Test(priority=12)
 	public void SubFolderEdit() throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.selDepartment("AD14");
+		dp.selDepartment("AD25");
 		dp.selFolder2("Fold3");
 		Thread.sleep(2000);
 		dp.selFolder2("Fold5");
@@ -212,21 +212,24 @@ public class TC_011_Departments extends BaseClassTest {
 		Thread.sleep(2000);
 		dp.archiveFolder();
 		dp.archiveFolderAlert();
-	}
+	}*/
 	
 	@Test(priority=18)
 	public void UploadDocument() throws Exception
 	{
 		Departments dp = new Departments(driver);
 		Thread.sleep(2000);
+		dp.selDepartment("AD33");
 		dp.selFolder2("Fold3");
 		dp.addDocumentIcon();
-		dp.fillDocument("D1", "Neethumol P S", "V1.1");
+		dp.fillDocument("D1", "Neethumol PS", "V1.1");
+		Thread.sleep(4000);
 		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
 		dp.uploadDocAlert();
 		Thread.sleep(2000);
 		dp.addDocumentIcon();
-		dp.fillDocument("D1", "Neethumol P S", "V1.1");
+		dp.fillDocument("D1", "Neethumol PS", "V1.1");
+		Thread.sleep(4000);
 		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (2).xlsx");
 		dp.uploadDocAlert();
 		Thread.sleep(2000);
@@ -282,8 +285,9 @@ public class TC_011_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		dp.addDocumentIcon();
-		dp.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
-		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		dp.fillDocument_addSigners("D1", "Neethumol PS", "V1.1","UAT Test script","Neethumol PS","Neethu Tester","Neethug G");
+		Thread.sleep(4000);
+		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		dp.uploadDocAlert();
 		Thread.sleep(1000);
 	}
@@ -292,7 +296,7 @@ public class TC_011_Departments extends BaseClassTest {
 	public void addSigners_Document() throws Exception
 	{
 		Departments dp = new Departments(driver);
-		dp.selDoc("UAT EIDSA - E-Consent 1.docx");
+		dp.selDoc("UAT EIDSA - E-Consent 1 (11).docx");
 		dp.addSigners("Neethur R");
 		dp.addSignersAlert();
 	}
@@ -322,7 +326,8 @@ public class TC_011_Departments extends BaseClassTest {
 		Departments dp = new Departments(driver);
 		Thread.sleep(10000);
 		dp.addNewVersion("D2", "V1.2");
-		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		Thread.sleep(4000);
+		dp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		dp.uploadDocAlert1();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");

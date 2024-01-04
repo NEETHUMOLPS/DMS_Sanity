@@ -122,12 +122,12 @@ public class ProjectPage extends AbstractComponent{
 	//permissions - main folder
 	@FindBy(xpath="//label[contains(text(),'Choose Role')]//following-sibling::select")
 	WebElement chooseRole1;
-	@FindBy(xpath="//input[@value='Neethu Tester']")
+	@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")
 	WebElement name1;
-	@FindBy(xpath="//input[@value='Neethug G']")
+	@FindBy(xpath="//input[@id='9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")
 	WebElement name2;
-	@FindBy(xpath="//input[@value='Neethur R']")
-	WebElement name3;
+	//@FindBy(xpath="//input[@id='9b3b3ae4-70be-4bd5-870e-a99f44b00af3']")
+	//WebElement name3;
 	@FindBy(xpath="//button[contains(text(),'Save')]")
 	WebElement save4;
 	
@@ -171,9 +171,9 @@ public class ProjectPage extends AbstractComponent{
 	WebElement expiryDate;
 	@FindBy(xpath="//textarea[@id='changesHistory']")
 	WebElement changesHistory;
-	@FindBy(xpath="//button[@type='button']")
+	@FindBy(xpath="//button[normalize-space()='Browse']")
 	WebElement browsedoc;
-	@FindBy(xpath="//button[contains(text(),'Save')]")
+	@FindBy(xpath="//span[normalize-space()='Save']")
 	WebElement saveDoc;
 	@FindBy(xpath="//div[@id='primaryDocumentTree']//tr")
 	List<WebElement> documents;	
@@ -277,11 +277,11 @@ public class ProjectPage extends AbstractComponent{
 	WebElement chooseRole;
 	@FindBy(xpath="//div[@id='tab-2']/div/div/div/div/div[2]/div[3]/div/div/div[2]/div")
 	WebElement chooseUser1;
-	@FindBy(xpath="//span[contains(text(),'Neethu Tester')]")
+	@FindBy(xpath="//span[normalize-space()='Neethu Tester']")
 	WebElement chooseUser2a;
-	@FindBy(xpath="//span[contains(text(),'Neethug G')]")
+	@FindBy(xpath="//span[normalize-space()='Neethug G']")
 	WebElement chooseUser2b;
-	@FindBy(xpath="//span[contains(text(),'Neethur R')]")
+	@FindBy(xpath="//span[normalize-space()='Neethur R']")
 	WebElement chooseUser2c;
 	@FindBy(xpath="//div[@id='tab-2']/div/div/div/div/div[2]/div[3]/div/div/div[2]/div/span[2]")
 	WebElement chooseUser3;
@@ -322,11 +322,11 @@ public class ProjectPage extends AbstractComponent{
 	WebElement unitTestStartDate;
 	@FindBy(xpath="//input[@id='Unit Test End Date']")
 	WebElement unitTestEndDate;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[9]/div[1]/select[1]")
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[5]/div[1]/select[1]")
 	WebElement moduleLead;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[10]/div[1]/select[1]")
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[6]/div[1]/select[1]")
 	WebElement developerName;
-	@FindBy(xpath="//body/div[@id='app']/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[11]/div[1]/select[1]")
+	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/form[1]/div[7]/div[1]/select[1]")
 	WebElement unitTesterName;
 	@FindBy(xpath="//input[@id='Hours Taken']")
 	WebElement hoursTaken;
@@ -334,9 +334,9 @@ public class ProjectPage extends AbstractComponent{
 	WebElement pageLink;
 	@FindBy(xpath="//textarea[@id='remarks']")
 	WebElement remarks;
-	@FindBy(xpath="//tbody/tr[1]/td[1]/div[1]/div[1]/input[1]")
+	@FindBy(xpath="//tbody/tr/td[1]/div[1]/div[1]/input[1]")
 	WebElement acceptanceCriteria;
-	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[1]/input[1]")
+	@FindBy(xpath="(//input[@value='Pass'])[1]")
 	WebElement pass1;
 	@FindBy(xpath="//body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/label[2]/input[1]")
 	WebElement fail1;
@@ -494,7 +494,7 @@ public class ProjectPage extends AbstractComponent{
 	WebElement changesHistory1;
 	@FindBy(xpath="//button[normalize-space()='Browse']")
 	WebElement browsedoc1;
-	@FindBy(xpath="//button[normalize-space()='Save']")
+	@FindBy(xpath="//span[normalize-space()='Save']")
 	WebElement saveDoc1;
 	
 	//Download
@@ -553,44 +553,81 @@ public class ProjectPage extends AbstractComponent{
 	@FindBy(xpath="//div[contains(text(),'New Version')]")
 	WebElement newVersion;
 	
+	//Share-External User
+	@FindBy(xpath="//div[normalize-space()='Share - External User']")
+	WebElement externalUser;
+	@FindBy(xpath="//input[@id='0fb713f6-3a01-40d6-83e1-712f472bb04a']")
+	WebElement externalUserSel;//Sabu Test User
+	@FindBy(xpath="//input[@id='expiry-date']")
+	WebElement expiry_Date;
+	@FindBy(xpath="//span[normalize-space()='Share']")
+	WebElement share;
+	
+	public void shareFolder_ExternalUser(String dt) throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		externalUser.click();
+		Thread.sleep(2000);	
+		externalUserSel.click();
+		Thread.sleep(2000);	
+		expiry_Date.sendKeys(dt);
+		Thread.sleep(2000);	
+		share.click();
+	}
+	
+	public static boolean shareFolder_ExternalUserAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Folder shared successfully"));
+			alert1.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
 	public void editSavedDocument() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		editSavedDocument.click();
-		Thread.sleep(4000);			
+		Thread.sleep(2000);			
 	}
 	
 	public void deleteSavedDocument() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		deleteSavedDocument.click();
-		Thread.sleep(4000);			
+		Thread.sleep(2000);			
 	}
 	
 	public void newVersionOfSavedDocument() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		newVersionOfSavedDocument.click();
-		Thread.sleep(4000);			
+		Thread.sleep(2000);			
 	}
 	
 	public void clickOnNewVersion() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		newVersion.click();
-		Thread.sleep(4000);			
+		Thread.sleep(2000);			
 	}
 	
 	public void download() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		downloadDoc.click();
-		Thread.sleep(4000);			
+		Thread.sleep(2000);			
 	}
 	
 	public void documentApprovalDoc(String role) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		approvalsDoc.click();
 		Thread.sleep(2000);		
 		Select os = new Select(chooseRoleApproval);
@@ -613,9 +650,9 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void addSigners(String user) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		addSignersUpdateDoc.click();
-		Thread.sleep(4000);	
+		Thread.sleep(2000);	
 		Select os = new Select(user3);
 		os.selectByVisibleText(user);
 		Thread.sleep(2000);
@@ -627,9 +664,9 @@ public class ProjectPage extends AbstractComponent{
 	{		
 		Thread.sleep(2000);	
 		addNewVersionDoc.click();
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		docTitle.clear();
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		docTitle.sendKeys(title);
 		Thread.sleep(2000);	
 		docversion.sendKeys(ver);
@@ -638,7 +675,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void signDocument(String em,String pwd,String rs) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		signDocumentDoc.click();
 		Thread.sleep(2000);	
 		emailDoc.sendKeys(em);
@@ -715,7 +752,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void editSavedDocument1(String tit) throws InterruptedException
 	{
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		title.clear();
 		Thread.sleep(2000);
 		title.sendKeys(tit);
@@ -725,19 +762,19 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		elementWait(saveDocument);
 		saveDocument.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void savedToSubmitDocument(String em,String pwd,String rs) throws InterruptedException
 	{
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,1500)");
 		Thread.sleep(2000);
 		elementWait(submitAndSign);
 		submitAndSign.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		email.sendKeys(em);
 		Thread.sleep(2000);
 		password.sendKeys(pwd);
@@ -1170,9 +1207,9 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void createUser(String role) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		createUser.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select os = new Select(chooseRole);
 		os.selectByVisibleText(role);
 		Thread.sleep(2000);
@@ -1185,33 +1222,33 @@ public class ProjectPage extends AbstractComponent{
 		chooseUser2c.click();
 		Thread.sleep(2000);
 		chooseUser3.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		saveUser.click();		
 	}
 	
 	public void editUser(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		editUser.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select os = new Select(changeUser);
 		os.selectByVisibleText(name);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		saveUser.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void deleteUser() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		deleteUser.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 	
 	public void ProjectRoleCreation(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		profile.click();
 		Thread.sleep(2000);
 		addProjectRole.click();
@@ -1224,14 +1261,14 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean roleActions(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		for(int i=0;i<roleList.size();i++)
 		{
 			String dname=roleList.get(i).getText();
 			if(dname.contains(name))
 			{
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				roleList.get(i).click();
 				Thread.sleep(3000);
 				roleOptions.get(i).click();
@@ -1244,7 +1281,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean userActions(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		for(int i=0;i<userList.size();i++)
 		{
@@ -1261,11 +1298,11 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void RoleEdit(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		editRole.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		role.clear();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		role.sendKeys(name);
 		saveRole1.click();
 		Thread.sleep(2000);
@@ -1274,14 +1311,14 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void RoleDelete() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		deleteRole.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 	
 	public void RoleImport() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		addProjectRole.click();
 		Thread.sleep(2000);
 		yes.click();
@@ -1293,114 +1330,114 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void clickOnProjectMenu() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		projectsMenu.click();
-		Thread.sleep(3000);		
+		Thread.sleep(2000);		
 	}
 
 	
 	public void deleteFolder() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		delete2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void archiveFolder() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		archive2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void SendToFolder(String dep1) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		sendTo2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select os = new Select(selectDepartment1);
 		os.selectByVisibleText(dep1);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		selectDepartment2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		move.click();
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 	}
 	
 	public void permissionsFolder(String role) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		permissions2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select os = new Select(chooseRole1);
 		os.selectByVisibleText(role);
-		Thread.sleep(3000);
-		name2.click();
+		Thread.sleep(2000);
+		name1.click();
 		Thread.sleep(2000);
 		save4.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void ShareFolder(String role) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		share2.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select os = new Select(chooseRole1);
 		os.selectByVisibleText(role);
 		Thread.sleep(2000);
-		name3.click();
+		name2.click();
 		Thread.sleep(2000);
 		share3.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 	}
 	
 	public void ProjectCreation(String pname,String ptype) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		createProjectIcon.click();
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		projectName.sendKeys(pname);
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		Select sel=new Select(projectType);
 		sel.selectByVisibleText(ptype);
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		save1.click();		
 	}
 	
 	public void FolderCreation(String fname) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		createFolder.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		folderName.sendKeys(fname);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		save2.click();
 		Thread.sleep(2000);
 	}
 	
 	public void devFolderCreation(String fname) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		devCreateFolder.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		folderName.sendKeys(fname);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		save2.click();
 		Thread.sleep(2000);
 	}
 	
 	public void FolderEdit() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		edit2.click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		save3.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 	
 	public static boolean projectCreationAlert() throws InterruptedException
@@ -1766,7 +1803,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean clickOnKebabMenu1(String pname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		for(int i=0;i<projectsList.size();i++)
 		{
@@ -1783,7 +1820,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean clickOnKebabMenu2(String pname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		for(int i=0;i<FoldersList2.size();i++)
 		{
@@ -1804,14 +1841,14 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean selFolder2(String name) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		for(int i=0;i<FoldersList1.size();i++)
 		{
 			String selpname=FoldersList1.get(i).getText();
 			if(selpname.equals(name))
 			{
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				FoldersList1.get(i).click();
 				Thread.sleep(2000);
 				return true;
@@ -1822,31 +1859,31 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void editProject(String des) throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		edit1.click();
 		Thread.sleep(2000);
 		description.sendKeys(des);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		save1.click();
 	}
 	
 	public void archiveProject() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		archive1.click();
 		Thread.sleep(2000);
 	}
 	
 	public void deleteProject() throws InterruptedException
 	{		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		delete1.click();
 		Thread.sleep(2000);
 	}
 	
 	public boolean selProject(String pname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		for(int i=0;i<projectsList.size();i++)
 		{
@@ -1862,27 +1899,27 @@ public class ProjectPage extends AbstractComponent{
 	
 	public void createDocumentIcon() throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		createDocIcon.click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 	public void fillDocument(String dtitle,String downer, String ver) throws InterruptedException
 	{
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		docTitle.sendKeys(dtitle);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select sel=new Select(docowner);
 		sel.selectByVisibleText(downer);	
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		docversion.sendKeys(ver);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	}
 	
 	public void fillDocument_addSigners(String dtitle,String downer, String ver,String type,String name1,String name2,String name3) throws InterruptedException
 	{
-		Thread.sleep(3000);	
+		Thread.sleep(2000);	
 		docTitle.sendKeys(dtitle);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		Select sel=new Select(docowner);
 		sel.selectByVisibleText(downer);	
 		Thread.sleep(2000);
@@ -1932,7 +1969,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean documentActions(String docname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		for(int i=0;i<documents.size();i++)
 		{
@@ -1949,7 +1986,7 @@ public class ProjectPage extends AbstractComponent{
 	
 	public boolean selDoc(String docname) throws InterruptedException
 	{
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		for(int i=0;i<documents.size();i++)
 		{
@@ -1984,11 +2021,11 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		Select os = new Select(chooseRole1);
 		os.selectByVisibleText(role);
-		Thread.sleep(3000);
-		name2.click();
+		Thread.sleep(2000);
+		name1.click();
 		Thread.sleep(2000);
 		save4.click();
-		Thread.sleep(3000);		
+		Thread.sleep(2000);		
 	}
 	
 	public void shareDoc(String role) throws Exception
@@ -1998,11 +2035,11 @@ public class ProjectPage extends AbstractComponent{
 		Thread.sleep(2000);
 		Select os = new Select(chooseRole1);
 		os.selectByVisibleText(role);
-		Thread.sleep(3000);
-		name3.click();
+		Thread.sleep(2000);
+		name2.click();
 		Thread.sleep(2000);
 		sharedoc.click();
-		Thread.sleep(3000);		
+		Thread.sleep(2000);		
 	}
 	
 	public void deleteDoc() throws Exception

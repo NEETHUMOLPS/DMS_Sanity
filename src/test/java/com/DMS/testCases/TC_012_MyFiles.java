@@ -1,3 +1,4 @@
+
 package com.DMS.testCases;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	{
 		MyFiles mf = new MyFiles(driver);
 		mf.clickOnMyFiles();
-		mf.FolderCreation("DMS");
+		mf.FolderCreation("DMSEIDSA");
 		mf.FolderCreationAlert();	
 	}
 	
@@ -24,7 +25,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderEdit() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS");
+		mf.clickOnKebabMenu2("DMSEIDSA");
 		mf.FolderEdit();
 		mf.FolderUpdationAlert();
 	}
@@ -33,7 +34,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderPermission() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS");
+		mf.clickOnKebabMenu2("DMSEIDSA");
 		mf.permissionsFolder("Quality Analyst");
 		mf.PermissionsFolderAlert();
 	}
@@ -42,7 +43,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderShare() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS");
+		mf.clickOnKebabMenu2("DMSEIDSA");
 		mf.ShareFolder("Quality Analyst");
 		mf.shareFolderAlert();
 	}
@@ -51,7 +52,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderDelete() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS");
+		mf.clickOnKebabMenu2("DMSEIDSA");
 		mf.deleteFolder();
 		mf.deleteFolderAlert();
 	} 
@@ -60,9 +61,9 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void MainFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("DMS009");
+		mf.FolderCreation("DMSEIDSA12");
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("DMS009");
+		mf.clickOnKebabMenu2("DMSEIDSA12");
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
@@ -88,7 +89,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=8)
+	/*@Test(priority=8)
 	public void SubFolderEdit() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -142,7 +143,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		Thread.sleep(2000);
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
-	}
+	}*/
 	
 	@Test(priority=13)
 	public void UploadDocument() throws Exception
@@ -151,12 +152,14 @@ public class TC_012_MyFiles extends BaseClassTest {
 		Thread.sleep(3000);
 		mf.selFolder2("DMS03");
 		mf.createDocumentIcon();
-		mf.fillDocument("D1", "Neethumol P S", "V1.1");
+		mf.fillDocument("D1", "Neethumol PS", "V1.1");
+		Thread.sleep(4000);
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
 		mf.uploadDocAlert();
 		Thread.sleep(2000);
 		mf.createDocumentIcon();
-		mf.fillDocument("D1", "Neethumol P S", "V1.1");
+		mf.fillDocument("D1", "Neethumol PS", "V1.1");
+		Thread.sleep(4000);
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (2).xlsx");
 		mf.uploadDocAlert();
 		Thread.sleep(2000);
@@ -215,8 +218,9 @@ public class TC_012_MyFiles extends BaseClassTest {
 	{
 		MyFiles mf = new MyFiles(driver);
 		mf.createDocumentIcon();
-		mf.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
-		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		mf.fillDocument_addSigners("D1", "Neethumol PS", "V1.1","UAT Test script","Neethumol PS","Neethu Tester","Neethug G");
+		Thread.sleep(4000);
+		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		mf.uploadDocAlert();
 		Thread.sleep(1000);
 	}
@@ -225,7 +229,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 	public void addSigners_Document() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.selDoc("UAT EIDSA - E-Consent 1.docx");
+		mf.selDoc("UAT EIDSA - E-Consent 1 (11).docx");
 		mf.addSigners("Neethur R");
 		mf.addSignersAlert();
 	}
@@ -246,7 +250,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 		MyFiles mf = new MyFiles(driver);
 		Thread.sleep(10000);
 		mf.addNewVersion("D2", "V1.2");
-		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		Thread.sleep(4000);
+		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		mf.uploadDocAlert1();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");

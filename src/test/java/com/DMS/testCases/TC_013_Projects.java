@@ -21,7 +21,7 @@ public class TC_013_Projects extends BaseClassTest {
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnProjectMenu();
-		pp.ProjectCreation("PROJECT1", "Dev");
+		pp.ProjectCreation("DMSPROJECT01", "IT");
 		pp.projectCreationAlert();		
 	}
 	
@@ -29,7 +29,7 @@ public class TC_013_Projects extends BaseClassTest {
 	public void editProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu1("PROJECT1");
+		pp.clickOnKebabMenu1("DMSPROJECT01");
 		pp.editProject("NA");
 		pp.projectEditAlert();		
 	}
@@ -38,7 +38,7 @@ public class TC_013_Projects extends BaseClassTest {
 	public void addProjectRole() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selProject("PROJECT1");
+		pp.selProject("DMSPROJECT01");
 		pp.ProjectRoleCreation("Automation Tester");
 		pp.roleCreationAlert();
 	}
@@ -73,7 +73,7 @@ public class TC_013_Projects extends BaseClassTest {
 	public void createUser() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.createUser("Quality Analyst");
+		pp.createUser("QA");
 		pp.userCreationAlert();		
 	}
 	
@@ -129,7 +129,7 @@ public class TC_013_Projects extends BaseClassTest {
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Folder1");
-		pp.permissionsFolder("Quality Analyst");
+		pp.permissionsFolder("QA");
 		pp.PermissionsFolderAlert();
 		driver.navigate().refresh();
 	}
@@ -139,11 +139,20 @@ public class TC_013_Projects extends BaseClassTest {
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Folder1");
-		pp.ShareFolder("Quality Analyst");
+		pp.ShareFolder("QA");
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=15)
+	/*@Test(priority=15)
+	public void docMainFolderShare_ExternalUser() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Folder1");
+		pp.shareFolder_ExternalUser("2023-12-29T10:03");
+		pp.shareFolder_ExternalUserAlert();
+	}*/
+	
+	@Test(priority=16)
 	public void docMainFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -152,7 +161,7 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.deleteFolderAlert();
 	} 
 	
-	@Test(priority=16)
+	@Test(priority=17)
 	public void docMainFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -163,7 +172,7 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.archiveFolderAlert();
 	}
 	
-	@Test(priority=17)
+	@Test(priority=18)
 	public void docSubFolderCreation() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -184,7 +193,7 @@ public class TC_013_Projects extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=18)
+	/*@Test(priority=19)
 	public void docSubFolderEdit() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -198,7 +207,7 @@ public class TC_013_Projects extends BaseClassTest {
 		
 	}
 	
-	@Test(priority=19)
+	@Test(priority=20)
 	public void docSubFolderSendTo() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -208,28 +217,38 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.sendToFolderAlert();		
 	}
 	
-	@Test(priority=20)
+	@Test(priority=21)
 	public void docSubFolderPermission() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Folder5");
 		Thread.sleep(2000);
-		pp.permissionsFolder("Quality Analyst");
+		pp.permissionsFolder("QA");
 		pp.PermissionsFolderAlert();
 	}
 	
 
-	@Test(priority=21)
+	@Test(priority=22)
 	public void docSubFolderShare() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Folder5");
 		Thread.sleep(2000);
-		pp.ShareFolder("Quality Analyst");
+		pp.ShareFolder("QA");
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=22)
+	/*@Test(priority=23)
+	public void docSubFolderShare_ExternalUser() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Folder5");
+		Thread.sleep(2000);
+		pp.shareFolder_ExternalUser("2023-12-28T10:03");
+		pp.shareFolder_ExternalUserAlert();
+	}
+	
+	@Test(priority=24)
 	public void docSubFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -239,7 +258,7 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.deleteFolderAlert();
 	}
 	
-	@Test(priority=23)
+	@Test(priority=25)
 	public void docSubFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -248,9 +267,9 @@ public class TC_013_Projects extends BaseClassTest {
 		Thread.sleep(2000);
 		pp.archiveFolder();
 		pp.archiveFolderAlert();
-	}
+	}*/
 	
-	@Test(priority=24)
+	@Test(priority=26)
 	public void docUploadDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -259,18 +278,19 @@ public class TC_013_Projects extends BaseClassTest {
 		//pp.selProject("PROJECT1");//
 		pp.selFolder2("Folder3");
 		pp.createDocumentIcon();
-		pp.fillDocument("D1", "Neethumol P S", "V1.1");
+		pp.fillDocument("D1", "Neethumol PS", "V1.1");
+		Thread.sleep(4000);
 		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
 		pp.uploadDocAlert();
 		Thread.sleep(2000);
 		pp.createDocumentIcon();
-		pp.fillDocument("D1", "Neethumol P S", "V1.1");
+		pp.fillDocument("D1", "Neethumol PS", "V1.1");
 		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (2).xlsx");
 		pp.uploadDocAlert();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=25)
+	@Test(priority=27)
 	public void docEditDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -279,25 +299,25 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.editDocAlert();
 	}
 	
-	@Test(priority=26)
+	@Test(priority=28)
 	public void docPermissionDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.documentActions("Sample (1).xlsx");
-		pp.permissionDoc("Quality Analyst");
+		pp.permissionDoc("QA");
 		pp.permissionDocAlert();
 	}
 	
-	@Test(priority=27)
+	@Test(priority=29)
 	public void docShareDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.documentActions("Sample (1).xlsx");
-		pp.shareDoc("Quality Analyst");
+		pp.shareDoc("QA");
 		pp.shareDocAlert();
 	}
 	
-	@Test(priority=28)
+	@Test(priority=30)
 	public void docDeletDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -306,7 +326,7 @@ public class TC_013_Projects extends BaseClassTest {
 		pp.deleteDocAlert();
 	}
 	
-	@Test(priority=29)
+	@Test(priority=31)
 	public void docArchiveDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -316,28 +336,29 @@ public class TC_013_Projects extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=30) 
+	@Test(priority=32) 
 	public void addSignersToTheDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.selFolder2("Folder3");
 		pp.createDocumentIcon();
-		pp.fillDocument_addSigners("D1", "Neethumol P S", "V1.1","UAT Test script","Neethumol P S","Neethu Tester","Neethug G");
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		pp.fillDocument_addSigners("D1", "Neethumol PS", "V1.1","UAT Test script","Neethumol PS","Neethu Tester","Neethug G");
+		Thread.sleep(4000);
+		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		pp.uploadDocAlert();
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=31)
+	@Test(priority=33)
 	public void addSigners_Document() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selDoc("UAT EIDSA - E-Consent 1.docx");
+		pp.selDoc("UAT EIDSA - E-Consent 1 (11).docx");
 		pp.addSigners("Neethur R");
 		pp.addSignersAlert();
 	}
 	
-	@Test(priority=32)
+	@Test(priority=34)
 	public void signDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -346,29 +367,30 @@ public class TC_013_Projects extends BaseClassTest {
 		Thread.sleep(10000);
 	}
 	
-	@Test(priority=33)
+	@Test(priority=35)
 	public void approvalDoc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.documentApprovalDoc("Quality Analyst");
+		pp.documentApprovalDoc("QA");
 		pp.documentApprovalAlert();
 		Thread.sleep(1000);
 	}
 
 	
-	@Test(priority=34)
+	@Test(priority=36)
 	public void addNewVersion_Doc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		Thread.sleep(10000);
 		pp.addNewVersion("D2", "V1.2");
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1.docx");
+		Thread.sleep(4000);
+		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
 		pp.uploadDocAlert1();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");
 	}
 	
-	@Test(priority=35)
+	@Test(priority=37)
 	public void docDownload_Print() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -377,214 +399,233 @@ public class TC_013_Projects extends BaseClassTest {
 	}
 	
 	
-	@Test(priority=36)
+	@Test(priority=38)
 	public void devMainFolderCreation() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnProjectMenu();
-		pp.selProject("PROJECT1");
+		pp.selProject("DMSPROJECT01");
 		pp.clickOnDevelopment();
-		pp.devFolderCreation("F1");
+		pp.devFolderCreation("Fol3");
 		pp.FolderCreationAlert();	
 	}
 	
-	@Test(priority=37)
+	/*@Test(priority=39)
 	public void devMainFolderEdit() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F1");
+		pp.clickOnKebabMenu2("Fol1");
 		pp.FolderEdit();
 		pp.FolderUpdationAlert();
 	}
 	
-	@Test(priority=38)
+	@Test(priority=40)
 	public void devMainFolderSendTo() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F1");
+		pp.clickOnKebabMenu2("Fol1");
 		pp.SendToFolder("QA");
 		pp.sendToFolderAlert();
 	}
 	
-	@Test(priority=39)
+	@Test(priority=41)
 	public void devMainFolderPermission() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F1");
-		pp.permissionsFolder("Quality Analyst");
+		pp.clickOnKebabMenu2("Fol1");
+		pp.permissionsFolder("QA");
 		pp.PermissionsFolderAlert();
 	}
 	
-	@Test(priority=40)
+	@Test(priority=42)
 	public void devMainFolderShare() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F1");
-		pp.ShareFolder("Quality Analyst");
+		pp.clickOnKebabMenu2("Fol1");
+		pp.ShareFolder("QA");
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=41)
+	/*@Test(priority=43)
+	public void devMainFolderShare_ExternalUser() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Fol1");
+		Thread.sleep(2000);
+		pp.shareFolder_ExternalUser("2023-12-28T10:03");
+		pp.shareFolder_ExternalUserAlert();
+	}
+	
+	@Test(priority=44)
 	public void devMainFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F1");
+		pp.clickOnKebabMenu2("Fol1");
 		pp.deleteFolder();
 		pp.deleteFolderAlert();
 	} 
 	
-	@Test(priority=42)
+	@Test(priority=45)
 	public void devMainFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.devFolderCreation("F2");
+		pp.devFolderCreation("Fol2");
 		pp.FolderCreationAlert();
-		pp.clickOnKebabMenu2("F2");
+		pp.clickOnKebabMenu2("Fol2");
 		pp.archiveFolder();
 		pp.archiveFolderAlert();
 	}
 	
-	@Test(priority=43)
+	@Test(priority=46)
 	public void devSubFolderCreation() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.devFolderCreation("F3");
+		pp.devFolderCreation("Fol3");
 		pp.FolderCreationAlert();
 		Thread.sleep(2000);
-		pp.devFolderCreation("F4");
+		pp.devFolderCreation("Fol4");
 		pp.FolderCreationAlert();
 		Thread.sleep(2000);
-		pp.selFolder2("F3");
+		pp.selFolder2("Fol3");
 		Thread.sleep(2000);
-		pp.devFolderCreation("F5");
+		pp.devFolderCreation("Fol5");
 		pp.FolderCreationAlert();
 		Thread.sleep(2000);
-		pp.devFolderCreation("F6");
+		pp.devFolderCreation("Fol6");
 		pp.FolderCreationAlert();
 		Thread.sleep(2000);	
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=44)
+	@Test(priority=47)
 	public void devSubFolderEdit() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnDevelopment();
-		pp.selFolder2("F3");
+		pp.selFolder2("Fol3");
 		Thread.sleep(2000);
-		pp.selFolder2("F5");
-		pp.clickOnKebabMenu2("F5");
+		pp.selFolder2("Fol5");
+		pp.clickOnKebabMenu2("Fol5");
 		Thread.sleep(2000);
 		pp.FolderEdit();
 		pp.FolderUpdationAlert();
 		
 	}
 	
-	@Test(priority=45)
+	@Test(priority=48)
 	public void devSubFolderSendTo() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F5");
+		pp.clickOnKebabMenu2("Fol5");
 		Thread.sleep(2000);
 		pp.SendToFolder("QA");
 		pp.sendToFolderAlert();		
 	}
 	
-	@Test(priority=46)
+	@Test(priority=49)
 	public void devSubFolderPermission() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F5");
+		pp.clickOnKebabMenu2("Fol5");
 		Thread.sleep(2000);
-		pp.permissionsFolder("Quality Analyst");
+		pp.permissionsFolder("QA");
 		pp.PermissionsFolderAlert();
 	}
 	
 
-	@Test(priority=47)
+	@Test(priority=50)
 	public void devSubFolderShare() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F5");
+		pp.clickOnKebabMenu2("Fol5");
 		Thread.sleep(2000);
-		pp.ShareFolder("Quality Analyst");
+		pp.ShareFolder("QA");
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=48)
+	@Test(priority=51)
+	public void devSubFolderShare_ExternalUser() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Fol5");
+		Thread.sleep(2000);
+		pp.shareFolder_ExternalUser("2023-12-28T10:03");
+		pp.shareFolder_ExternalUserAlert();
+	}
+	
+	@Test(priority=52)
 	public void devSubFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.clickOnKebabMenu2("F5");
+		pp.clickOnKebabMenu2("Fol5");
 		Thread.sleep(2000);
 		pp.deleteFolder();
 		pp.deleteFolderAlert();
 	}
 	
-	@Test(priority=49)
+	@Test(priority=53)
 	public void devSubFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F6");
-		pp.clickOnKebabMenu2("F6");
+		pp.selFolder2("Fol6");
+		pp.clickOnKebabMenu2("Fol6");
 		Thread.sleep(2000);
 		pp.archiveFolder();
 		pp.archiveFolderAlert();
-	}
+	}*/
 	
-	@Test(priority=50)
+	@Test(priority=54)
 	public void devUploadDocument_SubmitAndSign() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		pp.fillDocument_submitAndSign("Unit Test", "T1", "M1", "S1", "Neethumol P S", "Neethumol P S", "Neethumol P S", "A1", "neethumolp@datamatica.uk", "Neethu@12345", "Confirmation");
+		pp.selFolder2("Fol3");
+		pp.fillDocument_submitAndSign("Unit Test", "T1", "M1", "S1", "Neethumol PS", "Neethumol PS", "Neethumol PS", "A1", "neethumolp@datamatica.uk", "Neethu@12345", "Confirmation");
 		pp.documentGenerationAlert_sumbmitAndSign();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=51)
+	@Test(priority=55)
 	public void addNewVersion1() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		Thread.sleep(3000);
-		pp.selFolder2("F3");
-		Thread.sleep(4000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement view = driver.findElement(By.xpath("(//img[@alt='View document'])[1]"));
 		view.click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		pp.addNewVersion_submitDocument1("neethumolp@datamatica.uk","Neethu@12345","Approval");
 		pp.documentGenerationAlert_sumbmitAndSign();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=52)
+	@Test(priority=56)
 	public void download_printDoc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(4000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement view = driver.findElement(By.xpath("(//img[@alt='View document'])[1]"));
 		view.click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		pp.docDownload();
 		//pp.docPrint();	
 		
 	}
 	
 	
-	@Test(priority=53)
+	@Test(priority=57)
 	public void addNewVersion2() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnProjectMenu();
-		pp.selProject("PROJECT1");
+		pp.selProject("DMSPROJECT01");
 		pp.clickOnDevelopment();
-		pp.selFolder2("F3");
-		Thread.sleep(4000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement action = driver.findElement(By.xpath("//div[@id='primaryDocumentTree']/table/tbody/tr/td[6]/div/i"));
 		action.click();
 		pp.clickOnNewVersion();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		pp.addNewVersion_submitDocument2("neethumolp@datamatica.uk","Neethu@12345","Approval");
 		pp.documentGenerationAlert_sumbmitAndSign();
 		Thread.sleep(2000);
@@ -592,37 +633,37 @@ public class TC_013_Projects extends BaseClassTest {
 
 	}
 
-	@Test(priority=54)
+	@Test(priority=58)
 	public void devUploadDocument_Save() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(3000);
-		pp.fillDocument_save("Unit Test", "T2", "M2", "S2", "Neethumol P S", "Neethumol P S", "Neethumol P S", "A1");
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
+		pp.fillDocument_save("Unit Test", "T2", "M2", "S2", "Neethumol PS", "Neethumol PS", "Neethumol PS", "A1");
 		pp.documentGenerationAlert_save1();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=55)
+	@Test(priority=59)
 	public void editSavedDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(3000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement action = driver.findElement(By.xpath("//div[@id='primaryDocumentTree']/table/tbody/tr/td[6]/div/i"));
 		action.click();
 		pp.editSavedDocument();
-		pp.editSavedDocument1("T3");
+		pp.editSavedDocument1("Fol3");
 		pp.documentGenerationAlert_save1();
 		
 	}
 	
-	@Test(priority=56)
+	@Test(priority=60)
 	public void addNewVersion_savedDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(3000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement action = driver.findElement(By.xpath("//div[@id='primaryDocumentTree']/table/tbody/tr/td[6]/div/i"));
 		action.click();
 		pp.newVersionOfSavedDocument();
@@ -631,12 +672,12 @@ public class TC_013_Projects extends BaseClassTest {
 		
 	}
 	
-	@Test(priority=57)
+	@Test(priority=61)
 	public void addNewVersion_Document() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(3000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement action = driver.findElement(By.xpath("//div[@id='primaryDocumentTree']/table/tbody/tr/td[6]/div/i"));
 		action.click();
 		pp.deleteSavedDocument();
@@ -644,12 +685,12 @@ public class TC_013_Projects extends BaseClassTest {
 		
 	}
 	
-	@Test(priority=58)
+	@Test(priority=62)
 	public void savedDocumentToSubmittedDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selFolder2("F3");
-		Thread.sleep(3000);
+		pp.selFolder2("Fol3");
+		Thread.sleep(2000);
 		WebElement action = driver.findElement(By.xpath("//div[@id='primaryDocumentTree']/table/tbody/tr/td[6]/div/i"));
 		action.click();
 		pp.editSavedDocument();
@@ -660,23 +701,24 @@ public class TC_013_Projects extends BaseClassTest {
 		
 	}
 	
-	@Test(priority=59)
+	@Test(priority=63)
 	public void deleteProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnProjectMenu();
-		pp.clickOnKebabMenu1("PROJECT1");
+		Thread.sleep(2000);
+		pp.clickOnKebabMenu1("DMSPROJECT01");
 		pp.deleteProject();
 		pp.deleteProjectAlert();	
 	}
 	
-	@Test(priority=60)
+	@Test(priority=64)
 	public void archiveProject() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.ProjectCreation("PROJECT03", "Dev");
+		pp.ProjectCreation("DMSPROJECT08", "IT");
 		pp.projectCreationAlert();	
-		pp.clickOnKebabMenu1("PROJECT03");
+		pp.clickOnKebabMenu1("DMSPROJECT08");
 		pp.archiveProject();
 		pp.archiveProjectAlert();	
 	}

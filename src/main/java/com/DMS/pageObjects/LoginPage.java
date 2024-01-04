@@ -32,7 +32,7 @@ public class LoginPage extends AbstractComponent{
 	WebElement profile;
 	@FindBy(xpath="//div[contains(text(),'Logout')]")
 	WebElement logoutoption;
-	@FindBy(xpath="//span[contains(text(),'Invalid username or password')]")
+	@FindBy(xpath="//span[normalize-space()='Invalid username or password']")
 	WebElement err1;
 	
 

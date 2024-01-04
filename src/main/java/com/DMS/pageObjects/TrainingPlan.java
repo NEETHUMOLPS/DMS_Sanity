@@ -35,7 +35,7 @@ public class TrainingPlan extends AbstractComponent{
 	WebElement myTrainingPlan;
 	@FindBy(xpath="//a[normalize-space()='Training Plan for Approval']")
 	WebElement trainingPlanForApproval;
-	@FindBy(xpath="//a[normalize-space()='Add Training Plan']")
+	@FindBy(xpath="//a[normalize-space()='Assign Training Plan']")
 	WebElement addTrainingPlan;
 	
 	//My training plan
@@ -218,7 +218,7 @@ public class TrainingPlan extends AbstractComponent{
 	WebElement users2;
 	@FindBy(xpath="//div[@id='tab-3']/div[5]/div/div/div[2]/div/div[8]/div/span[2]")
 	WebElement users3;
-	@FindBy(xpath="//button[normalize-space()='Save']")
+	@FindBy(xpath="//button[normalize-space()='Clear']")
 	WebElement clear4;
 	@FindBy(xpath="//button[normalize-space()='Save']")
 	WebElement save4;

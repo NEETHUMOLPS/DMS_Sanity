@@ -71,6 +71,8 @@ public class Screens extends AbstractComponent{
 	@FindBy(xpath="//img[@class='editicon']")
 	WebElement deleteScreen;
 	
+	
+	
 	public void clickOnScreesMenu() throws InterruptedException
 	{		
 		Thread.sleep(2000);
