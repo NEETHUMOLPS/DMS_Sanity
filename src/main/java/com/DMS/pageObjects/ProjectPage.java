@@ -55,6 +55,9 @@ public class ProjectPage extends AbstractComponent{
 	@FindBy(xpath="//div[@id='primaryTree']")
 	List<WebElement> projectsList;
 	
+	@FindBy(xpath="//a[@id='document']")
+	WebElement document;
+	
 	//options from kebab menu of project
 	@FindBy(xpath="//i[@class='fa fa-ellipsis-v']")
 	List<WebElement> kebabMenu1;
@@ -556,7 +559,7 @@ public class ProjectPage extends AbstractComponent{
 	//Share-External User
 	@FindBy(xpath="//div[normalize-space()='Share - External User']")
 	WebElement externalUser;
-	@FindBy(xpath="//input[@id='0fb713f6-3a01-40d6-83e1-712f472bb04a']")
+	@FindBy(xpath="//input[@id='f2b8cf46-69fc-4bc3-920a-ccd89df1e7e9']")
 	WebElement externalUserSel;//Sabu Test User
 	@FindBy(xpath="//input[@id='expiry-date']")
 	WebElement expiry_Date;
@@ -573,6 +576,18 @@ public class ProjectPage extends AbstractComponent{
 		expiry_Date.sendKeys(dt);
 		Thread.sleep(2000);	
 		share.click();
+		Thread.sleep(10000);	
+	}
+	
+	public void shareFolder_ExternalUser1() throws InterruptedException
+	{		
+		Thread.sleep(2000);
+		externalUser.click();
+		Thread.sleep(2000);	
+		externalUserSel.click();
+		Thread.sleep(2000);		
+		share.click();
+		//Thread.sleep(50000);
 	}
 	
 	public static boolean shareFolder_ExternalUserAlert() throws InterruptedException
@@ -1205,6 +1220,14 @@ public class ProjectPage extends AbstractComponent{
 		
 	}
 	
+	public void clickOnDocument() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		document.click();
+		Thread.sleep(2000);
+		
+	}
+	
 	public void createUser(String role) throws InterruptedException
 	{
 		Thread.sleep(2000);
@@ -1256,6 +1279,13 @@ public class ProjectPage extends AbstractComponent{
 		role.sendKeys(name);
 		Thread.sleep(2000);
 		saveRole1.click();
+		Thread.sleep(2000);
+	}
+	
+	public void profile() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		profile.click();
 		Thread.sleep(2000);
 	}
 	

@@ -7,48 +7,15 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_018_ConfigProcessTraining">
-        <methods>
-          <include name="designationSearchValidation"/>
-          <include name="setup"/>
-          <include name="assignSOP"/>
-          <include name="tearDown"/>
-          <include name="nameSearchValidation"/>
-        </methods>
-      </class> <!-- com.DMS.testCases.TC_018_ConfigProcessTraining -->
-      <class name="com.DMS.testCases.TC_017_TrainingPlan">
+      <class name="com.DMS.testCases.TC_016_Dashboard">
         <methods>
           <include name="setup"/>
-          <include name="addTrainingPlan_MyTrainingPlan"/>
-          <include name="export_MyTrainingPlan"/>
-          <include name="deleteTrainingPlan_addTrainingPlan"/>
-          <include name="editTrainingPlan_addTrainingPlan"/>
-          <include name="sign_TrainingPlanForApproval"/>
-          <include name="deleteTrainingPlan_MyTrainingPlan"/>
+          <include name="signProcessTrainingAcknowledgement"/>
+          <include name="signOnlineTestReport"/>
           <include name="tearDown"/>
-          <include name="editTrainingPlan_MyTrainingPlan"/>
-          <include name="addTrainingPlan_addTrainingPlan"/>
+          <include name="signDocument"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_017_TrainingPlan -->
-      <class name="com.DMS.testCases.TC_019_TrainingAcknowledgement">
-        <methods>
-          <include name="downloadSignedDoc_Verification"/>
-          <include name="setup"/>
-          <include name="view_download_MyTraining"/>
-          <include name="sign_Verification"/>
-          <include name="assignTraining"/>
-          <include name="sign_MyTraining"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.DMS.testCases.TC_019_TrainingAcknowledgement -->
-      <class name="com.DMS.testCases.TC_016_TestResult">
-        <methods>
-          <include name="setup"/>
-          <include name="tearDown"/>
-          <include name="submitExam"/>
-          <include name="sign_test_Supervisor"/>
-        </methods>
-      </class> <!-- com.DMS.testCases.TC_016_TestResult -->
+      </class> <!-- com.DMS.testCases.TC_016_Dashboard -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

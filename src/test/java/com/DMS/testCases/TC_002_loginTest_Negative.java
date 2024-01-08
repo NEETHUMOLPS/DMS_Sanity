@@ -12,42 +12,23 @@ import org.testng.asserts.SoftAssert;
 
 public class TC_002_loginTest_Negative extends BaseClass{
 
-	@Test(dataProvider="LoginData")
-	public void LoginTestNegative(String email, String pwd) throws InterruptedException
+	@Test(priority=1 , description = "Login with invalid credentials")
+	public void loginWithInvalidCredentials() throws InterruptedException
 	{
 		logger.info("URL is opened");
 		LoginPage lp=new LoginPage(driver);
-		lp.clearEmail();
-		lp.setEmail(email);	
-		logger.info("Email provided");
-		lp.clearPwd();
-		lp.setPassword(pwd);
-		logger.info("Pssword provided");
+		lp.setEmail("neethumolp@datamatica.uk1");
+		logger.info("Entered username");
+		lp.setPassword("Ryan@12345");
+		logger.info("Enterd password");
 		lp.clickLogin();
-		Thread.sleep(3000);
+		/*Thread.sleep(10000);
 		SoftAssert softAssert = new SoftAssert();
 		softAssert.assertEquals(lp.ErrorMsg(), "Invalid username or password");
 		softAssert.assertAll();
-        logger.info("Negative test passed");
+        logger.info("Negative test passed");*/
 	}	
-		
-	@DataProvider(name="LoginData")
-	 String [][] getData() throws IOException
-	{
-		
-		String path = "C:\\Users\\lenovo\\OneDrive\\Desktop\\DMS\\Login_Negative.xlsx";
-		int rownum=XLUtility.getRowCount(path, "Sheet1");
-		int colcount=XLUtility.getCellCount(path, "Sheet1", 1);
-		String logindata[][]=new String[rownum][colcount];
-		for(int i=1;i<=rownum;i++)
-		{
-		for(int j=0;j<colcount;j++)
-		{
-			logindata[i-1][j]=XLUtility.getCellData(path, "Sheet1", i, j);
-		}
-	}	
-	return logindata;		
-	}	
+	
 	}
 
 

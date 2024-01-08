@@ -11,10 +11,10 @@ import com.DMS.pageObjects.TrainingAcknowledgement;
 
 import Base.BaseClassTest;
 
-public class TC_019_TrainingAcknowledgement extends BaseClassTest {
+public class TC_015_TrainingAcknowledgement extends BaseClassTest {
 
 	
-	@Test(priority=1)
+	@Test(priority=1, description = "Sign the SOP training form")
 	public void sign_MyTraining() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
@@ -25,7 +25,7 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		sl.clickOnTrainingAcknowledgement1();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2, description = "Download the SOP training form")
 	public void view_download_MyTraining() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
@@ -34,7 +34,7 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		driver.navigate().back();
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3, description = "Sign the SOP training form")
 	public void sign_Verification() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
@@ -45,7 +45,7 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		sl.clickOnTrainingAcknowledgement1();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4, description = "Download the SOP training form")
 	public void downloadSignedDoc_Verification() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
@@ -55,13 +55,14 @@ public class TC_019_TrainingAcknowledgement extends BaseClassTest {
 		sl.clickOnTrainingAcknowledgement();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5, description = "View the SOP training form")
 	public void assignTraining() throws IOException, InterruptedException
 	{
 		TrainingAcknowledgement sl = new TrainingAcknowledgement(driver);
 		sl.clickOnAssignTraining();
 		WebElement ele = driver.findElement(By.xpath("//tbody/tr[1]/td[7]/i[1]"));
 		ele.click();
+		sl.clickOnDashboard();
 	}
 
 }

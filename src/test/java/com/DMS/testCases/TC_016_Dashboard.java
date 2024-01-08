@@ -9,9 +9,9 @@ import com.DMS.pageObjects.Dashboard;
 
 import Base.BaseClassTest;
 
-public class TC_005_Dashboard extends BaseClassTest {
+public class TC_016_Dashboard extends BaseClassTest {
 
-	@Test(priority=1)
+	@Test(priority=1, description = "Approve training plan")
 	public void approveTrainingPlan() throws IOException, InterruptedException
 	{
 		Dashboard db = new Dashboard(driver);
@@ -20,7 +20,7 @@ public class TC_005_Dashboard extends BaseClassTest {
 		db.Dashboard2();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2, description = "Sign document")
 	public void signDocument() throws IOException, InterruptedException
 	{
 		Dashboard db = new Dashboard(driver);
@@ -29,7 +29,7 @@ public class TC_005_Dashboard extends BaseClassTest {
 		db.Dashboard2();
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3, description = "Sign process training acknowledgement")
 	public void signProcessTrainingAcknowledgement() throws IOException, InterruptedException
 	{
 		Dashboard db = new Dashboard(driver);
@@ -38,7 +38,7 @@ public class TC_005_Dashboard extends BaseClassTest {
 		db.Dashboard2();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4, description = "Sign online test report")
 	public void signOnlineTestReport() throws IOException, InterruptedException
 	{
 		Dashboard db = new Dashboard(driver);

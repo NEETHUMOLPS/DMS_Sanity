@@ -5,14 +5,15 @@ import java.io.IOException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
+import com.DMS.pageObjects.Departments;
 import com.DMS.pageObjects.MyFiles;
 
 import Base.BaseClassTest;
 
-public class TC_012_MyFiles extends BaseClassTest {
+public class TC_008_MyFiles extends BaseClassTest {
 
 	
-	@Test(priority=1)
+	@Test(priority=1, description = "Main folder creation")
 	public void mainFolderCreation() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -21,16 +22,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.FolderCreationAlert();	
 	}
 	
-	@Test(priority=2)
-	public void MainFolderEdit() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMSEIDSA");
-		mf.FolderEdit();
-		mf.FolderUpdationAlert();
-	}
 	
-	@Test(priority=3)
+	@Test(priority=2, description = "Set permissions to the folder")
 	public void MainFolderPermission() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -39,7 +32,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.PermissionsFolderAlert();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=3, description = "Share the folder")
 	public void MainFolderShare() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -48,7 +41,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.shareFolderAlert();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=4, description = "Delete the folder")
 	public void MainFolderDelete() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -57,109 +50,34 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.deleteFolderAlert();
 	} 
 	
-	@Test(priority=6)
+	@Test(priority=5, description = "Archive the folder")
 	public void MainFolderArchive() throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("DMSEIDSA12");
+		mf.FolderCreation("DMSEIDSA21");
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("DMSEIDSA12");
+		mf.clickOnKebabMenu2("DMSEIDSA21");
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
 	
-	@Test(priority=7)
-	public void SubFolderCreation() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("DMS03");
-		mf.FolderCreationAlert();
-		Thread.sleep(2000);
-		mf.FolderCreation("DMS04");
-		mf.FolderCreationAlert();
-		Thread.sleep(2000);
-		mf.selFolder2("DMS03");
-		Thread.sleep(2000);
-		mf.FolderCreation("DMS05");
-		mf.FolderCreationAlert();
-		Thread.sleep(2000);
-		mf.FolderCreation("DMS07");
-		mf.FolderCreationAlert();
-		Thread.sleep(2000);	
-		driver.navigate().refresh();
-	}
 	
-	/*@Test(priority=8)
-	public void SubFolderEdit() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.selFolder2("DMS03");
-		Thread.sleep(2000);
-		mf.selFolder2("DMS05");
-		mf.clickOnKebabMenu2("DMS05");
-		Thread.sleep(2000);
-		mf.FolderEdit();
-		mf.FolderUpdationAlert();
-		
-	}
-	
-	@Test(priority=9)
-	public void SubFolderPermission() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS05");
-		Thread.sleep(2000);
-		mf.permissionsFolder("Quality Analyst");
-		mf.PermissionsFolderAlert();
-	}
-	
-
-	@Test(priority=10)
-	public void SubFolderShare() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS05");
-		Thread.sleep(2000);
-		mf.ShareFolder("Quality Analyst");
-		mf.shareFolderAlert();
-	}
-	
-	@Test(priority=11)
-	public void SubFolderDelete() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.clickOnKebabMenu2("DMS05");
-		Thread.sleep(2000);
-		mf.deleteFolder();
-		mf.deleteFolderAlert();
-	}
-	
-	@Test(priority=12)
-	public void SubFolderArchive() throws IOException, InterruptedException
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.selFolder2("DMS07");
-		mf.clickOnKebabMenu2("DMS07");
-		Thread.sleep(2000);
-		mf.archiveFolder();
-		mf.archiveFolderAlert();
-	}*/
-	
-	@Test(priority=13)
+	@Test(priority=6, description = "Upload the document")
 	public void UploadDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
-		Thread.sleep(3000);
+		mf.FolderCreation("DMS03");
+		mf.FolderCreationAlert();	
 		mf.selFolder2("DMS03");
 		mf.createDocumentIcon();
 		mf.fillDocument("D1", "Neethumol PS", "V1.1");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
 		mf.uploadDocAlert();
 		Thread.sleep(2000);
 		mf.createDocumentIcon();
 		mf.fillDocument("D1", "Neethumol PS", "V1.1");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		mf.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (2).xlsx");
 		mf.uploadDocAlert();
 		Thread.sleep(2000);
@@ -167,16 +85,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 		jse.executeScript("window.scrollBy(0,-500)");
 	}
 	
-	@Test(priority=14)
-	public void EditDocument() throws Exception
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.documentActions("Sample (2).xlsx");
-		mf.editDoc("D2");
-		mf.editDocAlert();
-	}
 	
-	@Test(priority=15)
+	@Test(priority=7, description = "Add permissions to the document")
 	public void PermissionDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -185,7 +95,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.permissionDocAlert();
 	}
 	
-	@Test(priority=16)
+	@Test(priority=8, description = "Share the document")
 	public void ShareDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -194,8 +104,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.shareDocAlert();
 	}
 	
-	@Test(priority=17)
-	public void DeletDocument() throws Exception
+	@Test(priority=9, description = "Delete the document")
+	public void DeleteDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
 		mf.documentActions("Sample (1).xlsx");
@@ -203,7 +113,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.deleteDocAlert();
 	}
 	
-	@Test(priority=18)
+	@Test(priority=10, description = "Archive the document")
 	public void ArchiveDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -213,7 +123,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		Thread.sleep(4000);
 	}
 	
-	@Test(priority=19) 
+	@Test(priority=11, description = "Add signers to the document") 
 	public void addSignersToTheDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -225,8 +135,8 @@ public class TC_012_MyFiles extends BaseClassTest {
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=20)
-	public void addSigners_Document() throws Exception
+	@Test(priority=12, description = "Edit signers to the document")
+	public void editSigners_Document() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
 		mf.selDoc("UAT EIDSA - E-Consent 1 (11).docx");
@@ -234,7 +144,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.addSignersAlert();
 	}
 	
-	@Test(priority=21)
+	@Test(priority=13, description = "Sign the document")
 	public void signDocument() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -242,9 +152,18 @@ public class TC_012_MyFiles extends BaseClassTest {
 		mf.signAlert();
 		Thread.sleep(10000);
 	}
+	
+	@Test(priority=14, description = "Set approver to the document")
+	public void setApprover_Document() throws Exception
+	{
+		Departments dp = new Departments(driver);
+		dp.documentApprovalDoc("Quality Analyst");
+		dp.documentApprovalAlert();
+		Thread.sleep(1000);
+	}
 
 	
-	@Test(priority=22)
+	@Test(priority=15, description = "Add new version")
 	public void addNewVersion() throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
@@ -257,14 +176,7 @@ public class TC_012_MyFiles extends BaseClassTest {
 		jse.executeScript("window.scrollBy(0,-300)");
 	}
 	
-	@Test(priority=23)
-	public void docDownload_Print() throws Exception
-	{
-		MyFiles mf = new MyFiles(driver);
-		mf.download();
-		//mf.print();
-		//driver.close();
-	}
+
 	
 
 }

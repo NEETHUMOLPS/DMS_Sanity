@@ -116,6 +116,27 @@ public class Profile extends AbstractComponent{
 		}		
 	}
 	
+	public static boolean DigiSignPwdCreationAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure want to save this password for your Digital Signature?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Digi-sign password created successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
 	public void selStyle() throws InterruptedException
 	{
 		Thread.sleep(2000);

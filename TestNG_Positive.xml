@@ -9,25 +9,24 @@
 <test name="DMS App Test">
 <parameter name="browser" value="chrome" />
 <classes>
-<!--<class name="com.DMS.testCases.TC_001_loginTest_Positive"/>
+<class name="com.DMS.testCases.TC_001_loginTest_Positive"/>
 <class name="com.DMS.testCases.TC_002_loginTest_Negative"/>
 <class name="com.DMS.testCases.TC_003_ForgotPassword"/>
 <class name="com.DMS.testCases.TC_004_Profile"/>
-<class name="com.DMS.testCases.TC_005_Dashboard"/>
-<class name="com.DMS.testCases.TC_006_Users"/>
-<class name="com.DMS.testCases.TC_007_Designation"/>
-<class name="com.DMS.testCases.TC_008_ConfigBookmarkSign"/>
-<class name="com.DMS.testCases.TC_009_Screens"/>
-<class name="com.DMS.testCases.TC_010_DocumentTemplate"/>
-<class name="com.DMS.testCases.TC_011_Departments"/>
-<class name="com.DMS.testCases.TC_012_MyFiles"/>
-<class name="com.DMS.testCases.TC_013_Projects"/>-->
-<class name="com.DMS.testCases.TC_014_DocumentApprovals"/>
-<class name="com.DMS.testCases.TC_015_ConfigOnlineTest"/>
-<class name="com.DMS.testCases.TC_016_TestResult"/>
-<class name="com.DMS.testCases.TC_017_TrainingPlan"/>
-<class name="com.DMS.testCases.TC_018_ConfigProcessTraining"/>
-<class name="com.DMS.testCases.TC_019_TrainingAcknowledgement"/>
+<class name="com.DMS.testCases.TC_005_Users"/>
+<class name="com.DMS.testCases.TC_006_ConfigBookmarkSign"/>
+<class name="com.DMS.testCases.TC_007_Departments"/>
+<class name="com.DMS.testCases.TC_008_MyFiles"/>
+<class name="com.DMS.testCases.TC_009_Projects"/>
+<class name="com.DMS.testCases.TC_010_DocumentApprovals"/>
+<class name="com.DMS.testCases.TC_011_ConfigOnlineTest"/>
+<class name="com.DMS.testCases.TC_012_TestResult"/>
+<class name="com.DMS.testCases.TC_013_TrainingPlan"/>
+<class name="com.DMS.testCases.TC_014_ConfigProcessTraining"/>
+<class name="com.DMS.testCases.TC_015_TrainingAcknowledgement"/>
+<class name="com.DMS.testCases.TC_016_Dashboard"/>
+
+
 
 <!--  <methods>
                <include name="negativeTest6" />

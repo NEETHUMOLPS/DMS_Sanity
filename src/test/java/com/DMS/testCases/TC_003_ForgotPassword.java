@@ -11,7 +11,7 @@ import Base.BaseClass;
 
 public class TC_003_ForgotPassword extends BaseClass {
 	
-	@Test
+	@Test(description = "Forgot Password")
 	public void forgotPassword() throws IOException, InterruptedException
 	{		
 		logger.info("URL is opened");

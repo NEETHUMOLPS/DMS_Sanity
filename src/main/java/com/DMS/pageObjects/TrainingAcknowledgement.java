@@ -26,6 +26,10 @@ public class TrainingAcknowledgement extends AbstractComponent{
 		PageFactory.initElements(driver,this);
 	}
 	
+	//Dashboard
+	@FindBy(xpath="//a[@href='/dashboard']//img[@alt='dashboard menu']")
+	WebElement dashboard;
+	
 	//Training acknowledgement menu
 	@FindBy(xpath="(//img[@alt='projects menu'])[2]")
 	WebElement training;
@@ -121,6 +125,13 @@ public class TrainingAcknowledgement extends AbstractComponent{
 	{
 		Thread.sleep(2000);
 		myTraining.click();
+		Thread.sleep(2000);
+	}
+	
+	public void clickOnDashboard() throws InterruptedException
+	{
+		Thread.sleep(2000);
+		dashboard.click();
 		Thread.sleep(2000);
 	}
 	

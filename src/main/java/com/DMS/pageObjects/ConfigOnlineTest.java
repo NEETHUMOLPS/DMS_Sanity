@@ -1,5 +1,10 @@
 package com.DMS.pageObjects;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 
@@ -212,6 +217,55 @@ public class ConfigOnlineTest extends AbstractComponent{
 	@FindBy(xpath="//button[normalize-space()='Submit']")
 	WebElement submit1;
 	
+	//Upload question
+	@FindBy(xpath="//img[@alt='export_icon']")
+	WebElement upload;
+	
+	 
+	public void uploadQus(String doclocation) throws Exception
+	{
+		Thread.sleep(2000);	
+		question.click();
+		Thread.sleep(2000);
+		upload.click();
+		String absolutepath= new File(doclocation).getAbsolutePath();
+		//browsedoc.sendKeys(absolutepath);
+		Thread.sleep(3000);	
+		Robot robot = new Robot();
+		// Press the "CTRL" and "V" keys to paste the file path into the file input field
+		StringSelection stringSelection = new StringSelection(absolutepath); 
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		// Press the "ENTER" key to submit the file
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(3000);
+	}
+	
+	public static boolean uploadQusAlert() throws InterruptedException
+	{
+		try
+		{
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait1.until(ExpectedConditions.alertIsPresent());
+			Alert alert1 = driver.switchTo().alert();
+			Assert.assertTrue(alert1.getText().contains("Are you sure you want to upload the questions?"));
+			alert1.accept();
+			Thread.sleep(2000);
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait2.until(ExpectedConditions.alertIsPresent());
+			Alert alert2 = driver.switchTo().alert();
+			Assert.assertTrue(alert2.getText().contains("Questions uploaded successfully"));
+			alert2.accept();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}		
+	}
+	
 	public void clickOnConfigExam() throws InterruptedException
 	{		
 		Thread.sleep(2000);
@@ -269,6 +323,20 @@ public class ConfigOnlineTest extends AbstractComponent{
 			if(text.equals(name))
 			{
 				view.get(i).click();
+				Thread.sleep(2000);
+				break;	
+			}
+		}
+	}
+	
+	public void viewTest2(String name) throws InterruptedException
+	{
+		for(int i=0;i<status.size();i++)
+		{
+			String text=status.get(i).getText();
+			if(text.equals(name))
+			{
+				view1.get(i).click();
 				Thread.sleep(2000);
 				break;	
 			}

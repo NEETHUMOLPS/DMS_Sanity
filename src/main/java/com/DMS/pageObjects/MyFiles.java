@@ -172,7 +172,7 @@ public class MyFiles extends AbstractComponent{
 		@FindBy(xpath="(//img[@alt='create version'])[1]")
 		WebElement addSignersUpdate;
 		@FindBy(xpath="(//img[@alt='create version'])[2]")
-		WebElement approvals;
+		WebElement approvalsDoc;
 		@FindBy(xpath="(//img[@alt='create version'])[3]")
 		WebElement signDocument;
 		@FindBy(xpath="(//img[@alt='Edit document'])[1]")
@@ -200,7 +200,14 @@ public class MyFiles extends AbstractComponent{
 		@FindBy(xpath="//span[contains(text(),'Submit')]")
 		WebElement submitSignDocument;
 		
-		
+		@FindBy(xpath="//select[@name='account']")
+		WebElement chooseRoleApproval;
+		@FindBy(xpath="//input[@id='631b1a3f-8e9d-42fe-a35c-a8761f58aca6']")
+		WebElement usersApproval1;
+		@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")
+		WebElement usersApproval2;
+		@FindBy(xpath="//button[contains(text(),'Save')]")
+		WebElement saveApproval;
 		
 		
 		public void download() throws InterruptedException
@@ -804,6 +811,39 @@ public class MyFiles extends AbstractComponent{
 				return false;
 			}	
 		}
+		
+		public void documentApprovalDoc(String role) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			approvalsDoc.click();
+			Thread.sleep(2000);		
+			Select os = new Select(chooseRoleApproval);
+			os.selectByVisibleText(role);
+			usersApproval1.click();
+			Thread.sleep(2000);
+			usersApproval2.click();
+			Thread.sleep(2000);
+			saveApproval.click();
+			Thread.sleep(2000);//Updated successfully
+		}
+		
+		public static boolean documentApprovalAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Updated successfully"));
+				alert1.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}		
+		}
+
+
+		
 
 
 

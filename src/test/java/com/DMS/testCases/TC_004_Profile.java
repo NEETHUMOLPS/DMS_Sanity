@@ -13,58 +13,45 @@ import com.DMS.pageObjects.Profile;
 
 public class TC_004_Profile extends BaseClass {
 
-	@Test(priority=1)
-	public void changePassword() throws IOException, InterruptedException
+	@Test(priority=1, description = "Change password for DMS account")
+	public void changePassword_DMS_Account() throws IOException, InterruptedException
 	{
 		LoginPage lp=new LoginPage(driver);
-		lp.setEmail("neethu@yopmail.com");
-		lp.setPassword("Neethu@9");
+		lp.setEmail("richu@yopmail.com");
+		lp.setPassword("Neethu@1");
 		lp.clickLogin();
 		Profile pp = new Profile(driver);
 		pp.clickProfile();
-		pp.changePassword("Neethu@9", "Neethu@10", "Neethu@10");
+		pp.changePassword("Neethu@1", "Neethu@2", "Neethu@2");
 		pp.changePasswordAlert();	
 	}
 	
-	/*@Test(priority=2)
+	@Test(priority=2, description = "Create digi sign password")
 	public void createDigiSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
 		pp.clickProfile();
-		pp.createDigiSign("Digi@123", "Digi@123");
-		pp.digiSignUpdatePasswordAlert();
+		pp.createDigiSign("Neethu@1", "Neethu@1");
+		pp.DigiSignPwdCreationAlert();
 		
-	}*/
+	}
 	
-	@Test(priority=3)
+	@Test(priority=3, description = "Update digi sign password")
 	public void updatePasswordForDigiSign() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.updatePasswordForDigiSign("Neethu@9", "Neethu@10", "Neethu@10");
+		pp.updatePasswordForDigiSign("Neethu@1", "Neethu@2", "Neethu@2");
 		pp.digiSignChangePasswordAlert();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4, description = "Forgot digi sign password")
 	public void forgotDigiSignPassword() throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.forgotDigiSignPwd("Neethu@10");
+		pp.forgotDigiSignPwd("Neethu@2");
 		pp.forgotDigiSignPwdAlert();
 	}
 	
-	@Test(priority=5)
-	public void editSign() throws IOException, InterruptedException
-	{
-		Profile pp = new Profile(driver);
-		pp.editSign("NE", "neethu@yopmail.com", "Neethu@10");
-	}
-	
-	@Test(priority=6)
-	public void selectSignatureStyle() throws IOException, InterruptedException
-	{
-		Profile pp = new Profile(driver);
-		pp.selStyle();
-	}
 	
 
 }
