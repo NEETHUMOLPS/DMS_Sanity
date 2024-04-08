@@ -151,7 +151,8 @@ public class ProjectPage extends AbstractComponent{
 	List<WebElement> kebabMenu3;
 	
 	//Document screen
-	
+	@FindBy(xpath="//td[1]")
+	List<WebElement> docList;
 	@FindBy(xpath="//img[@alt='Add a file']")
 	WebElement createDocIcon;	
 	@FindBy(xpath="//label[contains(text(),'Title')]//following-sibling::input[1]")
@@ -445,7 +446,7 @@ public class ProjectPage extends AbstractComponent{
 	WebElement saveAndSign;
 	@FindBy(xpath="//span[normalize-space()='Submit & Sign']")
 	WebElement submitAndSign;
-	@FindBy(xpath="//span[@class='submit_btn px-5 py-2']")
+	@FindBy(xpath="(//span[@class='submit_btn px-5 py-2'])[1]")
 	WebElement saveDocument;
 	
 	//Sign document
@@ -565,6 +566,167 @@ public class ProjectPage extends AbstractComponent{
 	WebElement expiry_Date;
 	@FindBy(xpath="//span[normalize-space()='Share']")
 	WebElement share;
+	
+	//Clone
+		@FindBy(xpath="//div[normalize-space()='Clone']")
+		WebElement clone1;
+		@FindBy(xpath="//select[@id='owner']")
+		WebElement actionToclone;
+		@FindBy(xpath="//input[@class='form-control']")
+		WebElement fName1;
+		@FindBy(xpath="//select[@class='form-control m-b']")
+		WebElement location;
+		@FindBy(xpath="//label[normalize-space()='DMS03']")
+		WebElement fName2;
+		@FindBy(xpath="//button[normalize-space()='Clone']")
+		WebElement clone2;
+		
+		//Create control form
+		@FindBy(xpath="//div[normalize-space()='Create']")
+		WebElement control;
+		@FindBy(xpath="//div[contains(text(),'Control Form')]")
+		WebElement controlForm;
+		@FindBy(xpath="(//input[@type='text'])[1]")
+		WebElement changeNumber;
+		@FindBy(xpath="(//input[@type='text'])[2]")
+		WebElement riskLevel;
+		@FindBy(xpath="(//input[@type='text'])[3]")
+		WebElement fileName;
+		@FindBy(xpath="(//input[@type='text'])[4]")
+		WebElement systemsAffected;
+		@FindBy(xpath="(//textarea[@id='ReasonChange'])[1]")
+		WebElement reasonsForChange;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[1]")
+		WebElement descriptionOfChange;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[2]")
+		WebElement otherSystemsAffected;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[3]")
+		WebElement testingRequired;
+		@FindBy(xpath="//textarea[@id='rollBack']")
+		WebElement rollBackPlan;
+		@FindBy(xpath="(//select[@class='form-control'])[1]")
+		WebElement requestedBy;
+		@FindBy(xpath="(//select[@class='form-control'])[2]")
+		WebElement reviewedBy;
+		@FindBy(xpath="(//select[@class='form-control'])[3]")
+		WebElement completedBy;
+		@FindBy(xpath="//button[@type='submit']")
+		WebElement saveControlForm;
+		
+		@FindBy(xpath="//a[normalize-space()='UAT EIDSA - E-Consent(3).docx']")
+		WebElement docName;
+		
+		public void selDoc1() throws Exception
+		{
+			Thread.sleep(2000);	
+			docName.click();
+			Thread.sleep(2000);	
+		}
+		
+		
+		public void controlForm1(String num,String lv,String nm,String sf,String rc,String dc,String sel1,String sel2,String sel3) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			JavascriptExecutor jse3 = (JavascriptExecutor)driver;
+			jse3.executeScript("window.scrollBy(0,200)");
+			elementWait(control);
+			Thread.sleep(2000);
+			control.click();
+			Thread.sleep(2000);
+			JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+			jse1.executeScript("window.scrollBy(0,200)");
+			elementWait(controlForm);
+			Thread.sleep(2000);
+			controlForm.click();
+			Thread.sleep(2000);
+			changeNumber.sendKeys(num);
+			Thread.sleep(2000);
+			riskLevel.sendKeys(lv);
+			Thread.sleep(2000);
+			fileName.sendKeys(nm);
+			Thread.sleep(2000);
+			systemsAffected.sendKeys(sf);
+			Thread.sleep(2000);
+			reasonsForChange.sendKeys(rc);
+			Thread.sleep(2000);
+			descriptionOfChange.sendKeys(dc);
+			Thread.sleep(2000);
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,500)");
+			elementWait(requestedBy);
+			Thread.sleep(2000);;
+			Select os = new Select(requestedBy);
+			os.selectByVisibleText(sel1);
+			Thread.sleep(2000);
+			Select os1 = new Select(reviewedBy);
+			os1.selectByVisibleText(sel2);
+			Thread.sleep(2000);
+			Select os2 = new Select(completedBy);
+			os2.selectByVisibleText(sel3);
+			Thread.sleep(2000);
+			saveControlForm.click();
+			Thread.sleep(2000);
+			
+		}
+		
+		
+		public void cloneFolder(String clone, String nm, String loc) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			clone1.click();
+			Thread.sleep(3000);
+			Select os = new Select(actionToclone);
+			os.selectByVisibleText(clone);
+			Thread.sleep(3000);
+			fName1.sendKeys(nm);
+			Thread.sleep(2000);
+			Select os1 = new Select(location);
+			os1.selectByVisibleText(loc);
+			Thread.sleep(2000);
+			fName2.click();
+			Thread.sleep(3000);
+			clone2.click();
+			Thread.sleep(3000);		
+		}
+		
+		public static boolean cloneAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Are you sure you want to move the folder?"));
+				alert1.accept();
+				Thread.sleep(2000);
+				WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait2.until(ExpectedConditions.alertIsPresent());
+				Alert alert2 = driver.switchTo().alert();
+				Assert.assertTrue(alert2.getText().contains("Folder cloned successfully"));
+				alert2.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
+		
+		
+		public static boolean criticalFormAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Critical change control form created successfully"));
+				alert1.accept();
+				Thread.sleep(2000);
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
+
 	
 	public void shareFolder_ExternalUser(String dt) throws InterruptedException
 	{		
@@ -1160,7 +1322,8 @@ public class ProjectPage extends AbstractComponent{
 		yes9.click();
 		Thread.sleep(2000);
 		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
-		jse1.executeScript("window.scrollBy(0,500)");
+		jse1.executeScript("window.scrollBy(0,700)");
+		Thread.sleep(2000);
 		elementWait(saveDocument);
 		saveDocument.click();
 		Thread.sleep(2000);
@@ -1867,6 +2030,26 @@ public class ProjectPage extends AbstractComponent{
 		return false;
 	}
 	
+	public boolean clickOnKebabMenu3(String pname) throws InterruptedException
+	{
+		Thread.sleep(2000);
+
+		for(int i=0;i<FoldersList2.size();i++)
+		{
+			String selpname=FoldersList2.get(i).getText();
+			if(selpname.equals(pname))
+			{
+				Thread.sleep(2000);
+				FoldersList2.get(i).click();
+				Thread.sleep(2000);
+				kebabMenu2.get(i).click();
+				Thread.sleep(2000);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
 	
 	public boolean selFolder2(String name) throws InterruptedException
@@ -2001,9 +2184,9 @@ public class ProjectPage extends AbstractComponent{
 	{
 		Thread.sleep(2000);
 		
-		for(int i=0;i<documents.size();i++)
+		for(int i=0;i<docList.size();i++)
 		{
-			String dname=documents.get(i).getText();
+			String dname=docList.get(i).getText();
 			if(dname.contains(docname))
 			{
 				documentoptions.get(i).click();

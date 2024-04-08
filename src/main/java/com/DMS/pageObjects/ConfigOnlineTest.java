@@ -113,7 +113,7 @@ public class ConfigOnlineTest extends AbstractComponent{
 	WebElement desig3;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div")
 	WebElement users1;
-	@FindBy(xpath="//li[@id='multiselect-option-9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")//Neethur R
+	@FindBy(xpath="//li[@id='multiselect-option-4bb7c35e-0e56-4813-82dd-a724b45768bd']")//Neethug G
 	WebElement users2;
 	@FindBy(xpath="//div[@id='page-wrapper']/div[4]/div/div/div[2]/div/div[2]/div/span[2]")
 	WebElement users3;
@@ -713,7 +713,7 @@ public class ConfigOnlineTest extends AbstractComponent{
 		Thread.sleep(2000);
 		user1.click();
 		Thread.sleep(2000);
-		user2.click();
+		user4.click();
 		Thread.sleep(2000);
 		user5.click();
 		Thread.sleep(2000);

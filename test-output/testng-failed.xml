@@ -7,15 +7,14 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_016_Dashboard">
+      <class name="com.DMS.testCases.TC_017_MergeFiles">
         <methods>
           <include name="setup"/>
-          <include name="signProcessTrainingAcknowledgement"/>
-          <include name="signOnlineTestReport"/>
+          <include name="mergeFiles_DMS"/>
+          <include name="mergeFiles_Local"/>
           <include name="tearDown"/>
-          <include name="signDocument"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_016_Dashboard -->
+      </class> <!-- com.DMS.testCases.TC_017_MergeFiles -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

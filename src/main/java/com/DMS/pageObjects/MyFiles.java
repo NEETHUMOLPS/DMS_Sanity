@@ -127,6 +127,8 @@ public class MyFiles extends AbstractComponent{
 		WebElement browsedoc;
 		@FindBy(xpath="//span[normalize-space()='Save']")
 		WebElement saveDoc;
+		@FindBy(xpath="//td[1]")
+		List<WebElement> docList;
 		@FindBy(xpath="//div[@id='primaryDocumentTree']//tr")
 		List<WebElement> documents;	
 		@FindBy(xpath="//div[@id='primaryDocumentTree']//tr//i")
@@ -143,7 +145,7 @@ public class MyFiles extends AbstractComponent{
 		WebElement shareDocument;
 		@FindBy(xpath="//div[contains(text(),'Delete')]")
 		WebElement deleteDoc;
-		@FindBy(xpath="//div[contains(text(),'Archive')]")
+		@FindBy(xpath="//div[normalize-space()='Archive']")
 		WebElement archiveDoc;
 		
 		@FindBy(xpath="//input[@id='flexCheckDefault']")
@@ -204,10 +206,249 @@ public class MyFiles extends AbstractComponent{
 		WebElement chooseRoleApproval;
 		@FindBy(xpath="//input[@id='631b1a3f-8e9d-42fe-a35c-a8761f58aca6']")
 		WebElement usersApproval1;
-		@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")
+		@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")//Neethug G
 		WebElement usersApproval2;
+		/*@FindBy(xpath="//input[@id='9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")
+		WebElement usersApproval3;*/
 		@FindBy(xpath="//button[contains(text(),'Save')]")
 		WebElement saveApproval;
+		
+		//Clone
+		@FindBy(xpath="//div[normalize-space()='Clone']")
+		WebElement clone1;
+		@FindBy(xpath="//select[@id='owner']")
+		WebElement actionToclone;
+		@FindBy(xpath="//input[@class='form-control']")
+		WebElement fName1;
+		@FindBy(xpath="//select[@class='form-control m-b']")
+		WebElement location;
+		@FindBy(xpath="//label[@for='move2a11629c-a018-4f10-a8f8-3db7b0b62628']")
+		WebElement fName2;
+		@FindBy(xpath="//button[normalize-space()='Clone']")
+		WebElement clone2;
+		
+		//Create control form
+		@FindBy(xpath="//div[normalize-space()='Create']")
+		WebElement control;
+		@FindBy(xpath="//div[contains(text(),'Control Form')]")
+		WebElement controlForm;
+		@FindBy(xpath="(//input[@type='text'])[1]")
+		WebElement changeNumber;
+		@FindBy(xpath="(//input[@type='text'])[2]")
+		WebElement riskLevel;
+		@FindBy(xpath="(//input[@type='text'])[3]")
+		WebElement fileName;
+		@FindBy(xpath="(//input[@type='text'])[4]")
+		WebElement systemsAffected;
+		@FindBy(xpath="(//textarea[@id='ReasonChange'])[1]")
+		WebElement reasonsForChange;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[1]")
+		WebElement descriptionOfChange;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[2]")
+		WebElement otherSystemsAffected;
+		@FindBy(xpath="(//textarea[@name='DescChange'])[3]")
+		WebElement testingRequired;
+		@FindBy(xpath="//textarea[@id='rollBack']")
+		WebElement rollBackPlan;
+		@FindBy(xpath="(//select[@class='form-control'])[1]")
+		WebElement requestedBy;
+		@FindBy(xpath="(//select[@class='form-control'])[2]")
+		WebElement reviewedBy;
+		@FindBy(xpath="(//select[@class='form-control'])[3]")
+		WebElement completedBy;
+		@FindBy(xpath="//button[@type='submit']")
+		WebElement saveControlForm;
+		
+		@FindBy(xpath="(//a[contains(text(),'UAT EIDSA - E-Consent(1).docx')])[1]")
+		WebElement docName;
+		
+		//Merge files
+		@FindBy(xpath="//img[@alt='merge file']")
+		WebElement mergeFiles;
+		@FindBy(xpath="//button[normalize-space()='Dms']")
+		WebElement dms;
+		@FindBy(xpath="//button[normalize-space()='Local']")
+		WebElement local;
+		
+		//DMS
+		@FindBy(xpath="//select[@class='form-control m-b']")
+		WebElement chooseLocation;
+		@FindBy(xpath="//label[normalize-space()='Merge Files']")
+		WebElement folName;
+		@FindBy(xpath="//span[normalize-space()='UAT EIDSA - E-Consent(4).pdf']")
+		WebElement filName1;
+		@FindBy(xpath="//span[normalize-space()='UAT EIDSA - E-Consent(5).pdf']")
+		WebElement filName2;
+		@FindBy(xpath="//input[@id='flexRadioDefault1']")
+		WebElement opt1;
+		@FindBy(xpath="//input[@id='flexRadioDefault2']")
+		WebElement opt2;
+		@FindBy(xpath="//button[normalize-space()='Merge']")
+		WebElement merge; 
+		
+		//Local
+		@FindBy(xpath="//input[@id='formFile']")
+		WebElement chooseFile;
+		
+		@FindBy(xpath="//a[normalize-space()='UAT EIDSA - E-Consent(4).pdf']")
+		WebElement docName1;
+		@FindBy(xpath="//a[normalize-space()='UAT EIDSA - E-Consent(5).pdf']")
+		WebElement docName2;
+		
+		
+		public void mergeFile_DMS(String lc) throws InterruptedException
+		{		
+			Thread.sleep(2000);
+			docName1.click();
+			Thread.sleep(2000);
+			mergeFiles.click();
+			Thread.sleep(2000);
+			dms.click();
+			Thread.sleep(2000);
+			Select os = new Select(chooseLocation);
+			os.selectByVisibleText(lc);
+			Thread.sleep(2000);
+			folName.click();
+			Thread.sleep(2000);
+			filName1.click();
+			Thread.sleep(2000);
+			opt1.click();
+			Thread.sleep(2000);
+			merge.click();
+			Thread.sleep(2000);
+			
+		}
+		
+		public void mergeFile_local(String lname) throws InterruptedException
+		{		
+			Thread.sleep(2000);
+			docName2.click();
+			Thread.sleep(2000);
+			mergeFiles.click();
+			Thread.sleep(2000);
+			local.click();
+			Thread.sleep(2000);
+			chooseFile.sendKeys(lname);
+			Thread.sleep(2000);
+			opt1.click();
+			Thread.sleep(2000);
+			merge.click();
+			Thread.sleep(2000);
+			
+		}
+		
+		public static boolean mergeAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Files merged successfully"));
+				alert1.accept();
+				Thread.sleep(2000);
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
+		
+		public void controlForm(String num,String lv,String nm,String sf,String rc,String dc,String sel1,String sel2,String sel3) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			control.click();
+			Thread.sleep(2000);
+			JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+			jse1.executeScript("window.scrollBy(0,200)");
+			elementWait(controlForm);
+			Thread.sleep(2000);
+			controlForm.click();
+			Thread.sleep(2000);
+			changeNumber.sendKeys(num);
+			Thread.sleep(2000);
+			riskLevel.sendKeys(lv);
+			Thread.sleep(2000);
+			fileName.sendKeys(nm);
+			Thread.sleep(2000);
+			systemsAffected.sendKeys(sf);
+			Thread.sleep(2000);
+			reasonsForChange.sendKeys(rc);
+			Thread.sleep(2000);
+			descriptionOfChange.sendKeys(dc);
+			Thread.sleep(2000);
+			JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+			jse2.executeScript("window.scrollBy(0,500)");
+			elementWait(requestedBy);
+			Thread.sleep(2000);;
+			Select os = new Select(requestedBy);
+			os.selectByVisibleText(sel1);
+			Thread.sleep(2000);
+			Select os1 = new Select(reviewedBy);
+			os1.selectByVisibleText(sel2);
+			Thread.sleep(2000);
+			Select os2 = new Select(completedBy);
+			os2.selectByVisibleText(sel3);
+			Thread.sleep(2000);
+			saveControlForm.click();
+			Thread.sleep(2000);
+		}
+		
+		public void cloneFolder(String clone, String nm, String loc) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			clone1.click();
+			Thread.sleep(3000);
+			Select os = new Select(actionToclone);
+			os.selectByVisibleText(clone);
+			Thread.sleep(3000);
+			fName1.sendKeys(nm);
+			Thread.sleep(2000);
+			Select os1 = new Select(location);
+			os1.selectByVisibleText(loc);
+			Thread.sleep(2000);
+			fName2.click();
+			Thread.sleep(3000);
+			clone2.click();
+			Thread.sleep(3000);		
+		}
+		
+		public static boolean cloneAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Are you sure you want to move the folder?"));
+				alert1.accept();
+				Thread.sleep(2000);
+				WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait2.until(ExpectedConditions.alertIsPresent());
+				Alert alert2 = driver.switchTo().alert();
+				Assert.assertTrue(alert2.getText().contains("Folder cloned successfully"));
+				alert2.accept();
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
+		
+		
+		public static boolean criticalFormAlert() throws InterruptedException
+		{
+			try
+			{
+				WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+				wait1.until(ExpectedConditions.alertIsPresent());
+				Alert alert1 = driver.switchTo().alert();
+				Assert.assertTrue(alert1.getText().contains("Critical change control form created successfully"));
+				alert1.accept();
+				Thread.sleep(2000);
+				return true;
+			} catch (NoAlertPresentException e) {
+				return false;
+			}	
+		}
 		
 		
 		public void download() throws InterruptedException
@@ -636,12 +877,29 @@ public class MyFiles extends AbstractComponent{
 		{
 			Thread.sleep(3000);
 			
-			for(int i=0;i<documents.size();i++)
+			for(int i=0;i<docList.size();i++)
 			{
-				String dname=documents.get(i).getText();
+				String dname=docList.get(i).getText();
 				if(dname.contains(docname))
 				{
 					documentoptions.get(i).click();
+					Thread.sleep(1000);
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		public boolean docSel(String docname) throws InterruptedException
+		{
+			Thread.sleep(3000);
+			
+			for(int i=0;i<docList.size();i++)
+			{
+				String dname=docList.get(i).getText();
+				if(dname.contains(docname))
+				{
+					docList.get(i).click();
 					Thread.sleep(1000);
 					return true;
 				}
@@ -664,6 +922,13 @@ public class MyFiles extends AbstractComponent{
 				}
 			}
 			return false;
+		}
+		
+		public void selDoc1() throws Exception
+		{
+			Thread.sleep(2000);	
+			docName.click();
+			Thread.sleep(2000);	
 		}
 		
 		public void editDoc(String title) throws Exception

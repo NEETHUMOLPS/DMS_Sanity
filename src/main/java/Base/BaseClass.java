@@ -19,7 +19,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Parameters;
 
 import com.DMS.utilities.ReadConfig;
-
+import java.util.concurrent.TimeUnit;
 public class BaseClass {
 	
 	ReadConfig readconfig = new ReadConfig();

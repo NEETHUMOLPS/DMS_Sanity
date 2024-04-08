@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.DMS.pageObjects.Departments;
 import com.DMS.pageObjects.MyFiles;
 import com.DMS.pageObjects.ProjectPage;
 
@@ -39,7 +40,7 @@ public class TC_009_Projects extends BaseClassTest {
 	public void addProjectRole() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.ProjectRoleCreation("Automation Tester11");
+		pp.ProjectRoleCreation("Automation Tester24");
 		pp.roleCreationAlert();
 	}
 	
@@ -61,7 +62,16 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.FolderCreationAlert();	
 	}
 	
-	@Test(priority=6, description = "Set permissions to the folder")
+	@Test(priority=6, description = "Clone")
+	public void MainFolder_Clone() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Folder1");
+		pp.cloneFolder("Folder,permission and files","F3","My Files");
+		pp.cloneAlert();
+	}
+	
+	@Test(priority=7, description = "Set permissions to the folder")
 	public void docMainFolderPermission() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -71,7 +81,7 @@ public class TC_009_Projects extends BaseClassTest {
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=7, description = "Share the folder")
+	@Test(priority=8, description = "Share the folder")
 	public void docMainFolderShare() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -80,7 +90,7 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=8, description = "Share folder to external user")
+	@Test(priority=9, description = "Share folder to external user")
 	public void docMainFolderShare_ExternalUser() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -89,27 +99,38 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.shareFolder_ExternalUserAlert();
 	}
 	
-	@Test(priority=9, description = "Delete the folder")
+	@Test(priority=10, description = "Create control form")
+	public void MainFolder_Create() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Folder1");
+		pp.controlForm1("101","High","F1","NA","NA","NA","Neethumol PS","Neethug G","Neethur R");
+		pp.criticalFormAlert();
+	}
+	
+	@Test(priority=11, description = "Delete the folder")
 	public void docMainFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
+		JavascriptExecutor jse4 = (JavascriptExecutor)driver;
+		jse4.executeScript("window.scrollBy(0,-500)");
 		pp.clickOnKebabMenu2("Folder1");
 		pp.deleteFolder();
 		pp.deleteFolderAlert();
 	} 
 	
-	@Test(priority=10, description = "Archive the folder")
+	@Test(priority=12, description = "Archive the folder")
 	public void docMainFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.FolderCreation("Folder2");
+		pp.FolderCreation("Folder3a");
 		pp.FolderCreationAlert();
-		pp.clickOnKebabMenu2("Folder2");
+		pp.clickOnKebabMenu2("Folder3a");
 		pp.archiveFolder();
 		pp.archiveFolderAlert();
 	}
 	
-	@Test(priority=11, description = "Upload the document")
+	@Test(priority=13, description = "Upload the document")
 	public void docUploadDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -119,54 +140,54 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.createDocumentIcon();
 		pp.fillDocument("D1", "Neethumol PS", "V1.1");
 		Thread.sleep(4000);
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (1).xlsx");
+		pp.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(1).docx");
 		pp.uploadDocAlert();
 		Thread.sleep(2000);
 		pp.createDocumentIcon();
 		pp.fillDocument("D1", "Neethumol PS", "V1.1");
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\Sample (2).xlsx");
+		pp.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(2).docx");
 		pp.uploadDocAlert();
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=12, description = "Set permissions to the document")
+	@Test(priority=14, description = "Set permissions to the document")
 	public void docPermissionDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.documentActions("Sample (1).xlsx");
+		pp.documentActions("UAT EIDSA - E-Consent(1)");
 		pp.permissionDoc("QA");
 		pp.permissionDocAlert();
 	}
 	
-	@Test(priority=13, description = "Share the document")
+	@Test(priority=15, description = "Share the document")
 	public void docShareDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.documentActions("Sample (1).xlsx");
+		pp.documentActions("UAT EIDSA - E-Consent(1)");
 		pp.shareDoc("QA");
 		pp.shareDocAlert();
 	}
 	
-	@Test(priority=14, description = "Delete the document")
+	@Test(priority=16, description = "Delete the document")
 	public void docDeletDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.documentActions("Sample (1).xlsx");
+		pp.documentActions("UAT EIDSA - E-Consent(1)");
 		pp.deleteDoc();
 		pp.deleteDocAlert();
 	}
 	
-	@Test(priority=15, description = "Archive the document")
+	@Test(priority=17, description = "Archive the document")
 	public void docArchiveDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.documentActions("Sample (2).xlsx");
+		pp.documentActions("UAT EIDSA - E-Consent(2)");
 		pp.archiveDoc();
 		pp.archiveDocAlert();
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=16, description = "Add signers to the document") 
+	@Test(priority=18, description = "Add signers to the document") 
 	public void addSignersToTheDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -174,21 +195,21 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.createDocumentIcon();
 		pp.fillDocument_addSigners("D1", "Neethumol PS", "V1.1","UAT Test script","Neethumol PS","Neethu Tester","Neethug G");
 		Thread.sleep(4000);
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
+		pp.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(3).docx");
 		pp.uploadDocAlert();
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=17, description = "Edit signers")
+	@Test(priority=19, description = "Edit signers")
 	public void addSigners_Document() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.selDoc("UAT EIDSA - E-Consent 1 (11).docx");
+		pp.selDoc1();
 		pp.addSigners("Neethur R");
 		pp.addSignersAlert();
 	}
 	
-	@Test(priority=18, description = "Sign the document")
+	@Test(priority=20, description = "Sign the document")
 	public void signDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -197,7 +218,7 @@ public class TC_009_Projects extends BaseClassTest {
 		Thread.sleep(10000);
 	}
 	
-	@Test(priority=19, description = "Set approvers to the document")
+	@Test(priority=21, description = "Set approvers to the document")
 	public void approvalDoc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -207,21 +228,21 @@ public class TC_009_Projects extends BaseClassTest {
 	}
 
 	
-	@Test(priority=20, description = "Add new version")
+	@Test(priority=22, description = "Add new version")
 	public void addNewVersion_Doc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		Thread.sleep(10000);
 		pp.addNewVersion("D2", "V1.2");
 		Thread.sleep(4000);
-		pp.uploadDoc("C:\\Users\\lenovo\\Downloads\\UAT EIDSA - E-Consent 1 (11).docx");
+		pp.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(1).docx");
 		pp.uploadDocAlert1();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-300)");
 	}
 	
 	
-	@Test(priority=21, description = "Main folder creation")
+	@Test(priority=23, description = "Main folder creation")
 	public void devMainFolderCreation() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -230,10 +251,19 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.clickOnDevelopment();
 		pp.devFolderCreation("Fol1");
 		pp.FolderCreationAlert();	
+	}	
+	
+	@Test(priority=24, description = "Clone")
+	public void devMainFolder_Clone() throws IOException, InterruptedException
+	{
+		ProjectPage pp = new ProjectPage(driver);
+		pp.clickOnKebabMenu2("Fol1");
+		pp.cloneFolder("Folder,permission and files","F4","My Files");
+		pp.cloneAlert();
 	}
 	
 	
-	@Test(priority=22, description = "Set permissions to the folder")
+	@Test(priority=25, description = "Set permissions to the folder")
 	public void devMainFolderPermission() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -242,7 +272,7 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.PermissionsFolderAlert();
 	}
 	
-	@Test(priority=23, description = "Share the folder")
+	@Test(priority=26, description = "Share the folder")
 	public void devMainFolderShare() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -251,26 +281,28 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.shareFolderAlert();
 	}
 	
-	@Test(priority=24, description = "Share the folder tho the external user")
-	public void devMainFolderShare_ExternalUser() throws IOException, InterruptedException
+	
+/*	@Test(priority=27, description = "Create control form")
+	public void devMainFolder_Create() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Fol1");
-		Thread.sleep(2000);
-		pp.shareFolder_ExternalUser1();
-		pp.shareFolder_ExternalUserAlert();
-	}
+		pp.controlForm1("101","High","F1","NA","NA","NA","Neethumol PS","Neethug G","Neethur R");
+		pp.criticalFormAlert();
+	}*/
 	
-	@Test(priority=25, description = "Delete the folder")
+	@Test(priority=28, description = "Delete the folder")
 	public void devMainFolderDelete() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
+		JavascriptExecutor jse4 = (JavascriptExecutor)driver;
+		jse4.executeScript("window.scrollBy(0,-500)");
 		pp.clickOnKebabMenu2("Fol1");
 		pp.deleteFolder();
 		pp.deleteFolderAlert();
 	} 
 	
-	@Test(priority=26, description = "Archive the folder")
+	@Test(priority=29, description = "Archive the folder")
 	public void devMainFolderArchive() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -282,7 +314,7 @@ public class TC_009_Projects extends BaseClassTest {
 	}
 	
 	
-	@Test(priority=27, description = "Save and submit the form")
+	@Test(priority=30, description = "Save and submit the form")
 	public void devUploadDocument_SubmitAndSign() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -294,7 +326,7 @@ public class TC_009_Projects extends BaseClassTest {
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=28, description = "View the document")
+	@Test(priority=31, description = "View the document")
 	public void viewDocument() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -305,7 +337,7 @@ public class TC_009_Projects extends BaseClassTest {
 		driver.navigate().back();
 	}
 	
-	@Test(priority=29, description = "Add new version")
+	@Test(priority=32, description = "Add new version")
 	public void addNewVersion1() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -319,7 +351,7 @@ public class TC_009_Projects extends BaseClassTest {
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=30, description = "Download and print the form")
+	@Test(priority=33, description = "Download and print the form")
 	public void download_printDoc() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -335,7 +367,7 @@ public class TC_009_Projects extends BaseClassTest {
 	}
 	
 
-	@Test(priority=31, description = "Save the form")
+	@Test(priority=34, description = "Save the form")
 	public void devUploadDocument_Save() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
@@ -346,7 +378,7 @@ public class TC_009_Projects extends BaseClassTest {
 		Thread.sleep(2000);
 	}
 	
-	@Test(priority=32, description = "Delete the saved form")
+	@Test(priority=35, description = "Delete the saved form")
 	public void devUploadDocument_Save_Delete() throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);

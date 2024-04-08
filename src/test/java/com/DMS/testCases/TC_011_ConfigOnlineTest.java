@@ -20,8 +20,9 @@ public class TC_011_ConfigOnlineTest extends BaseClassTest {
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.clickOnConfigExam();
-		ce.configureExam("Assessment05", "10", "50", "22-01-2024", "Neethumol PS");
+		ce.configureExam("Assessment12", "10", "50", "07-04-2024", "Neethumol PS");
 		ce.examConfigurationAlert();
+		
 	}
 	
 	@Test(priority=2, description = "Assign users")
@@ -69,9 +70,14 @@ public class TC_011_ConfigOnlineTest extends BaseClassTest {
 	{
 		ConfigOnlineTest ce = new ConfigOnlineTest(driver);
 		ce.clickOnConfigExam();	
-		ce.configureExam("Assessment06", "10", "50", "22-01-2024", "Neethumol PS");
+		ce.configureExam("Assessment12", "10", "50", "07-04-2024", "Neethumol PS");
 		ce.examConfigurationAlert();
-		ce.uploadQus("C:\\Users\\lenovo\\Downloads\\Software Testing MCQ 1.xlsx");
+		ce.uploadQus("C:\\Users\\NeethumolPS\\Downloads\\Software Testing MCQ 2.xlsx");
+		ce.uploadQusAlert();
+		driver.navigate().back();
+		ce.configureExam("Assessment12", "10", "50", "07-04-2024", "Neethumol PS");
+		ce.examConfigurationAlert();
+		ce.uploadQus("C:\\Users\\NeethumolPS\\Downloads\\Software Testing MCQ 2.xlsx");
 		ce.uploadQusAlert();
 	}
 	

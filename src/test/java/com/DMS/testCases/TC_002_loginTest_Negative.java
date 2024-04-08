@@ -22,11 +22,11 @@ public class TC_002_loginTest_Negative extends BaseClass{
 		lp.setPassword("Ryan@12345");
 		logger.info("Enterd password");
 		lp.clickLogin();
-		/*Thread.sleep(10000);
+		Thread.sleep(10000);
 		SoftAssert softAssert = new SoftAssert();
 		softAssert.assertEquals(lp.ErrorMsg(), "Invalid username or password");
 		softAssert.assertAll();
-        logger.info("Negative test passed");*/
+        logger.info("Negative test passed");
 	}	
 	
 	}

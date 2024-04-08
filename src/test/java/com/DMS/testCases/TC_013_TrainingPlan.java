@@ -7,18 +7,23 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.DMS.pageObjects.LoginPage;
 import com.DMS.pageObjects.TrainingPlan;
 
-import Base.BaseClassTest;
+import Base.BaseClass;
 
-public class TC_013_TrainingPlan  extends BaseClassTest {
+public class TC_013_TrainingPlan  extends BaseClass {
 
 	@Test(priority=1, description = "Add my training plan")
 	public void addTrainingPlan_MyTrainingPlan() throws IOException, InterruptedException
 	{
+		LoginPage lp=new LoginPage(driver);
+		lp.setEmail("neethumolp@datamatica.uk");
+		lp.setPassword("Ryan@1234");
+		lp.clickLogin();
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnTrainingPlan();
-		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "07-01-2024", "07-01-2024", "07-01-2024", "07-01-2024", "Self", "Neethu Tester");
+		tp.clickOnAddTrainingPlan_MyTrainingPlan("Performance Testing", "07-04-2024", "07-04-2024", "07-04-2024", "07-04-2024", "Self", "Neethur R");
 		tp.addTrainingPlanAlert_MyTrainingPlan();	
 	}
 	
@@ -29,25 +34,35 @@ public class TC_013_TrainingPlan  extends BaseClassTest {
 		tp.export_MyTrainingPlan();
 	}
 	
-	@Test(priority=3, description = "Sign the completed training plan")
-	public void sign_TrainingPlanForApproval() throws IOException, InterruptedException
-	{
-		TrainingPlan tp = new TrainingPlan(driver);
-		tp.clickOnTrainingPlanForApproval();
-		tp.searchStatus2("Planned");
-		tp.sign1_TrainingPlanForApproval("Selenium2");
-		tp.sign2_TrainingPlanForApproval("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
-		tp.signALert_TrainingPlanForApproval();
-	}
-	
-	@Test(priority=4, description = "Assign training plan")
+	@Test(priority=3, description = "Assign training plan")
 	public void addTrainingPlan_addTrainingPlan() throws IOException, InterruptedException
 	{
 		TrainingPlan tp = new TrainingPlan(driver);
 		tp.clickOnAddTrainingPlan();
-		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "07-01-2024", "07-01-2024", "Self", "Neethumol PS");
+		tp.clickOnAddTrainingPlan_AddTrainingPlan("Performance Testing", "07-04-2024", "07-04-2024", "Self", "Neethumol PS");
 		tp.addTrainingPlanAlert_AddTrainingPlan();
+		LoginPage lp=new LoginPage(driver);
+		lp.profileIcon();
+		lp.logout();
 	}
+	
+	@Test(priority=4, description = "Sign the completed training plan")
+	public void sign_TrainingPlanForApproval() throws IOException, InterruptedException
+	{
+		LoginPage lp=new LoginPage(driver);
+		lp.setEmail("neethur@yopmail.com");
+		lp.setPassword("Neethu@r1");
+		lp.clickLogin();
+		TrainingPlan tp = new TrainingPlan(driver);
+		tp.clickOnTrainingPlan();
+		tp.clickOnTrainingPlanForApproval();
+		tp.searchStatus2("Planned");
+		tp.sign1_TrainingPlanForApproval("Performance Testing");
+		tp.sign2_TrainingPlanForApproval("neethur@yopmail.com", "Neethu@r1", "Approval");
+		tp.signALert_TrainingPlanForApproval();
+	}
+	
+
 	
 
 }

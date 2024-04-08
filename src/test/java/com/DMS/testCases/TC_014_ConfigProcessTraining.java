@@ -19,7 +19,7 @@ public class TC_014_ConfigProcessTraining extends BaseClassTest {
 		cp.clickOnConfigProcessTraining();
 		cp.searchByName("Neethumol PS");
 		cp.selUser("Neethumol PS");
-		cp.assignTraining("Problem Management", "Neethu Tester", "07-01-2024", "07-01-2024");
+		cp.assignTraining("Problem Management", "Neethur R", "06-04-2024", "06-04-2024");
 		cp.invitationAlert();	
 	}
 	
