@@ -3,30 +3,74 @@ package com.DMS.testCases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.DMS.pageObjects.UsersPage;
+import com.DMS.utilities.XLUtility;
 
 import Base.BaseClassTest;
 
 public class TC_005_Users extends BaseClassTest {
 
-	@Test(priority=1, description = "Create user")
-	public void usersPage() throws IOException, InterruptedException
+	@Test(dataProvider = "DD1",priority=1, description = "Create user")
+	public void usersPage(String FirstName, String LastName, String UserName, String Email) throws IOException, InterruptedException
 	{
 		UsersPage up = new UsersPage(driver);
 		up.clickUsers();
-		up.clickCreateUsers("Neethurg", "RG", "NeethuRG", "neethurg@yopmail.com");
+		up.clickCreateUsers(FirstName, LastName, UserName, Email);
 		up.creationAlert();
 	}
 	
-	@Test(priority=2, description = "Delete user")
-	public void delete() throws IOException, InterruptedException
+	@Test(dataProvider = "DD2",priority=2, description = "Delete user")
+	public void delete(String Name) throws IOException, InterruptedException
 	{		
 		UsersPage up = new UsersPage(driver);
-		up.nameSearch("Neethurg RG");
-		up.delete("Neethurg RG");
+		up.nameSearch(Name);
+		up.delete(Name);
 		up.deleteAlert();
+	}
+	
+	@DataProvider(name="DD1")
+	 String [][] getData1() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Users.xlsx";
+		int rownum=XLUtility.getRowCount(path, "UserCreation");
+	int colcount=XLUtility.getCellCount(path, "UserCreation", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "UserCreation", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD2")
+	 String [][] getData2() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Users.xlsx";
+		int rownum=XLUtility.getRowCount(path, "UserDeletion");
+	int colcount=XLUtility.getCellCount(path, "UserDeletion", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "UserDeletion", i, j);
+		}
+	}
+	
+	return data;	
+
 	}
 	
 	

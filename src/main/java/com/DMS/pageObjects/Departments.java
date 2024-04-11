@@ -412,10 +412,10 @@ public class Departments extends AbstractComponent{
 		Thread.sleep(2000);	
 		addNewVersionDoc.click();
 		Thread.sleep(3000);	
-		docTitle.clear();
-		Thread.sleep(3000);	
-		docTitle.sendKeys(title);
-		Thread.sleep(2000);	
+		//docTitle.clear();
+		//Thread.sleep(3000);	
+		//docTitle.sendKeys(title);
+		//Thread.sleep(2000);	
 		docversion.sendKeys(ver);
 		Thread.sleep(2000);	
 	}

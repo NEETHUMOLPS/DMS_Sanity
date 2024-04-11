@@ -3,31 +3,34 @@ package com.DMS.testCases;
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.DMS.pageObjects.Departments;
 import com.DMS.pageObjects.ProjectPage;
 import com.DMS.pageObjects.UsersPage;
+import com.DMS.utilities.XLUtility;
+
 import Base.BaseClassTest;
 
 public class TC_007_Departments extends BaseClassTest {
 
-	@Test(priority=1, description = "Create department")
-	public void mainDepartmentCreation() throws IOException, InterruptedException
+	@Test(dataProvider = "DD1",priority=1, description = "Create department")
+	public void mainDepartmentCreation(String Name) throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
 		dp.clickOnDepartment();
-		dp.createDepartment("AD56");
+		dp.createDepartment(Name);
 		dp.departmentCreationAlert();
 		driver.navigate().refresh();
 	}
 	
-	@Test(priority=2, description = "Create sub department")
-	public void subDepartmentCreation() throws IOException, InterruptedException
+	@Test(dataProvider = "DD2",priority=2, description = "Create sub department")
+	public void subDepartmentCreation(String Name) throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
 		dp.selDepartment("DMS01");
-		dp.createDepartment("DMS11a");
+		dp.createDepartment(Name);
 		dp.departmentCreationAlert();		
 	}
 	
@@ -88,13 +91,13 @@ public class TC_007_Departments extends BaseClassTest {
 		dp.deleteFolderAlert();
 	} 
 	
-	@Test(priority=9, description = "Archive the folder")
-	public void MainFolder_Archive() throws IOException, InterruptedException
+	@Test(dataProvider = "DD3", priority=9, description = "Archive the folder")
+	public void MainFolder_Archive(String Name) throws IOException, InterruptedException
 	{
 		Departments dp = new Departments(driver);
-		dp.FolderCreation("F12");
+		dp.FolderCreation(Name);
 		dp.FolderCreationAlert();
-		dp.clickOnKebabMenu2("F12");
+		dp.clickOnKebabMenu2(Name);
 		dp.archiveFolder();
 		dp.archiveFolderAlert();
 	}
@@ -104,9 +107,9 @@ public class TC_007_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		dp.selDepartment("DMS01");
-		dp.FolderCreation("Fold3");
+		dp.FolderCreation("Fold4");
 		dp.FolderCreationAlert();
-		dp.selFolder2("Fold3");
+		dp.selFolder2("Fold4");
 		dp.addDocumentIcon();
 		dp.fillDocument("D1", "Neethumol PS", "V1.1");
 		Thread.sleep(4000);
@@ -179,11 +182,11 @@ public class TC_007_Departments extends BaseClassTest {
 		dp.addSignersAlert();
 	}
 	
-	@Test(priority=17, description = "Sign document")
-	public void signDocument() throws Exception
+	@Test(dataProvider = "DD4", priority=17, description = "Sign document")
+	public void signDocument(String UserName,String Password,String Remarks) throws Exception
 	{
 		Departments dp = new Departments(driver);
-		dp.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		dp.signDocument(UserName,Password,Remarks);
 		dp.signAlert();
 		Thread.sleep(10000);
 	}
@@ -203,7 +206,7 @@ public class TC_007_Departments extends BaseClassTest {
 	{
 		Departments dp = new Departments(driver);
 		Thread.sleep(7000);
-		dp.addNewVersion("D2", "V1.2");
+		dp.addNewVersion("DR", "V1.2");
 		Thread.sleep(4000);
 		dp.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(1).docx");
 		dp.uploadDocAlert1();
@@ -211,5 +214,88 @@ public class TC_007_Departments extends BaseClassTest {
 		jse.executeScript("window.scrollBy(0,-300)");
 	}
 	
+	@DataProvider(name="DD1")
+	 String [][] getData1() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Departments.xlsx";
+		int rownum=XLUtility.getRowCount(path, "DepCreation");
+	int colcount=XLUtility.getCellCount(path, "DepCreation", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "DepCreation", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD2")
+	 String [][] getData2() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Departments.xlsx";
+		int rownum=XLUtility.getRowCount(path, "SubDepCreation");
+	int colcount=XLUtility.getCellCount(path, "SubDepCreation", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "SubDepCreation", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD3")
+	 String [][] getData3() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Departments.xlsx";
+		int rownum=XLUtility.getRowCount(path, "MainFolArchive");
+	int colcount=XLUtility.getCellCount(path, "MainFolArchive", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "MainFolArchive", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD4")
+	 String [][] getData4() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\SignDocument.xlsx";
+		int rownum=XLUtility.getRowCount(path, "Sheet1");
+	int colcount=XLUtility.getCellCount(path, "Sheet1", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "Sheet1", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
 
 }

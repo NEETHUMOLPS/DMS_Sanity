@@ -3,9 +3,12 @@ package com.DMS.testCases;
 
 import java.io.IOException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.DMS.pageObjects.Departments;
 import com.DMS.pageObjects.MyFiles;
+import com.DMS.utilities.XLUtility;
+
 import Base.BaseClassTest;
 
 public class TC_008_MyFiles extends BaseClassTest {
@@ -66,13 +69,13 @@ public class TC_008_MyFiles extends BaseClassTest {
 		mf.deleteFolderAlert();
 	} 
 	
-	@Test(priority=7, description = "Archive the folder")
-	public void MainFolderArchive() throws IOException, InterruptedException
+	@Test(dataProvider = "DD1", priority=7, description = "Archive the folder")
+	public void MainFolderArchive(String Name) throws IOException, InterruptedException
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.FolderCreation("DMSEIDSA26");
+		mf.FolderCreation(Name);
 		mf.FolderCreationAlert();
-		mf.clickOnKebabMenu2("DMSEIDSA26");
+		mf.clickOnKebabMenu2(Name);
 		mf.archiveFolder();
 		mf.archiveFolderAlert();
 	}
@@ -160,11 +163,11 @@ public class TC_008_MyFiles extends BaseClassTest {
 		mf.addSignersAlert();
 	}
 	
-	@Test(priority=15, description = "Sign the document")
-	public void signDocument() throws Exception
+	@Test(dataProvider = "DD2",priority=15, description = "Sign the document")
+	public void signDocument(String UserName,String Password,String Remarks) throws Exception
 	{
 		MyFiles mf = new MyFiles(driver);
-		mf.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		mf.signDocument(UserName,Password,Remarks);
 		mf.signAlert();
 		Thread.sleep(10000);
 	}
@@ -184,7 +187,7 @@ public class TC_008_MyFiles extends BaseClassTest {
 	{
 		MyFiles mf = new MyFiles(driver);
 		Thread.sleep(10000);
-		mf.addNewVersion("D2", "V1.2");
+		mf.addNewVersion("DA", "V1.2");
 		Thread.sleep(4000);
 		mf.uploadDoc("C:\\Users\\NeethumolPS\\Downloads\\UAT EIDSA - E-Consent(1).docx");
 		mf.uploadDocAlert1();
@@ -192,7 +195,48 @@ public class TC_008_MyFiles extends BaseClassTest {
 		jse.executeScript("window.scrollBy(0,-300)");
 	}
 	
+	@DataProvider(name="DD1")
+	 String [][] getData1() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\MyFiles.xlsx";
+		int rownum=XLUtility.getRowCount(path, "MainFolArchive");
+	int colcount=XLUtility.getCellCount(path, "MainFolArchive", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "MainFolArchive", i, j);
+		}
+	}
+	
+	return data;	
 
+	}
+	
+	@DataProvider(name="DD2")
+	 String [][] getData2() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\SignDocument.xlsx";
+		int rownum=XLUtility.getRowCount(path, "Sheet1");
+	int colcount=XLUtility.getCellCount(path, "Sheet1", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "Sheet1", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
 	
 
 }

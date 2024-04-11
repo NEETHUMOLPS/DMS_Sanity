@@ -204,12 +204,8 @@ public class MyFiles extends AbstractComponent{
 		
 		@FindBy(xpath="//select[@name='account']")
 		WebElement chooseRoleApproval;
-		@FindBy(xpath="//input[@id='631b1a3f-8e9d-42fe-a35c-a8761f58aca6']")
-		WebElement usersApproval1;
 		@FindBy(xpath="//input[@id='4bb7c35e-0e56-4813-82dd-a724b45768bd']")//Neethug G
-		WebElement usersApproval2;
-		/*@FindBy(xpath="//input[@id='9bb335ad-d9c4-4c8a-926a-7b39ec12ef1f']")
-		WebElement usersApproval3;*/
+		WebElement usersApproval1;
 		@FindBy(xpath="//button[contains(text(),'Save')]")
 		WebElement saveApproval;
 		
@@ -1084,9 +1080,8 @@ public class MyFiles extends AbstractComponent{
 			Thread.sleep(2000);		
 			Select os = new Select(chooseRoleApproval);
 			os.selectByVisibleText(role);
-			usersApproval1.click();
 			Thread.sleep(2000);
-			usersApproval2.click();
+			usersApproval1.click();
 			Thread.sleep(2000);
 			saveApproval.click();
 			Thread.sleep(2000);//Updated successfully

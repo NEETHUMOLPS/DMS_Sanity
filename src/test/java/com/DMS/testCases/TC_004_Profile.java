@@ -6,23 +6,25 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.DMS.pageObjects.LoginPage;
 import com.DMS.pageObjects.Profile;
+import com.DMS.utilities.XLUtility;
 
 public class TC_004_Profile extends BaseClass {
 
-	@Test(priority=1, description = "Change password for DMS account")
-	public void changePassword_DMS_Account() throws IOException, InterruptedException
+	@Test(dataProvider = "DD1",priority=1, description = "Change password for DMS account")
+	public void changePassword_DMS_Account(String username,String pwd1,String pwd2,String pwd3,String pwd4) throws IOException, InterruptedException
 	{
 		LoginPage lp=new LoginPage(driver);
-		lp.setEmail("richu@yopmail.com");
-		lp.setPassword("Neethu@3");
+		lp.setEmail(username);
+		lp.setPassword(pwd1);
 		lp.clickLogin();
 		Profile pp = new Profile(driver);
 		pp.clickProfile();
-		pp.changePassword("Neethu@3", "Neethu@4", "Neethu@4");
+		pp.changePassword(pwd2, pwd3, pwd4);
 		pp.changePasswordAlert();	
 	}
 	
@@ -36,23 +38,86 @@ public class TC_004_Profile extends BaseClass {
 		
 	}*/
 	
-	@Test(priority=2, description = "Update digi sign password")
-	public void updatePasswordForDigiSign() throws IOException, InterruptedException
+	@Test(dataProvider = "DD2",priority=2, description = "Update digi sign password")
+	public void updatePasswordForDigiSign(String pwd1,String pwd2,String pwd3) throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.updatePasswordForDigiSign("Neethu@4", "Neethu@5", "Neethu@5");
+		pp.updatePasswordForDigiSign(pwd1, pwd2, pwd3);
 		pp.digiSignChangePasswordAlert();
 	}
 	
-	@Test(priority=3, description = "Forgot digi sign password")
-	public void forgotDigiSignPassword() throws IOException, InterruptedException
+	@Test(dataProvider = "DD3",priority=3, description = "Forgot digi sign password")
+	public void forgotDigiSignPassword(String pwd) throws IOException, InterruptedException
 	{
 		Profile pp = new Profile(driver);
-		pp.forgotDigiSignPwd("Neethu@4");
+		pp.forgotDigiSignPwd(pwd);
 		pp.forgotDigiSignPwdAlert();
 	}
 	
+	@DataProvider(name="DD1")
+	 String [][] getData1() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Profile.xlsx";
+		int rownum=XLUtility.getRowCount(path, "ChangePassword");
+	int colcount=XLUtility.getCellCount(path, "ChangePassword", 1);
 	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "ChangePassword", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD2")
+	 String [][] getData2() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Profile.xlsx";
+		int rownum=XLUtility.getRowCount(path, "UpdateDigiSignPwd");
+	int colcount=XLUtility.getCellCount(path, "UpdateDigiSignPwd", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "UpdateDigiSignPwd", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD3")
+	 String [][] getData3() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Profile.xlsx";
+		int rownum=XLUtility.getRowCount(path, "ForgotDigiSignPwd");
+	int colcount=XLUtility.getCellCount(path, "ForgotDigiSignPwd", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "ForgotDigiSignPwd", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+
+
 
 }
 

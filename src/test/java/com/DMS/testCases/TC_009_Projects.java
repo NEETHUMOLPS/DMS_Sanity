@@ -7,11 +7,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.DMS.pageObjects.Departments;
 import com.DMS.pageObjects.MyFiles;
 import com.DMS.pageObjects.ProjectPage;
+import com.DMS.utilities.XLUtility;
 
 import Base.BaseClassTest;
 
@@ -36,11 +38,11 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.importRoleAlert();
 	}
 	
-	@Test(priority=3, description = "Add role to the project")
-	public void addProjectRole() throws IOException, InterruptedException
+	@Test(dataProvider = "DD1", priority=3, description = "Add role to the project")
+	public void addProjectRole(String Name) throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.ProjectRoleCreation("Automation Tester24");
+		pp.ProjectRoleCreation(Name);
 		pp.roleCreationAlert();
 	}
 	
@@ -209,11 +211,11 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.addSignersAlert();
 	}
 	
-	@Test(priority=20, description = "Sign the document")
-	public void signDocument() throws Exception
+	@Test(dataProvider = "DD2",priority=20, description = "Sign the document")
+	public void signDocument(String UserName,String Password,String Remarks) throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
-		pp.signDocument("neethumolp@datamatica.uk", "Neethu@12345", "Approval");
+		pp.signDocument(UserName,Password,Remarks);
 		pp.signAlert();
 		Thread.sleep(10000);
 	}
@@ -282,14 +284,14 @@ public class TC_009_Projects extends BaseClassTest {
 	}
 	
 	
-/*	@Test(priority=27, description = "Create control form")
+	@Test(priority=27, description = "Create control form")
 	public void devMainFolder_Create() throws IOException, InterruptedException
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.clickOnKebabMenu2("Fol1");
-		pp.controlForm1("101","High","F1","NA","NA","NA","Neethumol PS","Neethug G","Neethur R");
+		pp.controlForm2("101","High","F1","NA","NA","NA","Neethumol PS","Neethug G","Neethur R");
 		pp.criticalFormAlert();
-	}*/
+	}
 	
 	@Test(priority=28, description = "Delete the folder")
 	public void devMainFolderDelete() throws IOException, InterruptedException
@@ -337,8 +339,8 @@ public class TC_009_Projects extends BaseClassTest {
 		driver.navigate().back();
 	}
 	
-	@Test(priority=32, description = "Add new version")
-	public void addNewVersion1() throws Exception
+	@Test(dataProvider = "DD2", priority=32, description = "Add new version")
+	public void addNewVersion1(String UserName,String Password,String Remarks) throws Exception
 	{
 		ProjectPage pp = new ProjectPage(driver);
 		pp.selFolder2("Fol3");
@@ -346,7 +348,7 @@ public class TC_009_Projects extends BaseClassTest {
 		WebElement view = driver.findElement(By.xpath("(//img[@alt='View document'])[1]"));
 		view.click();
 		Thread.sleep(2000);
-		pp.addNewVersion_submitDocument1("neethumolp@datamatica.uk","Neethu@12345","Approval");
+		pp.addNewVersion_submitDocument1(UserName,Password,Remarks);
 		pp.documentGenerationAlert_sumbmitAndSign();
 		Thread.sleep(2000);
 	}
@@ -389,6 +391,48 @@ public class TC_009_Projects extends BaseClassTest {
 		pp.deleteSavedDocument();
 		pp.savedDocumentDeleteAlert();
 		
+	}
+	
+	@DataProvider(name="DD1")
+	 String [][] getData1() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\Project.xlsx";
+		int rownum=XLUtility.getRowCount(path, "ProjectRole");
+	int colcount=XLUtility.getCellCount(path, "ProjectRole", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "ProjectRole", i, j);
+		}
+	}
+	
+	return data;	
+
+	}
+	
+	@DataProvider(name="DD2")
+	 String [][] getData2() throws IOException
+	{
+		//String path=System.getProperty("user.dir")+"/src/main/java/com/EIDSA/testData/EIDSA_Login_Negative.xlsx.xlsx";
+		String path = "C:\\Users\\NeethumolPS\\Desktop\\DMS\\SignDocument.xlsx";
+		int rownum=XLUtility.getRowCount(path, "Sheet1");
+	int colcount=XLUtility.getCellCount(path, "Sheet1", 1);
+	
+	String data[][]=new String[rownum][colcount];
+	for(int i=1;i<=rownum;i++)
+	{
+		for(int j=0;j<colcount;j++)
+		{
+			data[i-1][j]=XLUtility.getCellData(path, "Sheet1", i, j);
+		}
+	}
+	
+	return data;	
+
 	}
 	
 

@@ -669,6 +669,52 @@ public class ProjectPage extends AbstractComponent{
 			
 		}
 		
+		public void controlForm2(String num,String lv,String nm,String sf,String rc,String dc,String sel1,String sel2,String sel3) throws InterruptedException
+		{		
+			Thread.sleep(3000);
+			JavascriptExecutor jse3 = (JavascriptExecutor)driver;
+			jse3.executeScript("window.scrollBy(0,200)");
+			elementWait(control);
+			Thread.sleep(2000);
+			control.click();
+			Thread.sleep(2000);
+			//JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+			//jse1.executeScript("window.scrollBy(0,200)");
+			//elementWait(controlForm);
+			//Thread.sleep(2000);
+			controlForm.click();
+			Thread.sleep(2000);
+			changeNumber.sendKeys(num);
+			Thread.sleep(2000);
+			riskLevel.sendKeys(lv);
+			Thread.sleep(2000);
+			fileName.sendKeys(nm);
+			Thread.sleep(2000);
+			systemsAffected.sendKeys(sf);
+			Thread.sleep(2000);
+			reasonsForChange.sendKeys(rc);
+			Thread.sleep(2000);
+			descriptionOfChange.sendKeys(dc);
+			Thread.sleep(2000);
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,500)");
+			elementWait(requestedBy);
+			Thread.sleep(2000);;
+			Select os = new Select(requestedBy);
+			os.selectByVisibleText(sel1);
+			Thread.sleep(2000);
+			Select os1 = new Select(reviewedBy);
+			os1.selectByVisibleText(sel2);
+			Thread.sleep(2000);
+			Select os2 = new Select(completedBy);
+			os2.selectByVisibleText(sel3);
+			Thread.sleep(2000);
+			saveControlForm.click();
+			Thread.sleep(2000);
+			
+		}
+		
+		
 		
 		public void cloneFolder(String clone, String nm, String loc) throws InterruptedException
 		{		
