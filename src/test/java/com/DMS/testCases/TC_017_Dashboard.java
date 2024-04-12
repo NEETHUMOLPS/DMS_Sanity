@@ -9,7 +9,7 @@ import com.DMS.pageObjects.Dashboard;
 
 import Base.BaseClassTest;
 
-public class TC_016_Dashboard extends BaseClassTest {
+public class TC_017_Dashboard extends BaseClassTest {
 
 	@Test(priority=1, description = "Approve training plan")
 	public void approveTrainingPlan() throws IOException, InterruptedException

@@ -24,11 +24,11 @@
 <class name="com.DMS.testCases.TC_013_TrainingPlan"/>
 <class name="com.DMS.testCases.TC_014_ConfigProcessTraining"/>
 <class name="com.DMS.testCases.TC_015_TrainingAcknowledgement"/>
-<class name="com.DMS.testCases.TC_016_Dashboard"/>
-<class name="com.DMS.testCases.TC_017_MergeFiles"/>-->
+<class name="com.DMS.testCases.TC_016_MergeFiles"/>
+<class name="com.DMS.testCases.TC_017_Dashboard"/>-->
 
 
-<class name="com.DMS.testCases.TC_015_TrainingAcknowledgement"/>
+<class name="com.DMS.testCases.TC_016_MergeFiles"/>
 
 
 <!--  <methods>
