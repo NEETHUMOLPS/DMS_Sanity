@@ -7,17 +7,14 @@
   <test thread-count="5" name="DMS App Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.DMS.testCases.TC_011_ConfigOnlineTest">
+      <class name="com.DMS.testCases.TC_015_TrainingAcknowledgement">
         <methods>
-          <include name="configureExam"/>
-          <include name="uploadQuestion"/>
-          <include name="viewTest"/>
-          <include name="setup"/>
-          <include name="userAddition"/>
+          <include name="sign_Verification" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="createQuestion"/>
+          <include name="sign_MyTraining" invocation-numbers="0"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.DMS.testCases.TC_011_ConfigOnlineTest -->
+      </class> <!-- com.DMS.testCases.TC_015_TrainingAcknowledgement -->
     </classes>
   </test> <!-- DMS App Test(failed) -->
 </suite> <!-- Failed suite [DMS Application] -->

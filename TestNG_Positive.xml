@@ -28,7 +28,7 @@
 <class name="com.DMS.testCases.TC_017_MergeFiles"/>-->
 
 
-<class name="com.DMS.testCases.TC_012_TestResult"/>
+<class name="com.DMS.testCases.TC_015_TrainingAcknowledgement"/>
 
 
 <!--  <methods>
